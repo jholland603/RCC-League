@@ -130,6 +130,9 @@ Two rows per match. Compute all handicaps/strokes privately. Show only the final
 - **Us/Them:** displayed scores (9.0 sum). `—` if unplayed.
 - **Result:** W/L/T with margin, or `—` if unplayed.
 
+### Rendering
+Always display the schedule as a **markdown table**, not an HTML widget. Markdown renders natively in chat with no iframe overhead and loads instantly.
+
 ---
 
 ## VERIFIED SCHEDULE — TEAM 26
