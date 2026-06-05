@@ -1,0 +1,212 @@
+/* ── STANDINGS PAGE ─────────────────────────────────────────────────────────── */
+
+.standings-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* ── FLIGHT PANEL ───────────────────────────────────────────────────────────── */
+.flight-panel {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.flight-header {
+  background: var(--green-mid);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flight-header h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  color: var(--cream);
+}
+
+.flight-header .flight-meta {
+  font-size: 0.72rem;
+  color: var(--green-pale);
+  letter-spacing: 0.06em;
+}
+
+/* ── STANDINGS TABLE ────────────────────────────────────────────────────────── */
+table.standings {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+table.standings thead th {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid var(--cream-dark);
+  text-align: left;
+  white-space: nowrap;
+  background: var(--cream);
+}
+
+table.standings thead th.num {
+  text-align: right;
+}
+
+table.standings tbody tr {
+  border-bottom: 1px solid var(--cream-dark);
+  transition: background 0.1s;
+}
+
+table.standings tbody tr:last-child {
+  border-bottom: none;
+}
+
+table.standings tbody tr:hover {
+  background: var(--cream);
+}
+
+table.standings tbody td {
+  padding: 0.55rem 0.75rem;
+  vertical-align: middle;
+  color: var(--text);
+}
+
+table.standings tbody td.num {
+  text-align: right;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-mid);
+}
+
+/* ── RANK CELL ──────────────────────────────────────────────────────────────── */
+.rank-cell {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: right;
+  width: 32px;
+}
+
+.rank-cell.top3 {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── TEAM NAME CELL ─────────────────────────────────────────────────────────── */
+.team-name-cell .players {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+.team-name-cell .team-num {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── POINTS CELL ────────────────────────────────────────────────────────────── */
+.points-cell {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: right;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ── RECORD CELL ────────────────────────────────────────────────────────────── */
+.record-cell {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.rec-w { color: var(--win); }
+.rec-l { color: var(--loss); }
+.rec-t { color: var(--tie); }
+
+/* ── PURSE CELL ─────────────────────────────────────────────────────────────── */
+.purse-cell {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  text-align: right;
+  color: var(--gold);
+}
+
+.purse-cell.empty {
+  color: var(--text-muted);
+  opacity: 0.3;
+}
+
+/* ── POINTS BAR ─────────────────────────────────────────────────────────────── */
+.points-bar-cell {
+  width: 80px;
+  padding-right: 1rem !important;
+}
+
+.points-bar-wrap {
+  background: var(--cream-dark);
+  border-radius: 3px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.points-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--green-light);
+  transition: width 0.4s ease;
+}
+
+.points-bar-fill.top3 {
+  background: var(--gold);
+}
+
+/* ── HIGHLIGHT ROW (my team) ────────────────────────────────────────────────── */
+table.standings tbody tr.my-team td {
+  background: rgba(200,150,58,0.07);
+}
+
+table.standings tbody tr.my-team .players {
+  color: var(--gold);
+}
+
+/* ── TIED MARKER ────────────────────────────────────────────────────────────── */
+.tied-marker {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+/* ── LAST UPDATED ───────────────────────────────────────────────────────────── */
+.last-updated {
+  font-size: 0.72rem;
+  color: var(--green-pale);
+  opacity: 0.6;
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .standings-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .flight-header { padding: 0.75rem 1rem; }
+  table.standings thead th,
+  table.standings tbody td { padding: 0.4rem 0.5rem; }
+  .points-bar-cell { display: none; }
+}
