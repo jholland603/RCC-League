@@ -2,7 +2,6 @@
 
 // ── NAVIGATION ───────────────────────────────────────────────────────────────
 function goToSchedule(flight, teamNum) {
-  localStorage.setItem('rcc_flight', flight);
   localStorage.setItem('rcc_team', String(teamNum));
   window.location.href = 'schedule.html';
 }

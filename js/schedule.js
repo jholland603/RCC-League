@@ -188,30 +188,26 @@ function renderTeam(data, teamNum) {
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 
-function populateFlightTeams(flight) {
+function populateTeams() {
   const sel = document.getElementById('teamSelect');
-  sel.innerHTML = '<option value="">— Select team —</option>';
-  if (!leagueData || !flight) { sel.disabled = true; return; }
-  leagueData.teams
-    .filter(t => t.flight === flight)
-    .sort((a, b) => a.team_number - b.team_number)
-    .forEach(t => {
-      const opt = document.createElement('option');
-      opt.value = t.team_number;
-      opt.textContent = `Team ${t.team_number} — ${t.players_display}`;
-      sel.appendChild(opt);
-    });
-  sel.disabled = false;
-}
+  sel.innerHTML = '<option value="">— Select a team —</option>';
+  if (!leagueData) return;
 
-document.getElementById('flightSelect').addEventListener('change', function () {
-  populateFlightTeams(this.value);
-  document.getElementById('teamCard').className = 'team-card';
-  document.getElementById('emptyState').style.display = '';
-  document.getElementById('teamSelect').value = '';
-  localStorage.setItem('rcc_flight', this.value);
-  localStorage.removeItem('rcc_team');
-});
+  ['Sunshine', 'Lollipops'].forEach(flight => {
+    const group = document.createElement('optgroup');
+    group.label = flight === 'Sunshine' ? '☀ Sunshine (Teams 1–32)' : '🍭 Lollipops (Teams 33–64)';
+    leagueData.teams
+      .filter(t => t.flight === flight)
+      .sort((a, b) => a.team_number - b.team_number)
+      .forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t.team_number;
+        opt.textContent = `${t.team_number} — ${t.players_display}`;
+        group.appendChild(opt);
+      });
+    sel.appendChild(group);
+  });
+}
 
 document.getElementById('teamSelect').addEventListener('change', function () {
   const num = parseInt(this.value);
@@ -223,13 +219,8 @@ document.getElementById('teamSelect').addEventListener('change', function () {
 loadLeagueData()
   .then(data => {
     leagueData = data;
-    // restore last selection
-    const savedFlight = localStorage.getItem('rcc_flight');
-    const savedTeam   = localStorage.getItem('rcc_team');
-    if (savedFlight) {
-      document.getElementById('flightSelect').value = savedFlight;
-      populateFlightTeams(savedFlight);
-    }
+    populateTeams();
+    const savedTeam = localStorage.getItem('rcc_team');
     if (savedTeam) {
       document.getElementById('teamSelect').value = savedTeam;
       renderTeam(leagueData, parseInt(savedTeam));
@@ -246,9 +237,10 @@ loadLeagueData()
       const reader = new FileReader();
       reader.onload = ev => {
         leagueData = JSON.parse(ev.target.result);
+        populateTeams();
         document.getElementById('emptyState').innerHTML = `
           <div class="big-icon">✅</div>
-          <p>Data loaded — select a flight and team above.</p>`;
+          <p>Data loaded — select a team above.</p>`;
       };
       reader.readAsText(file);
     });
