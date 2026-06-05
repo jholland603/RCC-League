@@ -49,7 +49,7 @@ function renderFlight(flight, teams, records) {
     const rec     = records[team.team_number] || { w:0, l:0, t:0 };
     const recStr  = rec.t > 0 ? `${rec.w}-${rec.l}-${rec.t}` : `${rec.w}-${rec.l}`;
 
-    return `<tr onclick="goToTeamSchedule(${team.team_number})">
+    return `<tr>
       <td class="lb-rank ${rankCls}">${rankStr}</td>
       <td>
         <div class="lb-team">${team.players_display}</div>
@@ -60,18 +60,15 @@ function renderFlight(flight, teams, records) {
     </tr>`;
   }).join('');
 
-  return `<div class="lb-panel">
-    <div class="lb-header">
-      <h2>${icon} ${flight}</h2>
-      <a href="standings.html">Full standings ↗</a>
+  return `<a href="standings.html" class="lb-panel-link">
+    <div class="lb-panel">
+      <div class="lb-header">
+        <h2>${icon} ${flight}</h2>
+        <span class="lb-header-hint">Full standings ↗</span>
+      </div>
+      <table class="lb-table"><tbody>${rows}</tbody></table>
     </div>
-    <table class="lb-table"><tbody>${rows}</tbody></table>
-  </div>`;
-}
-
-function goToTeamSchedule(teamNum) {
-  localStorage.setItem('rcc_team', String(teamNum));
-  window.location.href = 'schedule.html';
+  </a>`;
 }
 
 loadLeagueData().then(data => {

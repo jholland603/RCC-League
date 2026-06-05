@@ -60,15 +60,27 @@
       color: var(--cream);
     }
 
-    .lb-header a {
-      font-size: 0.72rem;
-      color: var(--green-pale);
+    .lb-panel-link {
       text-decoration: none;
-      opacity: 0.8;
-      transition: opacity 0.15s;
+      display: block;
+      border-radius: var(--radius-lg);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
 
-    .lb-header a:hover { opacity: 1; }
+    .lb-panel-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(26,46,28,0.18);
+    }
+
+    .lb-panel-link:hover .lb-header {
+      background: var(--green);
+    }
+
+    .lb-header-hint {
+      font-size: 0.72rem;
+      color: var(--green-pale);
+      opacity: 0.8;
+    }
 
     table.lb-table {
       width: 100%;
