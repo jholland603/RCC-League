@@ -214,6 +214,11 @@ table.standings tbody td.num {
 @media (max-width: 600px) {
   .flight-header { padding: 0.75rem 1rem; }
   table.standings thead th,
-  table.standings tbody td { padding: 0.4rem 0.5rem; }
-  .points-bar-cell { display: none; }
+  table.standings tbody td { padding: 0.4rem 0.5rem; font-size: 0.75rem; }
+
+  /* hide purse on small screens */
+  table.standings thead th:last-child,
+  table.standings tbody td:last-child { display: none; }
+
+  .team-name-cell .players { font-size: 0.75rem; }
 }

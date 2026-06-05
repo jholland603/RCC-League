@@ -228,12 +228,19 @@ table.schedule tbody tr.match-second td {
 /* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
 @media (max-width: 700px) {
   .selector-panel  { padding: 1rem; gap: 1rem; }
-  .schedule-wrap   { padding: 1rem; }
-  .team-header     { padding: 1rem; }
-  .players-strip   { padding: 0.75rem 1rem; }
+  .schedule-wrap   { padding: 1rem; overflow-x: auto; }
+  .team-header     { padding: 1rem; flex-direction: column; align-items: flex-start; }
+  .players-strip   { padding: 0.75rem 1rem; gap: 1rem; }
   .record-row      { padding: 0.75rem 1rem; }
   .team-stats-row  { gap: 1rem; }
-  table.schedule   { font-size: 0.75rem; }
+  select           { min-width: 0; width: 100%; }
+  .field-group     { width: 100%; }
+
+  table.schedule   { font-size: 0.72rem; }
   table.schedule thead th,
-  table.schedule tbody td { padding: 0.4rem 0.4rem; }
+  table.schedule tbody td { padding: 0.35rem 0.35rem; }
+
+  /* hide less critical columns on small screens */
+  table.schedule .nine-cell,
+  table.schedule thead th:nth-child(3) { display: none; }
 }
