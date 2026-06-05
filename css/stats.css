@@ -148,20 +148,7 @@ table.stats-table tbody td.num {
 
 .s-val.gold-val { color: var(--gold); }
 
-/* ── BAR ────────────────────────────────────────────────────────────────────── */
-.s-bar-wrap {
-  width: 80px;
-  background: var(--cream-dark);
-  border-radius: 3px;
-  height: 6px;
-  overflow: hidden;
-}
-
-.s-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: var(--green-light);
-}
+/* ── BAR (removed) ──────────────────────────────────────────────────────────── */
 
 /* ── FLIGHT FILTER BADGES ───────────────────────────────────────────────────── */
 .flight-filter {
