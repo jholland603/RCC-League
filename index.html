@@ -64,15 +64,29 @@
       background: transparent;
       cursor: default;
     }
+
+    .lb-panel-link {
       text-decoration: none;
       display: block;
       border-radius: var(--radius-lg);
-      transition: transform 0.15s, box-shadow 0.15s;
+      border: 1px solid rgba(90,148,96,0.25);
+      overflow: hidden;
+      position: relative;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .lb-panel-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(200,150,58,0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .lb-panel-link:hover {
+      border-color: rgba(200,150,58,0.45);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(26,46,28,0.18);
     }
 
     .lb-panel-link:hover .lb-header {
