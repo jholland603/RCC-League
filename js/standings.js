@@ -99,7 +99,7 @@ function calcMovers(data, flightTeams) {
 }
 
 // ── RENDER FLIGHT TABLE ──────────────────────────────────────────────────────
-function renderFlight(flight, flightTeams, records, maxPoints) {
+function renderFlight(flight, flightTeams, records) {
   // rank by total_points (the authoritative figure from standings report)
   const teamPoints = flightTeams.map(t => ({ num: t.team_number, pts: t.total_points }));
   const rankMap    = buildRankMap(teamPoints);
@@ -118,7 +118,6 @@ function renderFlight(flight, flightTeams, records, maxPoints) {
     const rec      = records[team.team_number] || { w:0, l:0, t:0 };
     const rankStr  = team._rank;
     const isTop3   = parseInt(rankStr.replace('T','')) <= 3;
-    const barPct   = maxPoints > 0 ? (team.total_points / maxPoints * 100).toFixed(1) : 0;
     const purseStr = team.purse > 0 ? `$${team.purse.toFixed(0)}` : '—';
     const myTeam   = team.team_number === 26;
 
@@ -142,17 +141,12 @@ function renderFlight(flight, flightTeams, records, maxPoints) {
         <div class="team-num">T${team.team_number}</div>
       </td>
       <td class="record-cell">
-        <span class="rec-w">${rec.w}W</span>
-        <span style="color:var(--text-muted);margin:0 1px;">·</span>
-        <span class="rec-l">${rec.l}L</span>
-        ${rec.t > 0 ? `<span style="color:var(--text-muted);margin:0 1px;">·</span><span class="rec-t">${rec.t}T</span>` : ''}
+        <span class="rec-w">${rec.w}</span>
+        <span style="color:var(--text-muted);margin:0 3px;">-</span>
+        <span class="rec-l">${rec.l}</span>
+        ${rec.t > 0 ? `<span style="color:var(--text-muted);margin:0 3px;">-</span><span class="rec-t">${rec.t}</span>` : ''}
       </td>
       <td class="points-cell">${team.total_points}</td>
-      <td class="points-bar-cell">
-        <div class="points-bar-wrap">
-          <div class="points-bar-fill ${isTop3 ? 'top3' : ''}" style="width:${barPct}%"></div>
-        </div>
-      </td>
       <td class="mover-cell">${moverCell}</td>
       <td class="purse-cell ${team.purse > 0 ? '' : 'empty'}">${purseStr}</td>
     </tr>`;
@@ -171,7 +165,6 @@ function renderFlight(flight, flightTeams, records, maxPoints) {
           <th>Team</th>
           <th>Record</th>
           <th class="num">Pts</th>
-          <th class="points-bar-cell"></th>
           <th class="num" title="Position change vs last round (based on round scores)">+/-</th>
           <th class="num">Purse</th>
         </tr>
@@ -188,14 +181,13 @@ loadLeagueData()
   .then(d => {
     data = d;
     const records   = calcRecords(data);
-    const maxPoints = Math.max(...data.teams.map(t => t.total_points));
 
     const sunshine  = data.teams.filter(t => t.flight === 'Sunshine');
     const lollipops = data.teams.filter(t => t.flight === 'Lollipops');
 
     document.getElementById('standingsWrap').innerHTML =
-      renderFlight('Sunshine',  sunshine,  records, maxPoints) +
-      renderFlight('Lollipops', lollipops, records, maxPoints);
+      renderFlight('Sunshine',  sunshine,  records) +
+      renderFlight('Lollipops', lollipops, records);
 
     // last updated
     const roundNums = Object.values(data.round_scores)
