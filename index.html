@@ -167,7 +167,7 @@
       </a>
     </div>
 
-    <div class="section-label">Top 10 — Current Standings</div>
+    <div class="section-label">Top 5 — Current Standings</div>
     <div class="lb-grid" id="lbGrid">
       <div class="lb-panel"><div class="lb-updated">Loading…</div></div>
       <div class="lb-panel"><div class="lb-updated">Loading…</div></div>
@@ -222,7 +222,7 @@
       const rankMap  = buildRankMap(teams.map(t => ({ num: t.team_number, pts: t.total_points })));
 
       // top 10 + any ties at the cutoff
-      const cutoff   = sorted[Math.min(9, sorted.length - 1)]?.total_points;
+      const cutoff   = sorted[Math.min(4, sorted.length - 1)]?.total_points;
       const top      = sorted.filter(t => t.total_points >= cutoff);
 
       const rows = top.map(team => {
