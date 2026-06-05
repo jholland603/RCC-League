@@ -189,8 +189,9 @@ function renderTeam(data, teamNum) {
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 
 function populateTeams() {
-  const sel = document.getElementById('teamSelect');
-  sel.innerHTML = '<option value="">— Select a team —</option>';
+  const sel      = document.getElementById('teamSelect');
+  const isMobile = window.innerWidth < 600;
+  sel.innerHTML  = '<option value="">— Select a team —</option>';
   if (!leagueData) return;
 
   ['Sunshine', 'Lollipops'].forEach(flight => {
@@ -202,7 +203,18 @@ function populateTeams() {
       .forEach(t => {
         const opt = document.createElement('option');
         opt.value = t.team_number;
-        opt.textContent = `${t.team_number} — ${t.players_display}`;
+        if (isMobile) {
+          // "Holland, Jeffry + Spalding, David" → "J. Holland + D. Spalding"
+          const names = t.players_display.split('+').map(n => {
+            const parts = n.trim().split(',').map(s => s.trim());
+            const last  = parts[0] || '';
+            const first = parts[1] || '';
+            return `${first[0] ? first[0] + '. ' : ''}${last}`;
+          });
+          opt.textContent = `${t.team_number} — ${names.join(' + ')}`;
+        } else {
+          opt.textContent = `${t.team_number} — ${t.players_display}`;
+        }
         group.appendChild(opt);
       });
     sel.appendChild(group);
