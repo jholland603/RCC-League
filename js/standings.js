@@ -141,10 +141,7 @@ function renderFlight(flight, flightTeams, records) {
         <div class="team-num">T${team.team_number}</div>
       </td>
       <td class="record-cell">
-        <span class="rec-w">${rec.w}</span>
-        <span style="color:var(--text-muted);margin:0 3px;">-</span>
-        <span class="rec-l">${rec.l}</span>
-        ${rec.t > 0 ? `<span style="color:var(--text-muted);margin:0 3px;">-</span><span class="rec-t">${rec.t}</span>` : ''}
+        <span class="rec-w">${rec.w}</span><span class="rec-sep">-</span><span class="rec-l">${rec.l}</span>${rec.t > 0 ? `<span class="rec-sep">-</span><span class="rec-t">${rec.t}</span>` : ''}
       </td>
       <td class="points-cell">${team.total_points}</td>
       <td class="mover-cell">${moverCell}</td>

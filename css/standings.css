@@ -117,8 +117,8 @@ table.standings tbody td.num {
 /* ── POINTS CELL ────────────────────────────────────────────────────────────── */
 .points-cell {
   font-family: 'DM Mono', monospace;
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 400;
   text-align: right;
   color: var(--text);
   white-space: nowrap;
@@ -127,10 +127,11 @@ table.standings tbody td.num {
 /* ── RECORD CELL ────────────────────────────────────────────────────────────── */
 .record-cell {
   font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   white-space: nowrap;
 }
 
+.rec-sep { color: var(--text-muted); margin: 0 1px; }
 .rec-w { color: var(--win); }
 .rec-l { color: var(--loss); }
 .rec-t { color: var(--tie); }

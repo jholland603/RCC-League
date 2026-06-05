@@ -8,8 +8,6 @@ const PAR_PER_HOLE = 4;
 const COLUMNS = [
   { id:'avg',     label:'Avg',   title:'Scoring average per 9 holes (min 18 holes)', field:'avg',     asc:true,  minHoles:18,
     fmt: v => v.toFixed(2) },
-  { id:'holes',   label:'Holes', title:'Total holes played',                          field:'holes',   asc:false,
-    fmt: v => String(v) },
   { id:'eagles',  label:'Eag',   title:'Eagles',                                      field:'eagles',  asc:false,
     fmt: v => String(v) },
   { id:'birdies', label:'Bird',  title:'Birdies',                                     field:'birdies', asc:false,
@@ -105,7 +103,7 @@ function render() {
       <td class="s-rank ${rankCls}">${rank}</td>
       <td>
         <div class="s-name">${p.name}</div>
-        <div class="s-team">${fi} T${p.team} &nbsp;·&nbsp; HI: ${p.hi ?? '?'} &nbsp;·&nbsp; ${p.holes} holes</div>
+        <div class="s-team">${fi} T${p.team} &nbsp;·&nbsp; ${p.holes} holes</div>
       </td>
       ${tds}
     </tr>`;

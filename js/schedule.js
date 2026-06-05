@@ -55,7 +55,7 @@ function renderTeam(data, teamNum) {
 
     const date     = getRoundDate(roundKey);
     const nine     = nine_rotations[roundKey]?.[team.flight] || '?';
-    const rndLabel_str = `${rndNum}-${nine[0]}`;
+    const rndLabel_str = `${rndNum}`; // just the round number, nine shown in its own column
 
     // stroke allocation
     const fourPlayers = [
@@ -100,29 +100,26 @@ function renderTeam(data, teamNum) {
       <td class="date-cell" rowspan="2">${date}</td>
       <td class="nine-cell" rowspan="2">${nine}</td>
       <td>
-        <span class="opp-name">${shortName(oppTeam.players[0]?.name)}</span>
-        <span class="opp-hi">(${oppTeam.players[0]?.handicap_index ?? '?'})</span>${chip(nineStrokes[2])}
-      </td>
-      <td>
         <span class="opp-name">${shortName(team.players[0]?.name)}</span>
         <span class="opp-hi">(${team.players[0]?.handicap_index ?? '?'})</span>${chip(nineStrokes[0])}
       </td>
-      <td class="opp-rank" rowspan="2">
-        <span style="font-size:0.75rem;color:var(--text-muted);">T${oppNum}</span><br>
-        <span style="font-size:0.72rem;color:var(--text-muted);">${oppRankStr}</span>
+      <td>
+        <span class="opp-name">${shortName(oppTeam.players[0]?.name)}</span>
+        <span class="opp-hi">(${oppTeam.players[0]?.handicap_index ?? '?'})</span>${chip(nineStrokes[2])}
       </td>
+      <td class="opp-rank" rowspan="2">${oppRankStr}</td>
       <td class="score-cell${usDisp   === '—' ? ' score-dash' : ''}" rowspan="2">${usDisp}</td>
       <td class="score-cell${themDisp === '—' ? ' score-dash' : ''}" rowspan="2">${themDisp}</td>
       <td class="result-cell" rowspan="2">${resultCell}</td>
     </tr>
     <tr class="match-second">
       <td>
-        <span class="opp-name">${shortName(oppTeam.players[1]?.name)}</span>
-        <span class="opp-hi">(${oppTeam.players[1]?.handicap_index ?? '?'})</span>${chip(nineStrokes[3])}
-      </td>
-      <td>
         <span class="opp-name">${shortName(team.players[1]?.name)}</span>
         <span class="opp-hi">(${team.players[1]?.handicap_index ?? '?'})</span>${chip(nineStrokes[1])}
+      </td>
+      <td>
+        <span class="opp-name">${shortName(oppTeam.players[1]?.name)}</span>
+        <span class="opp-hi">(${oppTeam.players[1]?.handicap_index ?? '?'})</span>${chip(nineStrokes[3])}
       </td>
     </tr>`;
   });
@@ -167,11 +164,11 @@ function renderTeam(data, teamNum) {
             <th>Rnd</th>
             <th>Date</th>
             <th>Nine</th>
+            <th>Team</th>
             <th>Opponent</th>
-            <th>Us</th>
             <th>Opp Rank</th>
-            <th>Us</th>
-            <th>Them</th>
+            <th>Team</th>
+            <th>Opp</th>
             <th>Result</th>
           </tr>
         </thead>
