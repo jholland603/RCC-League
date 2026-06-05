@@ -95,7 +95,8 @@ table.stats-table thead th {
 }
 
 table.stats-table thead th:hover { color: var(--text); }
-table.stats-table thead th.sort-active { color: var(--green-mid); }
+table.stats-table thead th.sort-active { color: var(--green-mid); background: var(--cream-dark); }
+table.stats-table tbody td.sort-active-cell { background: rgba(90,148,96,0.06); font-weight: 600; color: var(--text); }
 table.stats-table thead th.num { text-align: right; }
 
 table.stats-table tbody tr {
