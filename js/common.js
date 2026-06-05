@@ -1,5 +1,14 @@
 /* common.js — shared across all RCC League pages */
 
+// ── FAVICON ───────────────────────────────────────────────────────────────────
+(function () {
+  const link = document.createElement('link');
+  link.rel   = 'icon';
+  link.type  = 'image/png';
+  link.href  = 'rcc_logo.png';
+  document.head.appendChild(link);
+})();
+
 // ── HEADER / FOOTER INJECTION ────────────────────────────────────────────────
 
 (function () {
