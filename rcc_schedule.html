@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RCC Men's Twilight League 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a2e1c;
+    --green-mid:  #2d5230;
+    --green:      #3a6b3e;
+    --green-light:#5a9460;
+    --green-pale: #c8dfc9;
+    --cream:      #f5f0e8;
+    --cream-dark: #ede7d8;
+    --gold:       #c8963a;
+    --gold-light: #e8c06a;
+    --white:      #fdfcf9;
+    --text:       #1a1a18;
+    --text-mid:   #4a4a44;
+    --text-muted: #888880;
+    --win:        #2d6e35;
+    --win-bg:     #e8f4e9;
+    --loss:       #8b2c2c;
+    --loss-bg:    #faeaea;
+    --tie:        #5a5a20;
+    --tie-bg:     #f5f5dc;
+    --radius:     6px;
+    --shadow:     0 2px 12px rgba(26,46,28,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--green-dark);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--green-dark);
+    border-bottom: 1px solid rgba(90,148,96,0.25);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .logo-mark {
+    width: 48px; height: 48px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .header-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+  .header-text p {
+    font-size: 0.75rem;
+    color: var(--green-pale);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* ── SELECTOR PANEL ── */
+  .selector-panel {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .field-group label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  select {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    border: 1.5px solid var(--cream-dark);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--text);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    cursor: pointer;
+    min-width: 220px;
+    transition: border-color 0.15s;
+  }
+  select:focus { outline: none; border-color: var(--green-light); }
+  select:hover  { border-color: var(--green-light); }
+
+  /* ── TEAM CARD ── */
+  .team-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+    display: none;
+  }
+  .team-card.visible { display: block; }
+
+  .team-header {
+    background: var(--green-mid);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .team-number-badge {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-right: 1rem;
+  }
+  .team-info h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--cream);
+  }
+  .team-meta {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.3rem;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+  }
+  .badge-flight-sun  { background: rgba(200,150,58,0.25); color: var(--gold-light); }
+  .badge-flight-lol  { background: rgba(90,148,96,0.25);  color: var(--green-pale); }
+  .badge-points      { background: rgba(255,255,255,0.12); color: var(--cream); }
+  .badge-rank        { background: rgba(200,150,58,0.20); color: var(--gold-light); }
+
+  .team-stats-row {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; }
+  .stat-item .stat-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--cream);
+    display: block;
+  }
+  .stat-item .stat-lbl {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--green-pale);
+  }
+
+  /* ── PLAYERS ── */
+  .players-strip {
+    background: var(--cream);
+    padding: 0.85rem 2rem;
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid var(--cream-dark);
+    flex-wrap: wrap;
+  }
+  .player-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .player-avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--green-mid);
+    color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .player-name { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+  .player-detail { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ── SCHEDULE TABLE ── */
+  .schedule-wrap {
+    padding: 1.5rem 2rem 2rem;
+  }
+  .schedule-wrap h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  table.schedule {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  table.schedule thead th {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0.4rem 0.75rem;
+    border-bottom: 2px solid var(--cream-dark);
+    text-align: left;
+    white-space: nowrap;
+  }
+  table.schedule tbody tr { border-bottom: 1px solid var(--cream-dark); }
+  table.schedule tbody tr:last-child { border-bottom: none; }
+  table.schedule tbody tr.match-first { }
+  table.schedule tbody tr.match-second td { border-bottom: 2px solid var(--cream-dark); padding-top: 0; padding-bottom: 0.6rem; }
+  table.schedule tbody td {
+    padding: 0.55rem 0.75rem;
+    vertical-align: top;
+  }
+  table.schedule tbody tr.match-second td { padding-top: 0.1rem; }
+
+  .rnd-cell {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--green-mid);
+  }
+  .date-cell {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .nine-cell {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .opp-name { font-weight: 500; color: var(--text); }
+  .opp-hi   { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-muted); }
+  .strokes-chip {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    background: var(--cream-dark);
+    color: var(--text-mid);
+    margin-left: 4px;
+  }
+  .strokes-chip.zero { opacity: 0.45; }
+
+  .score-cell {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 36px;
+  }
+  .score-dash { color: var(--text-muted); }
+
+  .result-cell { white-space: nowrap; }
+  .result-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.2rem 0.55rem;
+    border-radius: 20px;
+  }
+  .res-win  { background: var(--win-bg);  color: var(--win);  }
+  .res-loss { background: var(--loss-bg); color: var(--loss); }
+  .res-tie  { background: var(--tie-bg);  color: var(--tie);  }
+  .res-none { color: var(--text-muted); font-family: 'DM Mono', monospace; font-size: 0.82rem; }
+
+  /* record row */
+  .record-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    background: var(--cream);
+    border-top: 1px solid var(--cream-dark);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+  }
+  .record-row strong { color: var(--text); }
+  .record-pill {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  .rp-w { color: var(--win); font-weight: 600; }
+  .rp-l { color: var(--loss); font-weight: 600; }
+  .rp-t { color: var(--tie); font-weight: 600; }
+
+  /* opp rank */
+  .opp-rank { font-size: 0.72rem; color: var(--text-muted); }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--green-pale);
+  }
+  .empty-state .big-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
+  .empty-state p { font-family: 'DM Serif Display', serif; font-size: 1.1rem; opacity: 0.7; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    main { padding: 1rem; }
+    .selector-panel { padding: 1rem; gap: 1rem; }
+    .schedule-wrap { padding: 1rem; }
+    .team-header { padding: 1rem; }
+    .players-strip { padding: 0.75rem 1rem; }
+    .record-row { padding: 0.75rem 1rem; }
+    select { min-width: 160px; }
+    table.schedule { font-size: 0.75rem; }
+    table.schedule thead th, table.schedule tbody td { padding: 0.4rem 0.4rem; }
+    .team-stats-row { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">RCC</div>
+  <div class="header-text">
+    <h1>Men's Twilight League</h1>
+    <p>Rochester Country Club &nbsp;·&nbsp; 2026 Season</p>
+  </div>
+</header>
+
+<main>
+  <div class="selector-panel">
+    <div class="field-group">
+      <label>Flight</label>
+      <select id="flightSelect">
+        <option value="">— Select flight —</option>
+        <option value="Sunshine">☀ Sunshine (Teams 1–32)</option>
+        <option value="Lollipops">🍭 Lollipops (Teams 33–64)</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>Team</label>
+      <select id="teamSelect" disabled>
+        <option value="">— Select team —</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="teamCard" class="team-card"></div>
+
+  <div id="emptyState" class="empty-state">
+    <div class="big-icon">⛳</div>
+    <p>Select a flight and team to view their schedule</p>
+  </div>
+</main>
+
+<script>
+// ── EMBEDDED JSON ────────────────────────────────────────────────────────────
+// The page loads from a JSON file if available, otherwise falls back to the
+// embedded data block below. To use a live JSON file, host rcc_league_2026.json
+// alongside this HTML and it will be fetched automatically.
+
+const EMBEDDED_JSON_URL = 'RCC_League_2026.json';
+
+// ── SCORING HELPERS ──────────────────────────────────────────────────────────
+
+function getRoundNumber(roundKey) {
+  const m = roundKey.match(/round_(\d+)_/);
+  return m ? parseInt(m[1]) : 0;
+}
+
+function getRoundDate(roundKey) {
+  // e.g. round_4_wed_jun_03 → "6/3"
+  const months = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+  const m = roundKey.match(/_(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)_(\d+)$/i);
+  if (!m) return '';
+  return `${months[m[1].toLowerCase()]}/${parseInt(m[2])}`;
+}
+
+function calcRank(teamNum, flight, teams) {
+  const flightTeams = teams.filter(t => t.flight === flight);
+  const me = flightTeams.find(t => t.team_number === teamNum);
+  if (!me) return '—';
+  const above = flightTeams.filter(t => t.total_points > me.total_points).length;
+  const rank = above + 1;
+  const ties = flightTeams.filter(t => t.total_points === me.total_points).length;
+  return ties > 1 ? `T${rank}` : `${rank}`;
+}
+
+function ordinal(n) {
+  const s = ['th','st','nd','rd'], v = n % 100;
+  return n + (s[(v-20)%10] || s[v] || s[0]);
+}
+
+function calcPlayingHandicap(hi, tee, courseRatings) {
+  const teeData = courseRatings.tees[tee] || courseRatings.tees['blue'];
+  const ch = Math.round(hi * teeData.slope / 113);
+  const ph = ch + Math.round(teeData.rating - courseRatings.par);
+  return ph;
+}
+
+function getStrokesFor4(players, courseRatings) {
+  // players: [{name, hi, tee}] — exactly 4
+  const phs = players.map(p => calcPlayingHandicap(p.hi, p.tee || 'blue', courseRatings));
+  const low = Math.min(...phs);
+  return phs.map(ph => ph - low);
+}
+
+// For 9 holes: halve full strokes. Front gets extra if odd.
+function strokesFor9(fullStrokes, nine) {
+  return fullStrokes.map(s => {
+    const half = s / 2;
+    if (s % 2 === 0) return s / 2;
+    // odd: front gets ceil, back gets floor
+    return nine === 'Front' ? Math.ceil(half) : Math.floor(half);
+  });
+}
+
+function parseDisplayScore(storedUs, storedThem) {
+  if (storedUs === undefined || storedThem === undefined) return null;
+  let dispUs, dispThem, result;
+  if (storedUs > storedThem) {
+    dispUs = storedUs - 1; dispThem = storedThem;
+    result = { type: 'W', margin: (storedUs - 1) - storedThem };
+  } else if (storedThem > storedUs) {
+    dispUs = storedUs; dispThem = storedThem - 1;
+    result = { type: 'L', margin: storedUs - (storedThem - 1) };
+  } else {
+    dispUs = storedUs - 0.5; dispThem = storedThem - 0.5;
+    result = { type: 'T', margin: 0 };
+  }
+  return { dispUs, dispThem, result };
+}
+
+function fmt(n) {
+  return (n % 1 === 0) ? n.toFixed(0) : n.toFixed(1);
+}
+
+function initials(name) {
+  // "Holland, Jeffry" → "JH"
+  const parts = name.split(',').map(s => s.trim());
+  const last = parts[0] || '';
+  const first = parts[1] || '';
+  return (first[0] || '') + (last[0] || '');
+}
+
+// ── RENDER ───────────────────────────────────────────────────────────────────
+
+function renderTeam(data, teamNum) {
+  const team = data.teams.find(t => t.team_number === teamNum);
+  if (!team) return;
+
+  const { schedule, round_scores, nine_rotations, course_ratings, teams } = data;
+  const card = document.getElementById('teamCard');
+  const empty = document.getElementById('emptyState');
+  card.className = 'team-card visible';
+  empty.style.display = 'none';
+
+  // rank within flight
+  const rank = calcRank(teamNum, team.flight, teams);
+  const flightSize = teams.filter(t => t.flight === team.flight).length;
+  const rankLabel = rank.startsWith('T') ? rank : ordinal(parseInt(rank));
+
+  // purse
+  const purseStr = team.purse > 0 ? `$${team.purse.toFixed(0)}` : '$0';
+
+  // flight badge class
+  const flightBadge = team.flight === 'Sunshine' ? 'badge-flight-sun' : 'badge-flight-lol';
+  const flightIcon = team.flight === 'Sunshine' ? '☀' : '🍭';
+
+  // W/L/T record from round_scores
+  const myScores = round_scores[String(teamNum)] || {};
+  let wins=0, losses=0, ties=0;
+  Object.keys(myScores).forEach(rnd => {
+    const stored = myScores[rnd];
+    // find opponent in that round
+    const roundKey = Object.keys(schedule).find(k => getRoundNumber(k) === parseInt(rnd));
+    if (!roundKey) return;
+    const match = schedule[roundKey].find(m => m[0] === teamNum || m[1] === teamNum);
+    if (!match) return;
+    const oppNum = match[0] === teamNum ? match[1] : match[0];
+    const oppStored = (round_scores[String(oppNum)] || {})[rnd];
+    if (oppStored === undefined) return;
+    if (stored > oppStored) wins++;
+    else if (stored < oppStored) losses++;
+    else ties++;
+  });
+
+  // build schedule rows
+  let scheduleHTML = '';
+  const roundKeys = Object.keys(schedule).sort((a,b) => getRoundNumber(a)-getRoundNumber(b));
+
+  roundKeys.forEach(roundKey => {
+    const rndNum = getRoundNumber(roundKey);
+    const matchups = schedule[roundKey];
+    const match = matchups.find(m => m[0] === teamNum || m[1] === teamNum);
+    if (!match) return;
+
+    const oppNum = match[0] === teamNum ? match[1] : match[0];
+    const oppTeam = teams.find(t => t.team_number === oppNum);
+    if (!oppTeam) return;
+
+    const date = getRoundDate(roundKey);
+    const nine = nine_rotations[roundKey]?.[team.flight] || '?';
+    const rndLabel = `${rndNum}-${nine[0]}`; // "4-B"
+
+    // strokes
+    const allPlayers = [...team.players, ...oppTeam.players];
+    // build 4-player list: [myP1, myP2, oppP1, oppP2]
+    const fourPlayers = [
+      { name: team.players[0]?.name, hi: team.players[0]?.handicap_index || 0, tee: team.players[0]?.tee || 'blue' },
+      { name: team.players[1]?.name, hi: team.players[1]?.handicap_index || 0, tee: team.players[1]?.tee || 'blue' },
+      { name: oppTeam.players[0]?.name, hi: oppTeam.players[0]?.handicap_index || 0, tee: oppTeam.players[0]?.tee || 'blue' },
+      { name: oppTeam.players[1]?.name, hi: oppTeam.players[1]?.handicap_index || 0, tee: oppTeam.players[1]?.tee || 'blue' },
+    ];
+    const fullStrokes = getStrokesFor4(fourPlayers, course_ratings);
+    const nineStrokes = strokesFor9(fullStrokes, nine);
+
+    // scores
+    const myStored   = (round_scores[String(teamNum)]  || {})[String(rndNum)];
+    const oppStored  = (round_scores[String(oppNum)]   || {})[String(rndNum)];
+    const scoreData  = (myStored !== undefined && oppStored !== undefined)
+                       ? parseDisplayScore(myStored, oppStored) : null;
+
+    // opp rank
+    const oppRank = calcRank(oppNum, oppTeam.flight, teams);
+    const oppRankLabel = oppRank.startsWith('T') ? oppRank : ordinal(parseInt(oppRank));
+
+    // player name helpers
+    function shortName(fullName) {
+      const parts = fullName ? fullName.split(',').map(s=>s.trim()) : ['?','?'];
+      const last = parts[0]; const first = parts[1] || '';
+      return `${first[0] || '?'}. ${last}`;
+    }
+
+    // result badge
+    let resultCell = `<span class="res-none">—</span>`;
+    if (scoreData) {
+      const { type, margin } = scoreData.result;
+      const sign = margin > 0 ? `+${margin}` : margin < 0 ? `${margin}` : '';
+      const label = type === 'T' ? 'T 0' : `${type} ${sign}`;
+      const cls = type === 'W' ? 'res-win' : type === 'L' ? 'res-loss' : 'res-tie';
+      resultCell = `<span class="result-badge ${cls}">${label}</span>`;
+    }
+
+    // score cells
+    const usDisp   = scoreData ? fmt(scoreData.dispUs)   : '—';
+    const themDisp = scoreData ? fmt(scoreData.dispThem)  : '—';
+    const scoreClass = s => s === '—' ? 'score-dash' : '';
+
+    // stroke chips
+    function chip(s) {
+      return `<span class="strokes-chip${s===0?' zero':''}">${s}</span>`;
+    }
+
+    // Row 1 (P1s) — shows rnd, date, nine, opponent P1, my P1
+    scheduleHTML += `
+    <tr class="match-first">
+      <td class="rnd-cell" rowspan="2">${rndLabel}</td>
+      <td class="date-cell" rowspan="2">${date}</td>
+      <td class="nine-cell" rowspan="2">${nine}</td>
+      <td>
+        <span class="opp-name">${shortName(oppTeam.players[0]?.name)}</span>
+        <span class="opp-hi">(${oppTeam.players[0]?.handicap_index ?? '?'})</span>${chip(nineStrokes[2])}
+      </td>
+      <td>
+        <span class="opp-name">${shortName(team.players[0]?.name)}</span>
+        <span class="opp-hi">(${team.players[0]?.handicap_index ?? '?'})</span>${chip(nineStrokes[0])}
+      </td>
+      <td class="opp-rank" rowspan="2"><span style="font-size:0.75rem;color:var(--text-muted);">T${oppNum}</span><br><span style="font-size:0.72rem;color:var(--text-muted);">${oppRankLabel}</span></td>
+      <td class="score-cell ${scoreClass(usDisp)}" rowspan="2">${usDisp}</td>
+      <td class="score-cell ${scoreClass(themDisp)}" rowspan="2">${themDisp}</td>
+      <td class="result-cell" rowspan="2">${resultCell}</td>
+    </tr>
+    <tr class="match-second">
+      <td>
+        <span class="opp-name">${shortName(oppTeam.players[1]?.name)}</span>
+        <span class="opp-hi">(${oppTeam.players[1]?.handicap_index ?? '?'})</span>${chip(nineStrokes[3])}
+      </td>
+      <td>
+        <span class="opp-name">${shortName(team.players[1]?.name)}</span>
+        <span class="opp-hi">(${team.players[1]?.handicap_index ?? '?'})</span>${chip(nineStrokes[1])}
+      </td>
+    </tr>`;
+  });
+
+  // players HTML
+  let playersHTML = team.players.map(p => {
+    const ini = initials(p.name || '');
+    const teeStr = p.tee ? `${p.tee} tees` : '';
+    const hiStr = `HI: ${p.handicap_index ?? '?'}`;
+    return `<div class="player-chip">
+      <div class="player-avatar">${ini}</div>
+      <div>
+        <div class="player-name">${p.name || '—'}</div>
+        <div class="player-detail">${hiStr}${teeStr ? ' · ' + teeStr : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  card.innerHTML = `
+    <div class="team-header">
+      <div style="display:flex;align-items:center;">
+        <div class="team-number-badge">#${teamNum}</div>
+        <div class="team-info">
+          <h2>${team.players_display}</h2>
+          <div class="team-meta">
+            <span class="badge ${flightBadge}">${flightIcon} ${team.flight}</span>
+            <span class="badge badge-points">${team.total_points} pts</span>
+            <span class="badge badge-rank">${rankLabel} of ${flightSize}</span>
+            ${team.purse > 0 ? `<span class="badge badge-points">${purseStr} purse</span>` : ''}
+          </div>
+        </div>
+      </div>
+      <div class="team-stats-row">
+        <div class="stat-item"><span class="stat-val">${wins}</span><span class="stat-lbl">Wins</span></div>
+        <div class="stat-item"><span class="stat-val">${losses}</span><span class="stat-lbl">Losses</span></div>
+        <div class="stat-item"><span class="stat-val">${ties}</span><span class="stat-lbl">Ties</span></div>
+        <div class="stat-item"><span class="stat-val">${team.total_points}</span><span class="stat-lbl">Points</span></div>
+      </div>
+    </div>
+    <div class="players-strip">${playersHTML}</div>
+    <div class="schedule-wrap">
+      <h3>2026 Season Schedule</h3>
+      <table class="schedule">
+        <thead>
+          <tr>
+            <th>Rnd</th>
+            <th>Date</th>
+            <th>Nine</th>
+            <th>Opponent</th>
+            <th>Us</th>
+            <th>Opp Rank</th>
+            <th>Us</th>
+            <th>Them</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>${scheduleHTML}</tbody>
+      </table>
+    </div>
+    <div class="record-row">
+      <strong>Record:</strong>
+      <span class="record-pill"><span class="rp-w">${wins}W</span> <span class="rp-l">${losses}L</span> <span class="rp-t">${ties}T</span></span>
+      &nbsp;·&nbsp; ${Object.keys(myScores).length} rounds played
+    </div>
+  `;
+}
+
+// ── BOOT ─────────────────────────────────────────────────────────────────────
+
+let leagueData = null;
+
+function populateFlightTeams(flight) {
+  const sel = document.getElementById('teamSelect');
+  sel.innerHTML = '<option value="">— Select team —</option>';
+  if (!leagueData || !flight) { sel.disabled = true; return; }
+  const flightTeams = leagueData.teams
+    .filter(t => t.flight === flight)
+    .sort((a,b) => a.team_number - b.team_number);
+  flightTeams.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t.team_number;
+    opt.textContent = `Team ${t.team_number} — ${t.players_display}`;
+    sel.appendChild(opt);
+  });
+  sel.disabled = false;
+}
+
+document.getElementById('flightSelect').addEventListener('change', function() {
+  populateFlightTeams(this.value);
+  document.getElementById('teamCard').className = 'team-card';
+  document.getElementById('emptyState').style.display = '';
+  document.getElementById('teamSelect').value = '';
+});
+
+document.getElementById('teamSelect').addEventListener('change', function() {
+  const num = parseInt(this.value);
+  if (!num || !leagueData) return;
+  renderTeam(leagueData, num);
+});
+
+// Try to fetch JSON from same directory; works when served over HTTP
+fetch(EMBEDDED_JSON_URL)
+  .then(r => { if (!r.ok) throw new Error('not found'); return r.json(); })
+  .then(data => { leagueData = data; })
+  .catch(() => {
+    // Fallback: prompt user to load file
+    document.getElementById('emptyState').innerHTML = `
+      <div class="big-icon">📂</div>
+      <p>Drop your <strong>RCC_League_2026.json</strong> file here, or click to load it</p>
+      <input type="file" id="fileInput" accept=".json" style="margin-top:1rem;font-size:0.85rem;color:var(--green-pale)">
+    `;
+    document.getElementById('fileInput')?.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        leagueData = JSON.parse(ev.target.result);
+        document.getElementById('emptyState').innerHTML = `
+          <div class="big-icon">✅</div>
+          <p>Data loaded! Select a flight and team above.</p>
+        `;
+      };
+      reader.readAsText(file);
+    });
+  });
+</script>
+</body>
+</html>
