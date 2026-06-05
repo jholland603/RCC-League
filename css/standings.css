@@ -187,15 +187,6 @@ table.standings tbody td.num {
   background: var(--gold);
 }
 
-/* ── HIGHLIGHT ROW (my team) ────────────────────────────────────────────────── */
-table.standings tbody tr.my-team td {
-  background: rgba(200,150,58,0.07);
-}
-
-table.standings tbody tr.my-team .players {
-  color: var(--gold);
-}
-
 /* ── TIED MARKER ────────────────────────────────────────────────────────────── */
 .tied-marker {
   font-size: 0.65rem;

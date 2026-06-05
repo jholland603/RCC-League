@@ -119,9 +119,8 @@ function renderFlight(flight, flightTeams, records) {
     const rankStr  = team._rank;
     const isTop3   = parseInt(rankStr.replace('T','')) <= 3;
     const purseStr = team.purse > 0 ? `$${team.purse.toFixed(0)}` : '—';
-    const myTeam   = team.team_number === 26;
-
-    // mover arrow
+    return `
+    <tr onclick="goToSchedule('${team.flight}', ${team.team_number})" style="cursor:pointer;">
     const mv = movers[team.team_number];
     let moverCell = `<span class="mover-none">—</span>`;
     if (mv !== undefined && mv !== 0) {
@@ -134,7 +133,7 @@ function renderFlight(flight, flightTeams, records) {
     }
 
     return `
-    <tr class="${myTeam ? 'my-team' : ''}" onclick="goToSchedule('${team.flight}', ${team.team_number})" style="cursor:pointer;">
+    <tr onclick="goToSchedule('${team.flight}', ${team.team_number})" style="cursor:pointer;">
       <td class="rank-cell ${isTop3 ? 'top3' : ''}">${rankStr}</td>
       <td class="team-name-cell">
         <div class="players">${team.players_display}</div>
