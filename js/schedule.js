@@ -212,16 +212,32 @@ document.getElementById('flightSelect').addEventListener('change', function () {
   document.getElementById('teamCard').className = 'team-card';
   document.getElementById('emptyState').style.display = '';
   document.getElementById('teamSelect').value = '';
+  localStorage.setItem('rcc_flight', this.value);
+  localStorage.removeItem('rcc_team');
 });
 
 document.getElementById('teamSelect').addEventListener('change', function () {
   const num = parseInt(this.value);
   if (!num || !leagueData) return;
+  localStorage.setItem('rcc_team', this.value);
   renderTeam(leagueData, num);
 });
 
 loadLeagueData()
-  .then(data => { leagueData = data; })
+  .then(data => {
+    leagueData = data;
+    // restore last selection
+    const savedFlight = localStorage.getItem('rcc_flight');
+    const savedTeam   = localStorage.getItem('rcc_team');
+    if (savedFlight) {
+      document.getElementById('flightSelect').value = savedFlight;
+      populateFlightTeams(savedFlight);
+    }
+    if (savedTeam) {
+      document.getElementById('teamSelect').value = savedTeam;
+      renderTeam(leagueData, parseInt(savedTeam));
+    }
+  })
   .catch(() => {
     document.getElementById('emptyState').innerHTML = `
       <div class="big-icon">📂</div>
