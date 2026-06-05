@@ -188,9 +188,13 @@ table.stats-table tbody td.num {
   .stats-controls { padding: 0.75rem 1rem; gap: 1rem; }
   .tab-bar { flex-wrap: wrap; }
 
-  /* hide less critical stat columns, keep avg + birdie-bogey summary */
-  table.stats-table thead th:nth-child(n+6),
-  table.stats-table tbody td:nth-child(n+6) { display: none; }
+  /* on mobile: hide Avg (col 3), Dbl (col 8), 3+ (col 9) */
+  table.stats-table thead th:nth-child(3),
+  table.stats-table tbody td:nth-child(3),
+  table.stats-table thead th:nth-child(8),
+  table.stats-table tbody td:nth-child(8),
+  table.stats-table thead th:nth-child(9),
+  table.stats-table tbody td:nth-child(9) { display: none; }
 
   table.stats-table thead th,
   table.stats-table tbody td { padding: 0.35rem 0.4rem; font-size: 0.75rem; }
