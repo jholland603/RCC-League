@@ -1,0 +1,235 @@
+/* ── SITE HEADER ────────────────────────────────────────────────────────────── */
+.site-header {
+  border-bottom: 1px solid rgba(90,148,96,0.25);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-header .logo-mark {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.site-header .logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.site-header .header-text h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+.site-header .header-text p {
+  font-size: 0.72rem;
+  color: var(--green-pale);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.site-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.site-header nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--green-pale);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
+  transition: background 0.15s, color 0.15s;
+  letter-spacing: 0.02em;
+}
+
+.site-header nav a:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--cream);
+}
+
+.site-header nav a.active {
+  background: rgba(200,150,58,0.18);
+  color: var(--gold-light);
+}
+
+/* ── SITE FOOTER ────────────────────────────────────────────────────────────── */
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(90,148,96,0.15);
+  padding: 1.25rem 2rem;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--green-pale);
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}
+
+/* ── BADGES ─────────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+
+.badge-sun    { background: rgba(200,150,58,0.25); color: var(--gold-light); }
+.badge-lol    { background: rgba(90,148,96,0.25);  color: var(--green-pale); }
+.badge-points { background: rgba(255,255,255,0.12); color: var(--cream); }
+.badge-rank   { background: rgba(200,150,58,0.20); color: var(--gold-light); }
+
+/* ── RESULT BADGES ──────────────────────────────────────────────────────────── */
+.result-badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.res-win  { background: var(--win-bg);  color: var(--win);  }
+.res-loss { background: var(--loss-bg); color: var(--loss); }
+.res-tie  { background: var(--tie-bg);  color: var(--tie);  }
+.res-none { color: var(--text-muted); font-family: 'DM Mono', monospace; font-size: 0.82rem; }
+
+/* ── NAV CARDS (index page) ─────────────────────────────────────────────────── */
+a.nav-card {
+  display: block;
+  text-decoration: none;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(90,148,96,0.25);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+a.nav-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,150,58,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+a.nav-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(200,150,58,0.45);
+  transform: translateY(-2px);
+}
+
+a.nav-card:active { transform: translateY(0); }
+
+.card-icon  { font-size: 1.75rem; margin-bottom: 0.9rem; display: block; }
+
+.card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  color: var(--cream);
+  margin-bottom: 0.35rem;
+}
+
+.card-desc {
+  font-size: 0.8rem;
+  color: var(--green-pale);
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.card-arrow {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  font-size: 1rem;
+  color: var(--gold);
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+a.nav-card:hover .card-arrow { opacity: 1; transform: translate(3px, -3px); }
+
+a.nav-card.coming-soon {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+
+.coming-pill {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  background: rgba(200,150,58,0.2);
+  color: var(--gold-light);
+  margin-top: 0.6rem;
+}
+
+/* ── FORM CONTROLS ──────────────────────────────────────────────────────────── */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-group label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+select {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--text);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  cursor: pointer;
+  min-width: 220px;
+  transition: border-color 0.15s;
+}
+
+select:focus { outline: none; border-color: var(--green-light); }
+select:hover  { border-color: var(--green-light); }
+
+/* ── EMPTY STATE ────────────────────────────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--green-pale);
+}
+
+.empty-state .big-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
+.empty-state p { font-family: 'DM Serif Display', serif; font-size: 1.1rem; opacity: 0.7; }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .site-header { padding: 1rem 1.25rem; }
+  .site-header nav a { padding: 0.3rem 0.5rem; font-size: 0.75rem; }
+  select { min-width: 160px; }
+}

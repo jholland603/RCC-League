@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule — RCC Men's Twilight League 2026</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/schedule.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+    <div class="selector-panel">
+      <div class="field-group">
+        <label for="flightSelect">Flight</label>
+        <select id="flightSelect">
+          <option value="">— Select flight —</option>
+          <option value="Sunshine">☀ Sunshine (Teams 1–32)</option>
+          <option value="Lollipops">🍭 Lollipops (Teams 33–64)</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label for="teamSelect">Team</label>
+        <select id="teamSelect" disabled>
+          <option value="">— Select team —</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="teamCard" class="team-card"></div>
+
+    <div id="emptyState" class="empty-state">
+      <div class="big-icon">⛳</div>
+      <p>Select a flight and team to view their schedule</p>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/common.js"></script>
+  <script src="js/schedule.js"></script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+/* ── SELECTOR PANEL ─────────────────────────────────────────────────────────── */
+.selector-panel {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 2rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+/* ── TEAM CARD ──────────────────────────────────────────────────────────────── */
+.team-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  display: none;
+}
+
+.team-card.visible { display: block; }
+
+.team-header {
+  background: var(--green-mid);
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.team-number-badge {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-right: 1rem;
+}
+
+.team-info h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--cream);
+}
+
+.team-meta {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.team-stats-row {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+
+.stat-item .stat-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--cream);
+  display: block;
+}
+
+.stat-item .stat-lbl {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--green-pale);
+}
+
+/* ── PLAYERS STRIP ──────────────────────────────────────────────────────────── */
+.players-strip {
+  background: var(--cream);
+  padding: 0.85rem 2rem;
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid var(--cream-dark);
+  flex-wrap: wrap;
+}
+
+.player-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.player-avatar {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--green-mid);
+  color: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.player-name   { font-size: 0.85rem; font-weight: 500; color: var(--text); }
+.player-detail { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── SCHEDULE TABLE ─────────────────────────────────────────────────────────── */
+.schedule-wrap {
+  padding: 1.5rem 2rem 2rem;
+}
+
+.schedule-wrap h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+table.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+table.schedule thead th {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.4rem 0.75rem;
+  border-bottom: 2px solid var(--cream-dark);
+  text-align: left;
+  white-space: nowrap;
+}
+
+table.schedule tbody tr          { border-bottom: 1px solid var(--cream-dark); }
+table.schedule tbody tr:last-child { border-bottom: none; }
+
+table.schedule tbody td {
+  padding: 0.55rem 0.75rem;
+  vertical-align: top;
+}
+
+table.schedule tbody tr.match-second td {
+  border-bottom: 2px solid var(--cream-dark);
+  padding-top: 0.1rem;
+  padding-bottom: 0.6rem;
+}
+
+.rnd-cell {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--green-mid);
+}
+
+.date-cell {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.nine-cell {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.opp-name { font-weight: 500; color: var(--text); }
+.opp-hi   { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-muted); }
+.opp-rank { font-size: 0.72rem; color: var(--text-muted); }
+
+.strokes-chip {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  background: var(--cream-dark);
+  color: var(--text-mid);
+  margin-left: 4px;
+}
+
+.strokes-chip.zero { opacity: 0.45; }
+
+.score-cell {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 36px;
+}
+
+.score-dash { color: var(--text-muted); }
+.result-cell { white-space: nowrap; }
+
+/* ── RECORD ROW ─────────────────────────────────────────────────────────────── */
+.record-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background: var(--cream);
+  border-top: 1px solid var(--cream-dark);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.record-row strong { color: var(--text); }
+
+.rp-w { color: var(--win);  font-weight: 600; }
+.rp-l { color: var(--loss); font-weight: 600; }
+.rp-t { color: var(--tie);  font-weight: 600; }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .selector-panel  { padding: 1rem; gap: 1rem; }
+  .schedule-wrap   { padding: 1rem; }
+  .team-header     { padding: 1rem; }
+  .players-strip   { padding: 0.75rem 1rem; }
+  .record-row      { padding: 0.75rem 1rem; }
+  .team-stats-row  { gap: 1rem; }
+  table.schedule   { font-size: 0.75rem; }
+  table.schedule thead th,
+  table.schedule tbody td { padding: 0.4rem 0.4rem; }
+}

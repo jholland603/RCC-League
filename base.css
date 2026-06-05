@@ -1,0 +1,93 @@
+/* ── FONTS ─────────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+/* ── VARIABLES ──────────────────────────────────────────────────────────────── */
+:root {
+  /* greens */
+  --green-dark:  #1a2e1c;
+  --green-mid:   #2d5230;
+  --green:       #3a6b3e;
+  --green-light: #5a9460;
+  --green-pale:  #c8dfc9;
+
+  /* neutrals */
+  --cream:       #f5f0e8;
+  --cream-dark:  #ede7d8;
+  --white:       #fdfcf9;
+
+  /* gold */
+  --gold:        #c8963a;
+  --gold-light:  #e8c06a;
+
+  /* text */
+  --text:        #1a1a18;
+  --text-mid:    #4a4a44;
+  --text-muted:  #888880;
+
+  /* result colors */
+  --win:         #2d6e35;
+  --win-bg:      #e8f4e9;
+  --loss:        #8b2c2c;
+  --loss-bg:     #faeaea;
+  --tie:         #5a5a20;
+  --tie-bg:      #f5f5dc;
+
+  /* layout */
+  --radius:      6px;
+  --radius-lg:   10px;
+  --shadow:      0 2px 12px rgba(26,46,28,0.10);
+  --max-width:   1100px;
+}
+
+/* ── RESET ──────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── BASE ───────────────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--green-dark);
+  color: var(--cream);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+}
+
+/* ── UTILITY ────────────────────────────────────────────────────────────────── */
+.mono {
+  font-family: 'DM Mono', monospace;
+}
+
+.text-muted  { color: var(--text-muted); }
+.text-gold   { color: var(--gold); }
+.text-pale   { color: var(--green-pale); }
+.text-cream  { color: var(--cream); }
+
+.label-caps {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  main { padding: 1rem; }
+}

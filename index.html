@@ -1,276 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RCC Men's Twilight League 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --green-dark:  #1a2e1c;
-    --green-mid:   #2d5230;
-    --green:       #3a6b3e;
-    --green-light: #5a9460;
-    --green-pale:  #c8dfc9;
-    --cream:       #f5f0e8;
-    --cream-dark:  #ede7d8;
-    --gold:        #c8963a;
-    --gold-light:  #e8c06a;
-    --white:       #fdfcf9;
-    --text:        #1a1a18;
-    --text-mid:    #4a4a44;
-    --text-muted:  #888880;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Instrument Sans', sans-serif;
-    background: var(--green-dark);
-    color: var(--cream);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ── HEADER ── */
-  header {
-    border-bottom: 1px solid rgba(90,148,96,0.25);
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  .logo-mark {
-    width: 56px; height: 56px;
-    border: 2px solid var(--gold);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 20px;
-    color: var(--gold);
-    flex-shrink: 0;
-  }
-  .header-text h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem;
-    color: var(--cream);
-    letter-spacing: 0.02em;
-  }
-  .header-text p {
-    font-size: 0.75rem;
-    color: var(--green-pale);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    padding: 3.5rem 2rem 2.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-  }
-  .hero-season {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-  .hero h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--cream);
-    line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-  .hero p {
-    font-size: 0.95rem;
-    color: var(--green-pale);
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    width: 48px;
-    height: 2px;
-    background: var(--gold);
-    margin: 2rem auto;
-    opacity: 0.5;
-  }
-
-  /* ── CARDS GRID ── */
-  .cards-section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 2rem 4rem;
-    width: 100%;
-  }
-  .section-label {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--green-pale);
-    opacity: 0.7;
-    margin-bottom: 1.25rem;
-  }
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1rem;
-  }
-
-  /* ── CARD ── */
-  a.nav-card {
-    display: block;
-    text-decoration: none;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(90,148,96,0.25);
-    border-radius: 10px;
-    padding: 1.5rem 1.75rem;
-    transition: background 0.2s, border-color 0.2s, transform 0.15s;
-    position: relative;
-    overflow: hidden;
-  }
-  a.nav-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(200,150,58,0.06) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  a.nav-card:hover {
-    background: rgba(255,255,255,0.07);
-    border-color: rgba(200,150,58,0.45);
-    transform: translateY(-2px);
-  }
-  a.nav-card:active { transform: translateY(0); }
-
-  .card-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.9rem;
-    display: block;
-  }
-  .card-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-    color: var(--cream);
-    margin-bottom: 0.35rem;
-  }
-  .card-desc {
-    font-size: 0.8rem;
-    color: var(--green-pale);
-    line-height: 1.6;
-    opacity: 0.85;
-  }
-  .card-arrow {
-    position: absolute;
-    bottom: 1.25rem;
-    right: 1.25rem;
-    font-size: 1rem;
-    color: var(--gold);
-    opacity: 0.6;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  a.nav-card:hover .card-arrow { opacity: 1; transform: translate(3px, -3px); }
-
-  /* ── COMING SOON CARD ── */
-  a.nav-card.coming-soon {
-    opacity: 0.45;
-    cursor: default;
-    pointer-events: none;
-  }
-  .coming-pill {
-    display: inline-block;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.15rem 0.5rem;
-    border-radius: 20px;
-    background: rgba(200,150,58,0.2);
-    color: var(--gold-light);
-    margin-top: 0.6rem;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    margin-top: auto;
-    border-top: 1px solid rgba(90,148,96,0.15);
-    padding: 1.25rem 2rem;
-    text-align: center;
-    font-size: 0.72rem;
-    color: var(--green-pale);
-    opacity: 0.5;
-    letter-spacing: 0.05em;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    header { padding: 1.25rem; }
-    .hero  { padding: 2.5rem 1.25rem 1.5rem; }
-    .cards-section { padding: 0 1.25rem 3rem; }
-    .cards-grid { grid-template-columns: 1fr; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RCC Men's Twilight League 2026</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── INDEX-ONLY STYLES ── */
+    .hero {
+      padding: 3.5rem 2rem 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-season {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .hero h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 0.95rem;
+      color: var(--green-pale);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 2rem auto;
+      opacity: 0.5;
+    }
+    .cards-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      width: 100%;
+    }
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-pale);
+      opacity: 0.7;
+      margin-bottom: 1.25rem;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 2.5rem 1.25rem 1.5rem; }
+      .cards-section { padding: 0 1.25rem 3rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="logo-mark">RCC</div>
-  <div class="header-text">
-    <h1>Men's Twilight League</h1>
-    <p>Rochester Country Club &nbsp;·&nbsp; 2026 Season</p>
-  </div>
-</header>
+  <div id="site-header"></div>
 
-<section class="hero">
-  <div class="hero-season">Season 2026</div>
-  <h2>Wednesday Evenings<br><em>at Rochester Country Club</em></h2>
-  <p>16 rounds across two flights — Sunshine and Lollipops — played every Wednesday evening through August.</p>
-  <div class="divider"></div>
-</section>
+  <section class="hero">
+    <div class="hero-season">Season 2026</div>
+    <h2>Wednesday Evenings<br><em>at Rochester Country Club</em></h2>
+    <p>16 rounds across two flights — Sunshine and Lollipops — played every Wednesday evening through August.</p>
+    <div class="divider"></div>
+  </section>
 
-<section class="cards-section">
-  <div class="section-label">League Pages</div>
-  <div class="cards-grid">
+  <section class="cards-section">
+    <div class="section-label">League Pages</div>
+    <div class="cards-grid">
 
-    <a class="nav-card" href="schedule.html">
-      <span class="card-icon">📅</span>
-      <div class="card-title">Schedule</div>
-      <div class="card-desc">View any team's full 16-round schedule, scores, opponents, and stroke allocations.</div>
-      <span class="card-arrow">↗</span>
-    </a>
+      <a class="nav-card" href="schedule.html">
+        <span class="card-icon">📅</span>
+        <div class="card-title">Schedule</div>
+        <div class="card-desc">View any team's full 16-round schedule, scores, opponents, and stroke allocations.</div>
+        <span class="card-arrow">↗</span>
+      </a>
 
-    <a class="nav-card coming-soon" href="standings.html">
-      <span class="card-icon">🏆</span>
-      <div class="card-title">Standings</div>
-      <div class="card-desc">Flight standings and team rankings updated each week.</div>
-      <div class="coming-pill">Coming soon</div>
-    </a>
+      <a class="nav-card coming-soon" href="standings.html">
+        <span class="card-icon">🏆</span>
+        <div class="card-title">Standings</div>
+        <div class="card-desc">Flight standings and team rankings updated each week.</div>
+        <div class="coming-pill">Coming soon</div>
+      </a>
 
-    <a class="nav-card coming-soon" href="stats.html">
-      <span class="card-icon">📊</span>
-      <div class="card-title">Player Stats</div>
-      <div class="card-desc">Individual leaderboards — birdies, scoring average, and more.</div>
-      <div class="coming-pill">Coming soon</div>
-    </a>
+      <a class="nav-card coming-soon" href="stats.html">
+        <span class="card-icon">📊</span>
+        <div class="card-title">Player Stats</div>
+        <div class="card-desc">Individual leaderboards — birdies, scoring average, and more.</div>
+        <div class="coming-pill">Coming soon</div>
+      </a>
 
-  </div>
-</section>
+    </div>
+  </section>
 
-<footer>
-  Rochester Country Club &nbsp;·&nbsp; Men's Twilight League &nbsp;·&nbsp; 2026
-</footer>
+  <div id="site-footer"></div>
 
+  <script src="js/common.js"></script>
 </body>
 </html>
