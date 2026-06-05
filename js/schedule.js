@@ -174,6 +174,13 @@ function renderTeam(data, teamNum) {
         </thead>
         <tbody>${scheduleHTML}</tbody>
       </table>
+      <div class="schedule-legend">
+        <span><strong>HI</strong> = Handicap Index</span>
+        <span class="legend-sep">·</span>
+        <span>Numbers in brackets = strokes received for that nine</span>
+        <span class="legend-sep">·</span>
+        <span>Strokes are estimates calculated from current HI and may differ from official card</span>
+      </div>
     </div>
     <div class="record-row">
       <strong>Record:</strong>

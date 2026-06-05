@@ -206,6 +206,23 @@ table.schedule tbody tr.match-second td {
 .score-dash { color: var(--text-muted); }
 .result-cell { white-space: nowrap; }
 
+/* ── SCHEDULE LEGEND ────────────────────────────────────────────────────────── */
+.schedule-legend {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--cream-dark);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  align-items: center;
+}
+
+.legend-sep {
+  opacity: 0.4;
+}
+
 /* ── RECORD ROW ─────────────────────────────────────────────────────────────── */
 .record-row {
   display: flex;
