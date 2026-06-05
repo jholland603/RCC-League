@@ -135,6 +135,20 @@ table.standings tbody td.num {
 .rec-l { color: var(--loss); }
 .rec-t { color: var(--tie); }
 
+/* ── MOVER CELL ─────────────────────────────────────────────────────────────── */
+.mover-cell {
+  text-align: center;
+  white-space: nowrap;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.mover-up   { color: var(--win); }
+.mover-down { color: var(--loss); }
+.mover-flat,
+.mover-none { color: var(--text-muted); opacity: 0.4; font-weight: 400; }
+
 /* ── PURSE CELL ─────────────────────────────────────────────────────────────── */
 .purse-cell {
   font-family: 'DM Mono', monospace;
