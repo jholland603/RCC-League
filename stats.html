@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Stats — RCC Men's Twilight League 2026</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/stats.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+    <div class="stats-controls">
+      <div class="field-group">
+        <label>Category</label>
+        <div class="tab-bar" id="tabBar"></div>
+      </div>
+      <div class="field-group">
+        <label>Flight</label>
+        <div class="flight-filter">
+          <button class="ff-btn active-all" data-flight="All">All</button>
+          <button class="ff-btn" data-flight="Sunshine">☀ Sunshine</button>
+          <button class="ff-btn" data-flight="Lollipops">🍭 Lollipops</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-panel" id="statsPanel">
+      <div class="empty-state">
+        <div class="big-icon">⛳</div>
+        <p>Loading stats…</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/common.js"></script>
+  <script src="js/stats.js"></script>
+</body>
+</html>

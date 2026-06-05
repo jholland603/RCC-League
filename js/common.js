@@ -22,8 +22,8 @@
         </div>
       </a>
       <nav>
-        ${navLink('schedule.html', 'Schedule')}
         ${navLink('standings.html', 'Standings')}
+        ${navLink('schedule.html', 'Schedule')}
         ${navLink('stats.html', 'Stats')}
       </nav>
     </header>`;

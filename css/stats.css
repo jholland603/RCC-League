@@ -1,0 +1,204 @@
+/* ── STATS PAGE ─────────────────────────────────────────────────────────────── */
+
+/* ── CONTROLS ───────────────────────────────────────────────────────────────── */
+.stats-controls {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+/* ── TAB BAR ────────────────────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--cream-dark);
+  border-radius: var(--radius);
+  padding: 3px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  border: none;
+  border-radius: calc(var(--radius) - 1px);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover  { color: var(--text); }
+.tab-btn.active {
+  background: var(--white);
+  color: var(--green-mid);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* ── LEADERBOARD TABLE ──────────────────────────────────────────────────────── */
+.stats-panel {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.stats-panel-header {
+  background: var(--green-mid);
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.stats-panel-header h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--cream);
+}
+
+.stats-panel-header p {
+  font-size: 0.75rem;
+  color: var(--green-pale);
+  opacity: 0.8;
+}
+
+table.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+table.stats-table thead th {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid var(--cream-dark);
+  text-align: left;
+  background: var(--cream);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+table.stats-table thead th:hover { color: var(--text); }
+table.stats-table thead th.sort-active { color: var(--green-mid); }
+table.stats-table thead th.num { text-align: right; }
+
+table.stats-table tbody tr {
+  border-bottom: 1px solid var(--cream-dark);
+  transition: background 0.1s;
+}
+
+table.stats-table tbody tr:last-child { border-bottom: none; }
+table.stats-table tbody tr:hover { background: var(--cream); }
+
+table.stats-table tbody td {
+  padding: 0.5rem 0.75rem;
+  vertical-align: middle;
+  color: var(--text);
+}
+
+table.stats-table tbody td.num {
+  text-align: right;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-mid);
+}
+
+/* ── RANK ───────────────────────────────────────────────────────────────────── */
+.s-rank {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: right;
+  width: 28px;
+}
+
+.s-rank.gold   { color: #c8963a; font-weight: 600; }
+.s-rank.silver { color: #888; font-weight: 600; }
+.s-rank.bronze { color: #a0522d; font-weight: 600; }
+
+/* ── PLAYER NAME ────────────────────────────────────────────────────────────── */
+.s-name { font-weight: 500; color: var(--text); }
+.s-team { font-size: 0.7rem; color: var(--text-muted); font-family: 'DM Mono', monospace; }
+
+/* ── HIGHLIGHT VALUE ────────────────────────────────────────────────────────── */
+.s-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: right;
+  color: var(--green-mid);
+}
+
+.s-val.gold-val { color: var(--gold); }
+
+/* ── BAR ────────────────────────────────────────────────────────────────────── */
+.s-bar-wrap {
+  width: 80px;
+  background: var(--cream-dark);
+  border-radius: 3px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.s-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--green-light);
+}
+
+/* ── FLIGHT FILTER BADGES ───────────────────────────────────────────────────── */
+.flight-filter {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.ff-btn {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  border: 1.5px solid var(--cream-dark);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ff-btn:hover { border-color: var(--green-light); color: var(--text); }
+.ff-btn.active-all  { background: var(--green-mid); border-color: var(--green-mid); color: var(--cream); }
+.ff-btn.active-sun  { background: rgba(200,150,58,0.15); border-color: var(--gold); color: var(--gold); }
+.ff-btn.active-lol  { background: rgba(90,148,96,0.15); border-color: var(--green-light); color: var(--green-mid); }
+
+/* ── MIN HOLES NOTE ─────────────────────────────────────────────────────────── */
+.stats-note {
+  font-size: 0.7rem;
+  color: var(--green-pale);
+  opacity: 0.6;
+  text-align: right;
+  padding: 0.6rem 1rem 0.4rem;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .stats-controls { padding: 0.75rem 1rem; gap: 1rem; }
+  table.stats-table thead th,
+  table.stats-table tbody td { padding: 0.4rem 0.5rem; }
+  .s-bar-wrap { display: none; }
+}
