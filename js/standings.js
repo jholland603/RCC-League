@@ -1,5 +1,12 @@
 /* standings.js — Flight standings */
 
+// ── NAVIGATION ───────────────────────────────────────────────────────────────
+function goToSchedule(flight, teamNum) {
+  localStorage.setItem('rcc_flight', flight);
+  localStorage.setItem('rcc_team', String(teamNum));
+  window.location.href = 'schedule.html';
+}
+
 // ── RECORD CALCULATION ───────────────────────────────────────────────────────
 // Derive W/L/T for every team from round_scores
 function calcRecords(data) {
@@ -69,7 +76,7 @@ function renderFlight(flight, flightTeams, records, maxPoints) {
     const myTeam   = team.team_number === 26; // Jeffry Holland's team
 
     return `
-    <tr class="${myTeam ? 'my-team' : ''}">
+    <tr class="${myTeam ? 'my-team' : ''}" onclick="goToSchedule('${team.flight}', ${team.team_number})" style="cursor:pointer;">
       <td class="rank-cell ${isTop3 ? 'top3' : ''}">${rankStr}${isTied ? '' : ''}</td>
       <td class="team-name-cell">
         <div class="players">${team.players_display}</div>

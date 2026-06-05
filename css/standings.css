@@ -62,14 +62,15 @@ table.standings thead th.num {
 table.standings tbody tr {
   border-bottom: 1px solid var(--cream-dark);
   transition: background 0.1s;
-}
-
-table.standings tbody tr:last-child {
-  border-bottom: none;
+  cursor: pointer;
 }
 
 table.standings tbody tr:hover {
-  background: var(--cream);
+  background: var(--cream-dark);
+}
+
+table.standings tbody tr:hover .players {
+  color: var(--green-mid);
 }
 
 table.standings tbody td {
