@@ -124,10 +124,10 @@ function renderTeam(data, teamNum) {
         <span class="opp-hi">(${formatHI(oppTeam.players[0]?.handicap_index, oppTeam.players[0]?.plus_handicap)})</span>${chip(nineStrokes[2])}
       </td>
       <td class="opp-rank" rowspan="2">${oppRankStr}</td>
-      <td class="move-cell" rowspan="2">${moveCell}</td>
       <td class="score-cell${usDisp   === '—' ? ' score-dash' : ''}" rowspan="2">${usDisp}</td>
       <td class="score-cell${themDisp === '—' ? ' score-dash' : ''}" rowspan="2">${themDisp}</td>
       <td class="result-cell" rowspan="2">${resultCell}</td>
+      <td class="move-cell" rowspan="2">${moveCell}</td>
     </tr>
     <tr class="match-second">
       <td>
@@ -193,10 +193,10 @@ function renderTeam(data, teamNum) {
             <th>Team</th>
             <th>Opponent</th>
             <th>Opp Rank</th>
-            <th>Move</th>
             <th>Team</th>
             <th>Opp</th>
             <th>Result</th>
+            <th>Move</th>
           </tr>
         </thead>
         <tbody>${scheduleHTML}</tbody>
