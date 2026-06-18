@@ -22,6 +22,7 @@ function renderTeam(data, teamNum) {
   const isSun     = team.flight === 'Sunshine';
   const flightIcon  = isSun ? '☀' : '🍭';
   const flightBadge = isSun ? 'badge-sun' : 'badge-lol';
+  const { from1st, from5th } = calcPointsFromPositions(teamNum, team.flight, teams);
 
   // W/L/T record from round_scores
   const myScores = round_scores[String(teamNum)] || {};
@@ -145,6 +146,8 @@ function renderTeam(data, teamNum) {
             <span class="badge badge-points">${team.total_points} pts</span>
             <span class="badge badge-rank">${rankStr} of ${flightSize}</span>
             ${purseStr ? `<span class="badge badge-points">${purseStr} purse</span>` : ''}
+            ${from1st !== null ? `<span class="badge badge-points">${from1st === 0 ? 'In 1st' : `-${fmt(from1st)} from 1st`}</span>` : ''}
+            ${from5th !== null ? `<span class="badge badge-points">${from5th <= 0 ? 'In top 5' : `-${fmt(from5th)} from 5th`}</span>` : ''}
           </div>
         </div>
       </div>

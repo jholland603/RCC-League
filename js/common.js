@@ -135,6 +135,30 @@ function rankLabel(rankStr) {
   return rankStr.startsWith('T') ? rankStr : ordinal(parseInt(rankStr));
 }
 
+// Points behind 1st place and 5th place within the team's flight.
+// Returns { from1st, from5th } as non-negative numbers (0 if team IS that position,
+// or if fewer than 5 teams exist in the flight for from5th).
+function calcPointsFromPositions(teamNum, flight, teams) {
+  const flightTeams = teams
+    .filter(t => t.flight === flight)
+    .slice()
+    .sort((a, b) => b.total_points - a.total_points);
+
+  const me = flightTeams.find(t => t.team_number === teamNum);
+  if (!me) return { from1st: null, from5th: null };
+
+  const firstPlacePts = flightTeams[0]?.total_points ?? me.total_points;
+  const from1st = +(firstPlacePts - me.total_points).toFixed(2);
+
+  let from5th = null;
+  if (flightTeams.length >= 5) {
+    const fifthPlacePts = flightTeams[4].total_points;
+    from5th = +(fifthPlacePts - me.total_points).toFixed(2);
+  }
+
+  return { from1st, from5th };
+}
+
 // ── STRING HELPERS ───────────────────────────────────────────────────────────
 
 // "Holland, Jeffry" → "J. Holland"
