@@ -24,6 +24,11 @@ function renderTeam(data, teamNum) {
   const flightBadge = isSun ? 'badge-sun' : 'badge-lol';
   const { from1st, from5th } = calcPointsFromPositions(teamNum, team.flight, teams);
 
+  // Week-over-week rank movement (based on weekly_total_points, if available)
+  const weeklyTotalPoints = data.weekly_total_points || {};
+  const latestRound = latestWeeklyRound(weeklyTotalPoints);
+  const movement = latestRound ? calcMovement(teamNum, team.flight, teams, weeklyTotalPoints, latestRound) : null;
+
   // W/L/T record from round_scores
   const myScores = round_scores[String(teamNum)] || {};
   let wins = 0, losses = 0, ties = 0;
@@ -148,6 +153,13 @@ function renderTeam(data, teamNum) {
             ${purseStr ? `<span class="badge badge-points">${purseStr} purse</span>` : ''}
             ${from1st !== null ? `<span class="badge badge-points">${from1st === 0 ? 'In 1st' : `-${fmt(from1st)} from 1st`}</span>` : ''}
             ${from5th !== null ? `<span class="badge badge-points">${from5th <= 0 ? 'In top 5' : `-${fmt(from5th)} from 5th`}</span>` : ''}
+            ${movement !== null ? (
+              movement > 0
+                ? `<span class="badge badge-up">▲ ${movement} this week</span>`
+                : movement < 0
+                  ? `<span class="badge badge-down">▼ ${Math.abs(movement)} this week</span>`
+                  : `<span class="badge badge-flat">— no change this week</span>`
+            ) : ''}
           </div>
         </div>
       </div>

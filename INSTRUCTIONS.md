@@ -37,6 +37,7 @@ All data lives in `RCC_League_2026.json`. Never use prior conversation context o
   ],
   "schedule": { "round_N_wed_mon_dd": [[team_a, team_b], ...] },
   "round_scores": { "team_number": { "round_number": stored_score } },
+  "weekly_total_points": { "round_number": { "team_number": weekly_total } },
   "subs": [ { "name", "handicap_index", "stats" } ],
   "course_ratings": { "par": 72, "tees": { "blue": {rating, slope}, "combo": {rating, slope}, "white": {rating, slope} } },
   "nine_rotations": { "round_N_wed_mon_dd": { "Sunshine": "Front"|"Back", "Lollipops": "Front"|"Back" } }
@@ -59,6 +60,9 @@ Players with plus handicaps (better than scratch) are flagged with `"plus_handic
 
 ### Round Scores
 Values in `round_scores` are stored exactly as shown in the weekly points report. No conversion needed.
+
+### Weekly Total Points (for movers/trend tracking)
+`weekly_total_points` is a **separate** field from `round_scores`. Each week's "Team Points Summary" report (per-round, not cumulative) includes match points **plus attendance points**, so these numbers will NOT match `round_scores` for the same round — that's expected, not an error. Store these exactly as shown in that week's report. Used for week-over-week rank movement ("movers") on the schedule page.
 
 ### W/L/T and Margin (for display purposes)
 - Higher score = win, equal = tie.
@@ -145,7 +149,8 @@ Always display the schedule as a **markdown table**, not an HTML widget. Markdow
 ## WEEKLY UPDATE WORKFLOW
 When new data is provided:
 1. **Round scores** — add to `round_scores` exactly as shown in the report. No back-calculation needed.
-2. **Player stats** — update `teams[].players[].stats`. Unmatched names go in `subs[]`.
-3. **Team totals** — update `total_points` and `purse` directly from the standings report. **Do not calculate.**
-4. **Handicaps** (when a roster/handicap report is given) — update `handicap_index` for each player. A `+` prefix in the report means `plus_handicap: true`; store the index as a positive number either way.
-5. Save JSON and confirm what was updated.
+2. **Weekly total points** (if a "Team Points Summary" report is given) — add to `weekly_total_points` under that round number, exactly as shown. This is separate from `round_scores` and includes attendance points — do not reconcile the two.
+3. **Player stats** — update `teams[].players[].stats`. Unmatched names go in `subs[]`.
+4. **Team totals** — update `total_points` and `purse` directly from the standings report. **Do not calculate.**
+5. **Handicaps** (when a roster/handicap report is given) — update `handicap_index` for each player. A `+` prefix in the report means `plus_handicap: true`; store the index as a positive number either way.
+6. Save JSON and confirm what was updated.

@@ -199,3 +199,69 @@ function formatHI(hi, isPlus) {
   if (hi === null || hi === undefined) return '?';
   return isPlus ? `+${hi}` : `${hi}`;
 }
+
+// ── MOVERS / TREND UTILITIES ─────────────────────────────────────────────────
+// Built from `weekly_total_points`, which stores each week's individual round
+// total (match + attendance points) per team. We reconstruct a *cumulative*
+// total through any given round to rank teams at that point in time.
+
+// Returns { teamNum: cumulativeTotalThroughRound } for one flight.
+function cumulativeThroughRound(weeklyTotalPoints, teams, flight, throughRound) {
+  const flightTeamNums = teams.filter(t => t.flight === flight).map(t => t.team_number);
+  const cumulative = {};
+  flightTeamNums.forEach(tn => { cumulative[tn] = 0; });
+
+  for (let r = 1; r <= throughRound; r++) {
+    const weekData = weeklyTotalPoints[String(r)];
+    if (!weekData) continue;
+    flightTeamNums.forEach(tn => {
+      const pts = weekData[String(tn)];
+      if (pts !== undefined) cumulative[tn] += pts;
+    });
+  }
+  return cumulative;
+}
+
+// Ranks teams (within a flight) by a cumulative-points map. Returns { teamNum: rank }.
+// Rank = 1 + count of teams strictly ahead (ties share the same rank, like calcRank).
+function rankFromCumulative(cumulative) {
+  const entries = Object.entries(cumulative).map(([tn, pts]) => ({ tn: parseInt(tn), pts }));
+  const ranks = {};
+  entries.forEach(({ tn, pts }) => {
+    const above = entries.filter(e => e.pts > pts).length;
+    ranks[tn] = above + 1;
+  });
+  return ranks;
+}
+
+// Returns the team's rank movement from the previous round to the current round,
+// within their flight, based on cumulative weekly_total_points.
+// Positive = moved up (improved) in rank; negative = moved down; 0 = no change.
+// Returns null if there isn't enough data (e.g. round 1, or missing weeks).
+function calcMovement(teamNum, flight, teams, weeklyTotalPoints, currentRound) {
+  if (currentRound < 2) return null;
+
+  const prevRound = currentRound - 1;
+  const cumPrev = cumulativeThroughRound(weeklyTotalPoints, teams, flight, prevRound);
+  const cumCurr = cumulativeThroughRound(weeklyTotalPoints, teams, flight, currentRound);
+
+  // Bail if this team has no data in either snapshot.
+  if (cumPrev[teamNum] === undefined || cumCurr[teamNum] === undefined) return null;
+
+  const ranksPrev = rankFromCumulative(cumPrev);
+  const ranksCurr = rankFromCumulative(cumCurr);
+
+  const prevRank = ranksPrev[teamNum];
+  const currRank = ranksCurr[teamNum];
+  if (prevRank === undefined || currRank === undefined) return null;
+
+  // Moving to a lower rank number (e.g. 5th -> 3rd) is an improvement.
+  return prevRank - currRank;
+}
+
+// Finds the most recent round number that has weekly_total_points data.
+function latestWeeklyRound(weeklyTotalPoints) {
+  const rounds = Object.keys(weeklyTotalPoints || {}).map(r => parseInt(r));
+  if (rounds.length === 0) return null;
+  return Math.max(...rounds);
+}
