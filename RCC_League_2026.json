@@ -81,7 +81,7 @@
       "team_number": 1,
       "flight": "Sunshine",
       "players_display": "Ferullo, Kory + Allen, Jd",
-      "total_points": 37.0,
+      "total_points": 47.5,
       "purse": 0.0,
       "players": [
         {
@@ -117,7 +117,7 @@
       "team_number": 2,
       "flight": "Sunshine",
       "players_display": "Christie, Ian + Stevens, Cody",
-      "total_points": 32.5,
+      "total_points": 41.5,
       "purse": 0.0,
       "players": [
         {
@@ -153,7 +153,7 @@
       "team_number": 3,
       "flight": "Sunshine",
       "players_display": "Kretschmar, David + Strong, Kevin",
-      "total_points": 36.0,
+      "total_points": 42.0,
       "purse": 0.0,
       "players": [
         {
@@ -189,7 +189,7 @@
       "team_number": 4,
       "flight": "Sunshine",
       "players_display": "Blood, Ray + Mitcherson, Jeff",
-      "total_points": 28.5,
+      "total_points": 39.0,
       "purse": 0.0,
       "players": [
         {
@@ -225,7 +225,7 @@
       "team_number": 5,
       "flight": "Sunshine",
       "players_display": "Newton, Keith + Adjutant, Mike",
-      "total_points": 37.0,
+      "total_points": 47.5,
       "purse": 0.0,
       "players": [
         {
@@ -261,7 +261,7 @@
       "team_number": 6,
       "flight": "Sunshine",
       "players_display": "Carignan, Hunter + Strayer, Jackson",
-      "total_points": 41.5,
+      "total_points": 46.5,
       "purse": 25.0,
       "players": [
         {
@@ -297,7 +297,7 @@
       "team_number": 7,
       "flight": "Sunshine",
       "players_display": "Levesque, Todd + McCarthy, Ryan",
-      "total_points": 33.0,
+      "total_points": 44.0,
       "purse": 0.0,
       "players": [
         {
@@ -333,7 +333,7 @@
       "team_number": 8,
       "flight": "Sunshine",
       "players_display": "Cleveland, Jayson + Roy, Trevor",
-      "total_points": 40.0,
+      "total_points": 49.0,
       "purse": 25.0,
       "players": [
         {
@@ -369,7 +369,7 @@
       "team_number": 9,
       "flight": "Sunshine",
       "players_display": "Eggbiggboo, Jose + Catalfo, Chris",
-      "total_points": 35.5,
+      "total_points": 47.0,
       "purse": 25.0,
       "players": [
         {
@@ -405,7 +405,7 @@
       "team_number": 10,
       "flight": "Sunshine",
       "players_display": "Montigny, Don + Chavaree, Brett",
-      "total_points": 37.0,
+      "total_points": 45.0,
       "purse": 0.0,
       "players": [
         {
@@ -441,7 +441,7 @@
       "team_number": 11,
       "flight": "Sunshine",
       "players_display": "Edmunds, Mitch + Marino, Dj",
-      "total_points": 27.5,
+      "total_points": 34.5,
       "purse": 0.0,
       "players": [
         {
@@ -477,8 +477,8 @@
       "team_number": 12,
       "flight": "Sunshine",
       "players_display": "Vinciguerra, Caleb + Moore, Josh",
-      "total_points": 33.5,
-      "purse": 0.0,
+      "total_points": 44.5,
+      "purse": 25.0,
       "players": [
         {
           "name": "Vinciguerra, Caleb",
@@ -513,7 +513,7 @@
       "team_number": 13,
       "flight": "Sunshine",
       "players_display": "Milne, Gino + Cyr, Glenn",
-      "total_points": 33.0,
+      "total_points": 42.0,
       "purse": 0.0,
       "players": [
         {
@@ -549,7 +549,7 @@
       "team_number": 14,
       "flight": "Sunshine",
       "players_display": "Paquette, Brock + Paquette, Wade",
-      "total_points": 33.5,
+      "total_points": 40.0,
       "purse": 0.0,
       "players": [
         {
@@ -585,7 +585,7 @@
       "team_number": 15,
       "flight": "Sunshine",
       "players_display": "Morris, John + Hussey, Brendan",
-      "total_points": 36.0,
+      "total_points": 45.0,
       "purse": 0.0,
       "players": [
         {
@@ -621,7 +621,7 @@
       "team_number": 16,
       "flight": "Sunshine",
       "players_display": "Macgregor, Nick + Creteau, Rick",
-      "total_points": 30.0,
+      "total_points": 37.0,
       "purse": 25.0,
       "players": [
         {
@@ -657,7 +657,7 @@
       "team_number": 17,
       "flight": "Sunshine",
       "players_display": "Angelopoulos, Chris + Todd, Heath",
-      "total_points": 36.0,
+      "total_points": 48.0,
       "purse": 0.0,
       "players": [
         {
@@ -693,7 +693,7 @@
       "team_number": 18,
       "flight": "Sunshine",
       "players_display": "Hamilton, Matthew + Cordeiro, Ryan",
-      "total_points": 34.5,
+      "total_points": 42.0,
       "purse": 0.0,
       "players": [
         {
@@ -729,8 +729,8 @@
       "team_number": 19,
       "flight": "Sunshine",
       "players_display": "Conroy, Casey + Faist, Eric",
-      "total_points": 30.0,
-      "purse": 50.0,
+      "total_points": 37.5,
+      "purse": 100.0,
       "players": [
         {
           "name": "Conroy, Casey",
@@ -764,7 +764,7 @@
       "team_number": 20,
       "flight": "Sunshine",
       "players_display": "Puffer, Stephen + Rowntree, Jack",
-      "total_points": 32.0,
+      "total_points": 42.0,
       "purse": 0.0,
       "players": [
         {
@@ -800,7 +800,7 @@
       "team_number": 21,
       "flight": "Sunshine",
       "players_display": "Hanson, Scott + Hanson, Trevor",
-      "total_points": 29.0,
+      "total_points": 36.0,
       "purse": 0.0,
       "players": [
         {
@@ -836,7 +836,7 @@
       "team_number": 22,
       "flight": "Sunshine",
       "players_display": "Ceppetelli, Dante + Frank, Cameron",
-      "total_points": 36.0,
+      "total_points": 42.0,
       "purse": 0.0,
       "players": [
         {
@@ -872,7 +872,7 @@
       "team_number": 23,
       "flight": "Sunshine",
       "players_display": "Radwan, Jacob + Pridham, Casey",
-      "total_points": 28.0,
+      "total_points": 33.5,
       "purse": 0.0,
       "players": [
         {
@@ -908,7 +908,7 @@
       "team_number": 24,
       "flight": "Sunshine",
       "players_display": "Keough, Jay + White, Erik",
-      "total_points": 24.0,
+      "total_points": 32.0,
       "purse": 0.0,
       "players": [
         {
@@ -944,7 +944,7 @@
       "team_number": 25,
       "flight": "Sunshine",
       "players_display": "Roberts, Luke + McCabe, Dyllan",
-      "total_points": 23.0,
+      "total_points": 31.0,
       "purse": 0.0,
       "players": [
         {
@@ -980,7 +980,7 @@
       "team_number": 26,
       "flight": "Sunshine",
       "players_display": "Holland, Jeffry + Spalding, David",
-      "total_points": 29.5,
+      "total_points": 40.0,
       "purse": 0.0,
       "players": [
         {
@@ -1016,7 +1016,7 @@
       "team_number": 27,
       "flight": "Sunshine",
       "players_display": "Tapley, Josh + Pepin, Drew",
-      "total_points": 29.5,
+      "total_points": 36.0,
       "purse": 0.0,
       "players": [
         {
@@ -1052,7 +1052,7 @@
       "team_number": 28,
       "flight": "Sunshine",
       "players_display": "Daudelin, Doug + Zwirn, Robert",
-      "total_points": 35.5,
+      "total_points": 43.0,
       "purse": 0.0,
       "players": [
         {
@@ -1088,7 +1088,7 @@
       "team_number": 29,
       "flight": "Sunshine",
       "players_display": "Gadomski, Bob + Hite, Mark",
-      "total_points": 36.5,
+      "total_points": 46.5,
       "purse": 0.0,
       "players": [
         {
@@ -1124,8 +1124,8 @@
       "team_number": 30,
       "flight": "Sunshine",
       "players_display": "LaChapelle, Logan + Zriny, Nate",
-      "total_points": 26.5,
-      "purse": 0.0,
+      "total_points": 36.5,
+      "purse": 25.0,
       "players": [
         {
           "name": "LaChapelle, Logan",
@@ -1160,7 +1160,7 @@
       "team_number": 31,
       "flight": "Sunshine",
       "players_display": "Harte, Mike + Ferullo, Lou",
-      "total_points": 29.0,
+      "total_points": 40.5,
       "purse": 0.0,
       "players": [
         {
@@ -1196,7 +1196,7 @@
       "team_number": 32,
       "flight": "Sunshine",
       "players_display": "Ceppetelli, Derek + McKenney, Jim",
-      "total_points": 33.5,
+      "total_points": 43.5,
       "purse": 0.0,
       "players": [
         {
@@ -1231,8 +1231,8 @@
     {
       "team_number": 33,
       "flight": "Lollipops",
-      "players_display": "Carignan, Derek + Eastman, Craig",
-      "total_points": 31.0,
+      "players_display": "Carignan, Derek + Young, Brian",
+      "total_points": 36.0,
       "purse": 25.0,
       "players": [
         {
@@ -1249,7 +1249,7 @@
           "tee": "combo"
         },
         {
-          "name": "Eastman, Craig",
+          "name": "Young, Brian",
           "handicap_index": 21.7,
           "stats": {
             "eagles": 0,
@@ -1268,7 +1268,7 @@
       "team_number": 34,
       "flight": "Lollipops",
       "players_display": "White, Tucker + Hederman, Michael",
-      "total_points": 22.0,
+      "total_points": 30.0,
       "purse": 0.0,
       "players": [
         {
@@ -1304,7 +1304,7 @@
       "team_number": 35,
       "flight": "Lollipops",
       "players_display": "Reisert, Kevin + Morin, Joe",
-      "total_points": 36.0,
+      "total_points": 47.0,
       "purse": 0.0,
       "players": [
         {
@@ -1340,7 +1340,7 @@
       "team_number": 36,
       "flight": "Lollipops",
       "players_display": "Strayer, James + Putney, Phil",
-      "total_points": 34.0,
+      "total_points": 44.5,
       "purse": 0.0,
       "players": [
         {
@@ -1376,8 +1376,8 @@
       "team_number": 37,
       "flight": "Lollipops",
       "players_display": "Perron, Jake + King, Carter",
-      "total_points": 38.0,
-      "purse": 0.0,
+      "total_points": 48.0,
+      "purse": 25.0,
       "players": [
         {
           "name": "Perron, Jake",
@@ -1412,7 +1412,7 @@
       "team_number": 38,
       "flight": "Lollipops",
       "players_display": "Dias, Chris + Genkinger, Darryl",
-      "total_points": 36.0,
+      "total_points": 46.5,
       "purse": 25.0,
       "players": [
         {
@@ -1448,7 +1448,7 @@
       "team_number": 39,
       "flight": "Lollipops",
       "players_display": "Shannon, Jim + Robar, Jeffrey",
-      "total_points": 32.5,
+      "total_points": 40.5,
       "purse": 0.0,
       "players": [
         {
@@ -1484,7 +1484,7 @@
       "team_number": 40,
       "flight": "Lollipops",
       "players_display": "Campbell, Packy + Trepanier, Paul",
-      "total_points": 38.5,
+      "total_points": 45.5,
       "purse": 0.0,
       "players": [
         {
@@ -1520,7 +1520,7 @@
       "team_number": 41,
       "flight": "Lollipops",
       "players_display": "Carbonar, Tony + Harrigan, Colin",
-      "total_points": 34.0,
+      "total_points": 45.5,
       "purse": 0.0,
       "players": [
         {
@@ -1556,7 +1556,7 @@
       "team_number": 42,
       "flight": "Lollipops",
       "players_display": "Foss, Christopher + Berthiaume, Jeremy",
-      "total_points": 29.0,
+      "total_points": 38.5,
       "purse": 25.0,
       "players": [
         {
@@ -1592,7 +1592,7 @@
       "team_number": 43,
       "flight": "Lollipops",
       "players_display": "Billings, Derek + Ambrogio, Andrew",
-      "total_points": 38.0,
+      "total_points": 48.0,
       "purse": 0.0,
       "players": [
         {
@@ -1628,7 +1628,7 @@
       "team_number": 44,
       "flight": "Lollipops",
       "players_display": "Cardarelli, Kevin + Nelson, Don",
-      "total_points": 36.0,
+      "total_points": 44.0,
       "purse": 25.0,
       "players": [
         {
@@ -1664,7 +1664,7 @@
       "team_number": 45,
       "flight": "Lollipops",
       "players_display": "Dureau, Greg + Dureau, Nate",
-      "total_points": 41.5,
+      "total_points": 49.0,
       "purse": 0.0,
       "players": [
         {
@@ -1700,7 +1700,7 @@
       "team_number": 46,
       "flight": "Lollipops",
       "players_display": "Jolly, Mike + DiMartino, Derek",
-      "total_points": 25.5,
+      "total_points": 27.5,
       "purse": 0.0,
       "players": [
         {
@@ -1736,7 +1736,7 @@
       "team_number": 47,
       "flight": "Lollipops",
       "players_display": "Bouchie, Marty + Carmichael, Jeff",
-      "total_points": 36.0,
+      "total_points": 47.0,
       "purse": 0.0,
       "players": [
         {
@@ -1772,8 +1772,8 @@
       "team_number": 48,
       "flight": "Lollipops",
       "players_display": "Fournier, Joe + Scott, Andy",
-      "total_points": 30.0,
-      "purse": 0.0,
+      "total_points": 39.0,
+      "purse": 25.0,
       "players": [
         {
           "name": "Fournier, Joe",
@@ -1808,7 +1808,7 @@
       "team_number": 49,
       "flight": "Lollipops",
       "players_display": "Behan, Bill + Noel, Rod",
-      "total_points": 27.0,
+      "total_points": 34.5,
       "purse": 0.0,
       "players": [
         {
@@ -1844,7 +1844,7 @@
       "team_number": 50,
       "flight": "Lollipops",
       "players_display": "Martin, Jason + Hills, Rob",
-      "total_points": 26.5,
+      "total_points": 34.5,
       "purse": 0.0,
       "players": [
         {
@@ -1880,7 +1880,7 @@
       "team_number": 51,
       "flight": "Lollipops",
       "players_display": "Wojtkowski, Noah + Maccallum, Donald",
-      "total_points": 32.5,
+      "total_points": 40.0,
       "purse": 25.0,
       "players": [
         {
@@ -1916,7 +1916,7 @@
       "team_number": 52,
       "flight": "Lollipops",
       "players_display": "Hart, Hunter + Lebell, Daniel",
-      "total_points": 34.5,
+      "total_points": 41.5,
       "purse": 0.0,
       "players": [
         {
@@ -1952,7 +1952,7 @@
       "team_number": 53,
       "flight": "Lollipops",
       "players_display": "Crowell, Steve + Taylor, John",
-      "total_points": 24.0,
+      "total_points": 32.0,
       "purse": 0.0,
       "players": [
         {
@@ -1987,7 +1987,7 @@
       "team_number": 54,
       "flight": "Lollipops",
       "players_display": "Douglas, Kurt + Foster, Steve",
-      "total_points": 20.5,
+      "total_points": 29.0,
       "purse": 0.0,
       "players": [
         {
@@ -2022,8 +2022,8 @@
       "team_number": 55,
       "flight": "Lollipops",
       "players_display": "Ciccotelli, Mike + Lagace, Alex",
-      "total_points": 34.0,
-      "purse": 0.0,
+      "total_points": 46.5,
+      "purse": 25.0,
       "players": [
         {
           "name": "Ciccotelli, Mike",
@@ -2058,8 +2058,8 @@
       "team_number": 56,
       "flight": "Lollipops",
       "players_display": "Trowbridge, Andrew + Mertens, Scott",
-      "total_points": 37.0,
-      "purse": 0.0,
+      "total_points": 46.0,
+      "purse": 25.0,
       "players": [
         {
           "name": "Trowbridge, Andrew",
@@ -2094,7 +2094,7 @@
       "team_number": 57,
       "flight": "Lollipops",
       "players_display": "Desrosiers, David + Desrosiers, Jeffrey",
-      "total_points": 26.0,
+      "total_points": 34.0,
       "purse": 0.0,
       "players": [
         {
@@ -2130,7 +2130,7 @@
       "team_number": 58,
       "flight": "Lollipops",
       "players_display": "Porter, Bob + Hadley, Brian",
-      "total_points": 34.5,
+      "total_points": 38.5,
       "purse": 0.0,
       "players": [
         {
@@ -2166,7 +2166,7 @@
       "team_number": 59,
       "flight": "Lollipops",
       "players_display": "Dunnells, Cliff + Kelly, John",
-      "total_points": 37.5,
+      "total_points": 49.5,
       "purse": 0.0,
       "players": [
         {
@@ -2202,7 +2202,7 @@
       "team_number": 60,
       "flight": "Lollipops",
       "players_display": "Guptill, Ian + Turcotte, Matt",
-      "total_points": 35.5,
+      "total_points": 39.5,
       "purse": 0.0,
       "players": [
         {
@@ -2238,7 +2238,7 @@
       "team_number": 61,
       "flight": "Lollipops",
       "players_display": "McKenney, David + Dias, Drew",
-      "total_points": 34.0,
+      "total_points": 44.0,
       "purse": 0.0,
       "players": [
         {
@@ -2274,7 +2274,7 @@
       "team_number": 62,
       "flight": "Lollipops",
       "players_display": "Foss, Ryan + Stokes, Mark",
-      "total_points": 26.0,
+      "total_points": 35.0,
       "purse": 0.0,
       "players": [
         {
@@ -2310,7 +2310,7 @@
       "team_number": 63,
       "flight": "Lollipops",
       "players_display": "Powers, Ty + Bogan, David",
-      "total_points": 29.5,
+      "total_points": 35.0,
       "purse": 0.0,
       "players": [
         {
@@ -2346,7 +2346,7 @@
       "team_number": 64,
       "flight": "Lollipops",
       "players_display": "Jacques, Kevin + Vetter, Scott",
-      "total_points": 24.0,
+      "total_points": 31.5,
       "purse": 25.0,
       "players": [
         {
@@ -4841,448 +4841,512 @@
       "2": 9.0,
       "3": 7.0,
       "4": 6.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 2.0
     },
     "8": {
       "1": 7.0,
       "2": 8.0,
       "3": 7.0,
       "4": 4.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 5.0
     },
     "9": {
       "1": 7.5,
       "2": 6.5,
       "3": 3.5,
       "4": 6.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 7.5
     },
     "10": {
       "1": 6.5,
       "2": 7.5,
       "3": 6.5,
       "4": 3.5,
-      "5": 5.0
+      "5": 5.0,
+      "6": 5.0
     },
     "29": {
       "1": 6.0,
       "2": 7.5,
       "3": 5.0,
       "4": 6.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 6.0
     },
     "17": {
       "1": 6.0,
       "2": 6.5,
       "3": 6.0,
       "4": 6.5,
-      "5": 4.0
+      "5": 4.0,
+      "6": 8.0
     },
     "13": {
       "1": 6.0,
       "2": 6.5,
       "3": 5.0,
       "4": 3.5,
-      "5": 5.0
+      "5": 5.0,
+      "6": 5.0
     },
     "12": {
       "1": 6.5,
       "2": 6.0,
       "3": 4.0,
       "4": 4.0,
-      "5": 5.0
+      "5": 5.0,
+      "6": 7.0
     },
     "7": {
       "1": 7.0,
       "2": 5.0,
       "3": 3.5,
       "4": 6.0,
-      "5": 3.5
+      "5": 3.5,
+      "6": 7.0
     },
     "32": {
       "1": 5.0,
       "2": 7.0,
       "3": 4.0,
       "4": 3.5,
-      "5": 6.0
+      "5": 6.0,
+      "6": 8.0
     },
     "1": {
       "1": 5.0,
       "2": 7.0,
       "3": 7.0,
       "4": 4.0,
-      "5": 7.0
+      "5": 7.0,
+      "6": 7.5
     },
     "3": {
       "1": 6.0,
       "2": 5.0,
       "3": 6.0,
       "4": 8.5,
-      "5": 2.5
+      "5": 2.5,
+      "6": 4.0
     },
     "28": {
       "1": 6.0,
       "2": 5.0,
       "3": 6.0,
       "4": 7.5,
-      "5": 3.0
+      "5": 3.0,
+      "6": 3.5
     },
     "20": {
       "1": 4.0,
       "2": 6.5,
       "3": 6.5,
       "4": 4.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 6.0
     },
     "14": {
       "1": 6.5,
       "2": 3.5,
       "3": 3.0,
       "4": 6.5,
-      "5": 6.0
+      "5": 6.0,
+      "6": 2.5
     },
     "22": {
       "1": 6.5,
       "2": 3.5,
       "3": 6.5,
       "4": 4.0,
-      "5": 7.5
+      "5": 7.5,
+      "6": 2.0
     },
     "15": {
       "1": 4.0,
       "2": 6.0,
       "3": 7.0,
       "4": 6.0,
-      "5": 5.0
+      "5": 5.0,
+      "6": 5.0
     },
     "5": {
       "1": 4.0,
       "2": 6.0,
       "3": 7.0,
       "4": 6.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 6.5
     },
     "18": {
       "1": 6.0,
       "2": 3.5,
       "3": 6.5,
       "4": 4.0,
-      "5": 6.5
+      "5": 6.5,
+      "6": 3.5
     },
     "4": {
       "1": 4.0,
       "2": 5.0,
       "3": 6.0,
       "4": 3.5,
-      "5": 2.0
+      "5": 2.0,
+      "6": 6.5
     },
     "31": {
       "1": 5.0,
       "2": 3.0,
       "3": 5.0,
       "4": 5.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 7.5
     },
     "16": {
       "1": 4.0,
       "2": 4.0,
       "3": 5.0,
       "4": 4.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 3.0
     },
     "27": {
       "1": 2.5,
       "2": 5.0,
       "3": 4.0,
       "4": 5.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 2.5
     },
     "24": {
       "1": 2.5,
       "2": 5.0,
       "3": 3.0,
       "4": 1.5,
-      "5": 4.0
+      "5": 4.0,
+      "6": 4.0
     },
     "2": {
       "1": 5.0,
       "2": 2.5,
       "3": 6.0,
       "4": 7.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 6.0
     },
     "19": {
       "1": 3.5,
       "2": 4.0,
       "3": 3.5,
       "4": 6.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 3.5
     },
     "26": {
       "1": 3.0,
       "2": 4.0,
       "3": 4.0,
       "4": 6.5,
-      "5": 4.0
+      "5": 4.0,
+      "6": 6.5
     },
     "30": {
       "1": 4.0,
       "2": 3.0,
       "3": 3.0,
       "4": 2.5,
-      "5": 6.0
+      "5": 6.0,
+      "6": 6.0
     },
     "11": {
       "1": 3.5,
       "2": 3.5,
       "3": 3.5,
       "4": 6.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 3.0
     },
     "21": {
       "1": 3.5,
       "2": 2.5,
       "3": 3.0,
       "4": 4.0,
-      "5": 8.0
+      "5": 8.0,
+      "6": 4.0
     },
     "23": {
       "1": 3.5,
       "2": 2.0,
       "3": 3.0,
       "4": 6.5,
-      "5": 6.0
+      "5": 6.0,
+      "6": 2.5
     },
     "25": {
       "1": 3.0,
       "2": 1.0,
       "3": 4.0,
       "4": 3.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 4.0
     },
     "44": {
       "1": 6.5,
       "2": 7.0,
       "3": 8.0,
       "4": 4.0,
-      "5": 2.5
+      "5": 2.5,
+      "6": 4.0
     },
     "64": {
       "1": 7.5,
       "2": 6.0,
       "3": 3.5,
       "4": 5.0,
-      "5": 1.0
+      "5": 1.0,
+      "6": 3.5
     },
     "43": {
       "1": 6.5,
       "2": 6.5,
       "3": 7.5,
       "4": 3.5,
-      "5": 6.0
+      "5": 6.0,
+      "6": 6.0
     },
     "35": {
       "1": 6.5,
       "2": 6.0,
       "3": 4.0,
       "4": 5.0,
-      "5": 7.5
+      "5": 7.5,
+      "6": 7.0
     },
     "56": {
       "1": 6.5,
       "2": 6.0,
       "3": 2.5,
       "4": 5.0,
-      "5": 9.0
+      "5": 9.0,
+      "6": 5.0
     },
     "40": {
       "1": 6.5,
       "2": 6.0,
       "3": 6.0,
       "4": 6.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 3.0
     },
     "59": {
       "1": 6.5,
       "2": 5.0,
       "3": 6.0,
       "4": 6.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 8.0
     },
     "58": {
       "1": 7.5,
       "2": 4.0,
       "3": 6.0,
       "4": 5.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 0.0
     },
     "47": {
       "1": 4.0,
       "2": 7.0,
       "3": 8.0,
       "4": 6.0,
-      "5": 3.0
+      "5": 3.0,
+      "6": 7.0
     },
     "37": {
       "1": 5.0,
       "2": 6.0,
       "3": 7.5,
       "4": 8.0,
-      "5": 3.5
+      "5": 3.5,
+      "6": 6.0
     },
     "52": {
       "1": 7.5,
       "2": 3.5,
       "3": 4.0,
       "4": 5.0,
-      "5": 6.5
+      "5": 6.5,
+      "6": 3.0
     },
     "61": {
       "1": 6.0,
       "2": 5.0,
       "3": 6.0,
       "4": 6.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 6.0
     },
     "55": {
       "1": 7.0,
       "2": 4.0,
       "3": 2.5,
       "4": 6.0,
-      "5": 6.5
+      "5": 6.5,
+      "6": 8.5
     },
     "46": {
       "1": 4.0,
       "2": 6.5,
       "3": 2.0,
       "4": 1.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 2.5
     },
     "48": {
       "1": 7.0,
       "2": 3.0,
       "3": 1.5,
       "4": 6.5,
-      "5": 5.0
+      "5": 5.0,
+      "6": 6.0
     },
     "38": {
       "1": 3.5,
       "2": 6.5,
       "3": 7.5,
       "4": 6.5,
-      "5": 5.0
+      "5": 5.0,
+      "6": 6.5
     },
     "50": {
       "1": 6.0,
       "2": 4.0,
       "3": 2.5,
       "4": 3.5,
-      "5": 3.5
+      "5": 3.5,
+      "6": 4.0
     },
     "33": {
       "1": 2.5,
       "2": 7.0,
       "3": 6.5,
       "4": 4.0,
-      "5": 5.0
+      "5": 5.0,
+      "6": 2.0
     },
     "63": {
       "1": 6.5,
       "2": 3.0,
       "3": 4.0,
       "4": 4.0,
-      "5": 7.0
+      "5": 7.0,
+      "6": 1.5
     },
     "60": {
       "1": 5.0,
       "2": 4.0,
       "3": 6.5,
       "4": 7.0,
-      "5": 5.0
+      "5": 5.0,
+      "6": 0.0
     },
     "36": {
       "1": 4.0,
       "2": 5.0,
       "3": 7.0,
       "4": 4.0,
-      "5": 6.0
+      "5": 6.0,
+      "6": 6.5
     },
     "51": {
       "1": 6.0,
       "2": 3.0,
       "3": 7.5,
       "4": 4.0,
-      "5": 5.0
+      "5": 5.0,
+      "6": 3.5
     },
     "41": {
       "1": 3.5,
       "2": 5.0,
       "3": 6.0,
       "4": 6.5,
-      "5": 5.0
+      "5": 5.0,
+      "6": 7.5
     },
     "45": {
       "1": 2.5,
       "2": 6.0,
       "3": 8.5,
       "4": 9.0,
-      "5": 7.5
+      "5": 7.5,
+      "6": 3.5
     },
     "54": {
       "1": 3.5,
       "2": 5.0,
       "3": 3.5,
       "4": 2.0,
-      "5": 2.5
+      "5": 2.5,
+      "6": 6.5
     },
     "42": {
       "1": 3.0,
       "2": 5.0,
       "3": 2.5,
       "4": 3.5,
-      "5": 7.0
+      "5": 7.0,
+      "6": 6.5
     },
     "62": {
       "1": 3.5,
       "2": 4.0,
       "3": 3.5,
       "4": 3.0,
-      "5": 4.0
+      "5": 4.0,
+      "6": 5.0
     },
     "57": {
       "1": 3.5,
       "2": 3.5,
       "3": 3.0,
       "4": 5.0,
-      "5": 3.0
+      "5": 3.0,
+      "6": 4.0
     },
     "39": {
       "1": 2.5,
       "2": 4.0,
       "3": 6.5,
       "4": 5.0,
-      "5": 6.5
+      "5": 6.5,
+      "6": 4.0
     },
     "49": {
       "1": 3.0,
       "2": 3.5,
       "3": 2.0,
       "4": 6.5,
-      "5": 4.0
+      "5": 4.0,
+      "6": 3.5
     },
     "53": {
       "1": 3.5,
       "2": 5.0,
       "3": 4.0,
       "4": 3.5,
-      "5": 4.0
+      "5": 4.0,
+      "6": 6.0
     },
     "34": {
       "1": 3.5,
       "2": 0.0,
       "3": 4.0,
       "4": 5.0,
-      "5": 3.5
+      "5": 3.5,
+      "6": 4.0
     }
   },
   "course_ratings": {
