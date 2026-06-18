@@ -83,6 +83,16 @@ function renderTeam(data, teamNum) {
     const oppRank     = calcRank(oppNum, oppTeam.flight, teams);
     const oppRankStr  = rankLabel(oppRank);
 
+    // movement: this team's flight-rank change from the prior week to this week
+    const weeklyTotalPoints = data.weekly_total_points || {};
+    const rndMovement = calcMovement(teamNum, team.flight, teams, weeklyTotalPoints, rndNum);
+    let moveCell = `<span class="move-none">—</span>`;
+    if (rndMovement !== null) {
+      if (rndMovement > 0)      moveCell = `<span class="move-up">▲${rndMovement}</span>`;
+      else if (rndMovement < 0) moveCell = `<span class="move-down">▼${Math.abs(rndMovement)}</span>`;
+      else                      moveCell = `<span class="move-flat">—</span>`;
+    }
+
     // result badge HTML
     let resultCell = `<span class="res-none">—</span>`;
     if (scoreData) {
@@ -114,6 +124,7 @@ function renderTeam(data, teamNum) {
         <span class="opp-hi">(${formatHI(oppTeam.players[0]?.handicap_index, oppTeam.players[0]?.plus_handicap)})</span>${chip(nineStrokes[2])}
       </td>
       <td class="opp-rank" rowspan="2">${oppRankStr}</td>
+      <td class="move-cell" rowspan="2">${moveCell}</td>
       <td class="score-cell${usDisp   === '—' ? ' score-dash' : ''}" rowspan="2">${usDisp}</td>
       <td class="score-cell${themDisp === '—' ? ' score-dash' : ''}" rowspan="2">${themDisp}</td>
       <td class="result-cell" rowspan="2">${resultCell}</td>
@@ -182,6 +193,7 @@ function renderTeam(data, teamNum) {
             <th>Team</th>
             <th>Opponent</th>
             <th>Opp Rank</th>
+            <th>Move</th>
             <th>Team</th>
             <th>Opp</th>
             <th>Result</th>
