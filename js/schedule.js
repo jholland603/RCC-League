@@ -60,10 +60,10 @@ function renderTeam(data, teamNum) {
 
     // stroke allocation
     const fourPlayers = [
-      { hi: team.players[0]?.handicap_index    || 0, tee: team.players[0]?.tee    || 'blue' },
-      { hi: team.players[1]?.handicap_index    || 0, tee: team.players[1]?.tee    || 'blue' },
-      { hi: oppTeam.players[0]?.handicap_index || 0, tee: oppTeam.players[0]?.tee || 'blue' },
-      { hi: oppTeam.players[1]?.handicap_index || 0, tee: oppTeam.players[1]?.tee || 'blue' },
+      { hi: team.players[0]?.handicap_index    || 0, tee: team.players[0]?.tee    || 'blue', isPlus: team.players[0]?.plus_handicap    || false },
+      { hi: team.players[1]?.handicap_index    || 0, tee: team.players[1]?.tee    || 'blue', isPlus: team.players[1]?.plus_handicap    || false },
+      { hi: oppTeam.players[0]?.handicap_index || 0, tee: oppTeam.players[0]?.tee || 'blue', isPlus: oppTeam.players[0]?.plus_handicap || false },
+      { hi: oppTeam.players[1]?.handicap_index || 0, tee: oppTeam.players[1]?.tee || 'blue', isPlus: oppTeam.players[1]?.plus_handicap || false },
     ];
     const fullStrokes = getStrokesFor4(fourPlayers, course_ratings);
     const nineStrokes = strokesFor9(fullStrokes, nine);
@@ -102,11 +102,11 @@ function renderTeam(data, teamNum) {
       <td class="nine-cell" rowspan="2">${nine}</td>
       <td>
         <span class="opp-name">${shortName(team.players[0]?.name)}</span>
-        <span class="opp-hi">(${team.players[0]?.handicap_index ?? '?'})</span>${chip(nineStrokes[0])}
+        <span class="opp-hi">(${formatHI(team.players[0]?.handicap_index, team.players[0]?.plus_handicap)})</span>${chip(nineStrokes[0])}
       </td>
       <td>
         <span class="opp-name">${shortName(oppTeam.players[0]?.name)}</span>
-        <span class="opp-hi">(${oppTeam.players[0]?.handicap_index ?? '?'})</span>${chip(nineStrokes[2])}
+        <span class="opp-hi">(${formatHI(oppTeam.players[0]?.handicap_index, oppTeam.players[0]?.plus_handicap)})</span>${chip(nineStrokes[2])}
       </td>
       <td class="opp-rank" rowspan="2">${oppRankStr}</td>
       <td class="score-cell${usDisp   === '—' ? ' score-dash' : ''}" rowspan="2">${usDisp}</td>
@@ -116,11 +116,11 @@ function renderTeam(data, teamNum) {
     <tr class="match-second">
       <td>
         <span class="opp-name">${shortName(team.players[1]?.name)}</span>
-        <span class="opp-hi">(${team.players[1]?.handicap_index ?? '?'})</span>${chip(nineStrokes[1])}
+        <span class="opp-hi">(${formatHI(team.players[1]?.handicap_index, team.players[1]?.plus_handicap)})</span>${chip(nineStrokes[1])}
       </td>
       <td>
         <span class="opp-name">${shortName(oppTeam.players[1]?.name)}</span>
-        <span class="opp-hi">(${oppTeam.players[1]?.handicap_index ?? '?'})</span>${chip(nineStrokes[3])}
+        <span class="opp-hi">(${formatHI(oppTeam.players[1]?.handicap_index, oppTeam.players[1]?.plus_handicap)})</span>${chip(nineStrokes[3])}
       </td>
     </tr>`;
   });
@@ -131,7 +131,7 @@ function renderTeam(data, teamNum) {
       <div class="player-avatar">${initials(p.name || '')}</div>
       <div>
         <div class="player-name">${p.name || '—'}</div>
-        <div class="player-detail">HI: ${p.handicap_index ?? '?'}${p.tee ? ' · ' + p.tee + ' tees' : ''}</div>
+        <div class="player-detail">HI: ${formatHI(p.handicap_index, p.plus_handicap)}${p.tee ? ' · ' + p.tee + ' tees' : ''}</div>
       </div>
     </div>`).join('');
 

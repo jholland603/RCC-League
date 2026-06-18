@@ -86,7 +86,7 @@
       "players": [
         {
           "name": "Ferullo, Kory",
-          "handicap_index": 0.6,
+          "handicap_index": 0.1,
           "stats": {
             "eagles": 0,
             "birdies": 3,
@@ -95,11 +95,12 @@
             "doubles": 0,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": true
         },
         {
           "name": "Allen, Jd",
-          "handicap_index": 7.7,
+          "handicap_index": 8.4,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -108,7 +109,8 @@
             "doubles": 4,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -122,7 +124,7 @@
       "players": [
         {
           "name": "Christie, Ian",
-          "handicap_index": 6.0,
+          "handicap_index": 7.8,
           "stats": {
             "eagles": 1,
             "birdies": 1,
@@ -131,11 +133,12 @@
             "doubles": 1,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Stevens, Cody",
-          "handicap_index": 1.7,
+          "handicap_index": 1.5,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -144,7 +147,8 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -158,7 +162,7 @@
       "players": [
         {
           "name": "Kretschmar, David",
-          "handicap_index": 10.7,
+          "handicap_index": 10.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -167,11 +171,12 @@
             "doubles": 3,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Strong, Kevin",
-          "handicap_index": 0.7,
+          "handicap_index": 0.5,
           "stats": {
             "eagles": 0,
             "birdies": 6,
@@ -180,7 +185,8 @@
             "doubles": 1,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": true
         }
       ],
       "overall_rank": 0
@@ -194,7 +200,7 @@
       "players": [
         {
           "name": "Blood, Ray",
-          "handicap_index": 10.4,
+          "handicap_index": 10.7,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -203,7 +209,8 @@
             "doubles": 6,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Mitcherson, Jeff",
@@ -216,7 +223,8 @@
             "doubles": 0,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -230,7 +238,7 @@
       "players": [
         {
           "name": "Newton, Keith",
-          "handicap_index": 5.2,
+          "handicap_index": 6.1,
           "stats": {
             "eagles": 0,
             "birdies": 4,
@@ -239,11 +247,12 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Adjutant, Mike",
-          "handicap_index": 5.6,
+          "handicap_index": 6.0,
           "stats": {
             "eagles": 1,
             "birdies": 2,
@@ -252,7 +261,8 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -266,7 +276,7 @@
       "players": [
         {
           "name": "Carignan, Hunter",
-          "handicap_index": 5.9,
+          "handicap_index": 4.5,
           "stats": {
             "eagles": 0,
             "birdies": 9,
@@ -275,11 +285,12 @@
             "doubles": 3,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Strayer, Jackson",
-          "handicap_index": 5.5,
+          "handicap_index": 5.8,
           "stats": {
             "eagles": 0,
             "birdies": 6,
@@ -288,7 +299,8 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -302,7 +314,7 @@
       "players": [
         {
           "name": "Levesque, Todd",
-          "handicap_index": 5.6,
+          "handicap_index": 6.9,
           "stats": {
             "eagles": 0,
             "birdies": 3,
@@ -311,11 +323,12 @@
             "doubles": 6,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "McCarthy, Ryan",
-          "handicap_index": 6.0,
+          "handicap_index": 4.3,
           "stats": {
             "eagles": 0,
             "birdies": 8,
@@ -324,7 +337,8 @@
             "doubles": 0,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -338,7 +352,7 @@
       "players": [
         {
           "name": "Cleveland, Jayson",
-          "handicap_index": 0.6,
+          "handicap_index": 0.8,
           "stats": {
             "eagles": 1,
             "birdies": 11,
@@ -347,11 +361,12 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": true
         },
         {
           "name": "Roy, Trevor",
-          "handicap_index": 13.5,
+          "handicap_index": 13.1,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -360,7 +375,8 @@
             "doubles": 11,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -374,7 +390,7 @@
       "players": [
         {
           "name": "Eggbiggboo, Jose",
-          "handicap_index": 9.4,
+          "handicap_index": 10.1,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -383,11 +399,12 @@
             "doubles": 6,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Catalfo, Chris",
-          "handicap_index": 4.7,
+          "handicap_index": 4.1,
           "stats": {
             "eagles": 0,
             "birdies": 3,
@@ -396,7 +413,8 @@
             "doubles": 6,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -410,7 +428,7 @@
       "players": [
         {
           "name": "Montigny, Don",
-          "handicap_index": 10.3,
+          "handicap_index": 12.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -419,11 +437,12 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Chavaree, Brett",
-          "handicap_index": 4.6,
+          "handicap_index": 4.8,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -432,7 +451,8 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -446,7 +466,7 @@
       "players": [
         {
           "name": "Edmunds, Mitch",
-          "handicap_index": 6.6,
+          "handicap_index": 7.8,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -455,11 +475,12 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Marino, Dj",
-          "handicap_index": 6.3,
+          "handicap_index": 4.8,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -468,7 +489,8 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -482,7 +504,7 @@
       "players": [
         {
           "name": "Vinciguerra, Caleb",
-          "handicap_index": 3.1,
+          "handicap_index": 2.4,
           "stats": {
             "eagles": 0,
             "birdies": 5,
@@ -491,11 +513,12 @@
             "doubles": 1,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Moore, Josh",
-          "handicap_index": 10.6,
+          "handicap_index": 9.8,
           "stats": {
             "eagles": 0,
             "birdies": 4,
@@ -504,7 +527,8 @@
             "doubles": 6,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -518,7 +542,7 @@
       "players": [
         {
           "name": "Milne, Gino",
-          "handicap_index": 6.8,
+          "handicap_index": 8.7,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -527,11 +551,12 @@
             "doubles": 3,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Cyr, Glenn",
-          "handicap_index": 7.1,
+          "handicap_index": 7.7,
           "stats": {
             "eagles": 0,
             "birdies": 3,
@@ -540,7 +565,8 @@
             "doubles": 3,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -554,7 +580,7 @@
       "players": [
         {
           "name": "Paquette, Brock",
-          "handicap_index": 12.7,
+          "handicap_index": 12.6,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -563,11 +589,12 @@
             "doubles": 6,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Paquette, Wade",
-          "handicap_index": 4.9,
+          "handicap_index": 5.4,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -576,7 +603,8 @@
             "doubles": 3,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -590,7 +618,7 @@
       "players": [
         {
           "name": "Morris, John",
-          "handicap_index": 6.8,
+          "handicap_index": 6.6,
           "stats": {
             "eagles": 1,
             "birdies": 4,
@@ -599,11 +627,12 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Hussey, Brendan",
-          "handicap_index": 8.7,
+          "handicap_index": 8.5,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -612,7 +641,8 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -626,7 +656,7 @@
       "players": [
         {
           "name": "Macgregor, Nick",
-          "handicap_index": 12.1,
+          "handicap_index": 12.4,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -635,11 +665,12 @@
             "doubles": 6,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Creteau, Rick",
-          "handicap_index": 3.3,
+          "handicap_index": 3.2,
           "stats": {
             "eagles": 0,
             "birdies": 5,
@@ -648,7 +679,8 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -662,7 +694,7 @@
       "players": [
         {
           "name": "Angelopoulos, Chris",
-          "handicap_index": 8.9,
+          "handicap_index": 7.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -671,11 +703,12 @@
             "doubles": 3,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Todd, Heath",
-          "handicap_index": 9.2,
+          "handicap_index": 9.7,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -684,7 +717,8 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -698,7 +732,7 @@
       "players": [
         {
           "name": "Hamilton, Matthew",
-          "handicap_index": 9.3,
+          "handicap_index": 8.3,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -707,11 +741,12 @@
             "doubles": 7,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Cordeiro, Ryan",
-          "handicap_index": 7.3,
+          "handicap_index": 7.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -720,7 +755,8 @@
             "doubles": 4,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -734,7 +770,7 @@
       "players": [
         {
           "name": "Conroy, Casey",
-          "handicap_index": 8.5,
+          "handicap_index": 9.2,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -743,11 +779,12 @@
             "doubles": 4,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Faist, Eric",
-          "handicap_index": 8.3,
+          "handicap_index": 8.4,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -755,7 +792,8 @@
             "bogeys": 16,
             "doubles": 3,
             "triples_worse": 0
-          }
+          },
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -769,7 +807,7 @@
       "players": [
         {
           "name": "Puffer, Stephen",
-          "handicap_index": 10.6,
+          "handicap_index": 11.5,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -778,11 +816,12 @@
             "doubles": 10,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Rowntree, Jack",
-          "handicap_index": 8.8,
+          "handicap_index": 8.7,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -791,7 +830,8 @@
             "doubles": 5,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -805,7 +845,7 @@
       "players": [
         {
           "name": "Hanson, Scott",
-          "handicap_index": 11.8,
+          "handicap_index": 12.0,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -814,11 +854,12 @@
             "doubles": 6,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Hanson, Trevor",
-          "handicap_index": 7.4,
+          "handicap_index": 7.6,
           "stats": {
             "eagles": 1,
             "birdies": 4,
@@ -827,7 +868,8 @@
             "doubles": 4,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -841,7 +883,7 @@
       "players": [
         {
           "name": "Ceppetelli, Dante",
-          "handicap_index": 7.0,
+          "handicap_index": 6.4,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -850,11 +892,12 @@
             "doubles": 2,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Frank, Cameron",
-          "handicap_index": 10.3,
+          "handicap_index": 9.5,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -863,7 +906,8 @@
             "doubles": 5,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -877,7 +921,7 @@
       "players": [
         {
           "name": "Radwan, Jacob",
-          "handicap_index": 7.7,
+          "handicap_index": 8.1,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -886,11 +930,12 @@
             "doubles": 5,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Pridham, Casey",
-          "handicap_index": 10.5,
+          "handicap_index": 10.9,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -899,7 +944,8 @@
             "doubles": 3,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -913,7 +959,7 @@
       "players": [
         {
           "name": "Keough, Jay",
-          "handicap_index": 10.4,
+          "handicap_index": 13.2,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -922,11 +968,12 @@
             "doubles": 7,
             "triples_worse": 2
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "White, Erik",
-          "handicap_index": 10.2,
+          "handicap_index": 10.7,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -935,7 +982,8 @@
             "doubles": 15,
             "triples_worse": 2
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -949,7 +997,7 @@
       "players": [
         {
           "name": "Roberts, Luke",
-          "handicap_index": 7.2,
+          "handicap_index": 7.5,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -958,11 +1006,12 @@
             "doubles": 9,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "McCabe, Dyllan",
-          "handicap_index": 12.4,
+          "handicap_index": 12.1,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -971,7 +1020,8 @@
             "doubles": 9,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -985,7 +1035,7 @@
       "players": [
         {
           "name": "Holland, Jeffry",
-          "handicap_index": 9.9,
+          "handicap_index": 9.7,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -994,11 +1044,12 @@
             "doubles": 4,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Spalding, David",
-          "handicap_index": 12.3,
+          "handicap_index": 13.5,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1007,7 +1058,8 @@
             "doubles": 8,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1021,7 +1073,7 @@
       "players": [
         {
           "name": "Tapley, Josh",
-          "handicap_index": 13.3,
+          "handicap_index": 14.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1030,11 +1082,12 @@
             "doubles": 5,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Pepin, Drew",
-          "handicap_index": 9.4,
+          "handicap_index": 9.6,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1043,7 +1096,8 @@
             "doubles": 6,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1057,7 +1111,7 @@
       "players": [
         {
           "name": "Daudelin, Doug",
-          "handicap_index": 10.7,
+          "handicap_index": 10.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1066,11 +1120,12 @@
             "doubles": 5,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Zwirn, Robert",
-          "handicap_index": 12.7,
+          "handicap_index": 12.4,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1079,7 +1134,8 @@
             "doubles": 4,
             "triples_worse": 0
           },
-          "tee": "white"
+          "tee": "white",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1093,7 +1149,7 @@
       "players": [
         {
           "name": "Gadomski, Bob",
-          "handicap_index": 15.7,
+          "handicap_index": 15.9,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1102,11 +1158,12 @@
             "doubles": 7,
             "triples_worse": 0
           },
-          "tee": "white"
+          "tee": "white",
+          "plus_handicap": false
         },
         {
           "name": "Hite, Mark",
-          "handicap_index": 7.6,
+          "handicap_index": 8.8,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1115,7 +1172,8 @@
             "doubles": 6,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1138,11 +1196,12 @@
             "doubles": 6,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Zriny, Nate",
-          "handicap_index": 11.8,
+          "handicap_index": 12.0,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1151,7 +1210,8 @@
             "doubles": 8,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1165,7 +1225,7 @@
       "players": [
         {
           "name": "Harte, Mike",
-          "handicap_index": 14.4,
+          "handicap_index": 14.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1174,11 +1234,12 @@
             "doubles": 7,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Ferullo, Lou",
-          "handicap_index": 12.9,
+          "handicap_index": 14.8,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1187,7 +1248,8 @@
             "doubles": 9,
             "triples_worse": 1
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1201,7 +1263,7 @@
       "players": [
         {
           "name": "Ceppetelli, Derek",
-          "handicap_index": 11.8,
+          "handicap_index": 11.6,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1210,11 +1272,12 @@
             "doubles": 8,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "McKenney, Jim",
-          "handicap_index": 13.7,
+          "handicap_index": 14.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1223,7 +1286,8 @@
             "doubles": 5,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1237,7 +1301,7 @@
       "players": [
         {
           "name": "Carignan, Derek",
-          "handicap_index": 15.3,
+          "handicap_index": 15.9,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1246,11 +1310,12 @@
             "doubles": 17,
             "triples_worse": 4
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Young, Brian",
-          "handicap_index": 21.7,
+          "handicap_index": 11.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1259,7 +1324,8 @@
             "doubles": 6,
             "triples_worse": 6
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1273,7 +1339,7 @@
       "players": [
         {
           "name": "White, Tucker",
-          "handicap_index": 8.0,
+          "handicap_index": 10.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -1282,11 +1348,12 @@
             "doubles": 7,
             "triples_worse": 2
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Hederman, Michael",
-          "handicap_index": 11.9,
+          "handicap_index": 11.3,
           "stats": {
             "eagles": 0,
             "birdies": 3,
@@ -1295,7 +1362,8 @@
             "doubles": 8,
             "triples_worse": 6
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1309,7 +1377,7 @@
       "players": [
         {
           "name": "Reisert, Kevin",
-          "handicap_index": 17.8,
+          "handicap_index": 17.0,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1318,11 +1386,12 @@
             "doubles": 6,
             "triples_worse": 8
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Morin, Joe",
-          "handicap_index": 6.5,
+          "handicap_index": 6.6,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1331,7 +1400,8 @@
             "doubles": 1,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1345,7 +1415,7 @@
       "players": [
         {
           "name": "Strayer, James",
-          "handicap_index": 15.1,
+          "handicap_index": 14.1,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -1354,11 +1424,12 @@
             "doubles": 10,
             "triples_worse": 1
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Putney, Phil",
-          "handicap_index": 8.5,
+          "handicap_index": 8.1,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -1367,7 +1438,8 @@
             "doubles": 4,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1381,7 +1453,7 @@
       "players": [
         {
           "name": "Perron, Jake",
-          "handicap_index": 10.7,
+          "handicap_index": 10.5,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1390,11 +1462,12 @@
             "doubles": 8,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "King, Carter",
-          "handicap_index": 16.7,
+          "handicap_index": 16.3,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1403,7 +1476,8 @@
             "doubles": 7,
             "triples_worse": 3
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1417,7 +1491,7 @@
       "players": [
         {
           "name": "Dias, Chris",
-          "handicap_index": 16.3,
+          "handicap_index": 16.4,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1426,11 +1500,12 @@
             "doubles": 11,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Genkinger, Darryl",
-          "handicap_index": 10.2,
+          "handicap_index": 10.9,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1439,7 +1514,8 @@
             "doubles": 4,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1453,7 +1529,7 @@
       "players": [
         {
           "name": "Shannon, Jim",
-          "handicap_index": 16.9,
+          "handicap_index": 16.1,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -1462,11 +1538,12 @@
             "doubles": 7,
             "triples_worse": 3
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Robar, Jeffrey",
-          "handicap_index": 10.7,
+          "handicap_index": 11.4,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -1475,7 +1552,8 @@
             "doubles": 9,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1489,7 +1567,7 @@
       "players": [
         {
           "name": "Campbell, Packy",
-          "handicap_index": 18.6,
+          "handicap_index": 19.2,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1498,11 +1576,12 @@
             "doubles": 14,
             "triples_worse": 1
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Trepanier, Paul",
-          "handicap_index": 9.5,
+          "handicap_index": 10.3,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -1511,7 +1590,8 @@
             "doubles": 6,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1525,7 +1605,7 @@
       "players": [
         {
           "name": "Carbonar, Tony",
-          "handicap_index": 21.0,
+          "handicap_index": 21.5,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1534,11 +1614,12 @@
             "doubles": 21,
             "triples_worse": 6
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Harrigan, Colin",
-          "handicap_index": 9.8,
+          "handicap_index": 9.9,
           "stats": {
             "eagles": 0,
             "birdies": 3,
@@ -1547,7 +1628,8 @@
             "doubles": 11,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1561,7 +1643,7 @@
       "players": [
         {
           "name": "Foss, Christopher",
-          "handicap_index": 19.5,
+          "handicap_index": 19.3,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1570,11 +1652,12 @@
             "doubles": 20,
             "triples_worse": 4
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Berthiaume, Jeremy",
-          "handicap_index": 11.3,
+          "handicap_index": 11.6,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1583,7 +1666,8 @@
             "doubles": 7,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1597,7 +1681,7 @@
       "players": [
         {
           "name": "Billings, Derek",
-          "handicap_index": 17.0,
+          "handicap_index": 17.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1606,11 +1690,12 @@
             "doubles": 19,
             "triples_worse": 3
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Ambrogio, Andrew",
-          "handicap_index": 13.7,
+          "handicap_index": 12.3,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -1619,7 +1704,8 @@
             "doubles": 8,
             "triples_worse": 2
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1633,7 +1719,7 @@
       "players": [
         {
           "name": "Cardarelli, Kevin",
-          "handicap_index": 18.6,
+          "handicap_index": 18.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1642,11 +1728,12 @@
             "doubles": 16,
             "triples_worse": 3
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Nelson, Don",
-          "handicap_index": 11.2,
+          "handicap_index": 10.7,
           "stats": {
             "eagles": 0,
             "birdies": 3,
@@ -1655,7 +1742,8 @@
             "doubles": 8,
             "triples_worse": 2
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1669,7 +1757,7 @@
       "players": [
         {
           "name": "Dureau, Greg",
-          "handicap_index": 12.4,
+          "handicap_index": 13.6,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1678,7 +1766,8 @@
             "doubles": 8,
             "triples_worse": 5
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Dureau, Nate",
@@ -1691,7 +1780,8 @@
             "doubles": 13,
             "triples_worse": 3
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1705,7 +1795,7 @@
       "players": [
         {
           "name": "Jolly, Mike",
-          "handicap_index": 13.9,
+          "handicap_index": 13.7,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1714,11 +1804,12 @@
             "doubles": 18,
             "triples_worse": 1
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "DiMartino, Derek",
-          "handicap_index": 17.7,
+          "handicap_index": 18.7,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1727,7 +1818,8 @@
             "doubles": 33,
             "triples_worse": 4
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1741,7 +1833,7 @@
       "players": [
         {
           "name": "Bouchie, Marty",
-          "handicap_index": 15.8,
+          "handicap_index": 15.6,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1750,11 +1842,12 @@
             "doubles": 14,
             "triples_worse": 0
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Carmichael, Jeff",
-          "handicap_index": 16.6,
+          "handicap_index": 17.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1763,7 +1856,8 @@
             "doubles": 9,
             "triples_worse": 1
           },
-          "tee": "white"
+          "tee": "white",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1777,7 +1871,7 @@
       "players": [
         {
           "name": "Fournier, Joe",
-          "handicap_index": 11.2,
+          "handicap_index": 11.5,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -1786,11 +1880,12 @@
             "doubles": 8,
             "triples_worse": 2
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Scott, Andy",
-          "handicap_index": 23.0,
+          "handicap_index": 23.7,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1799,7 +1894,8 @@
             "doubles": 18,
             "triples_worse": 3
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1813,7 +1909,7 @@
       "players": [
         {
           "name": "Behan, Bill",
-          "handicap_index": 16.5,
+          "handicap_index": 17.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1822,11 +1918,12 @@
             "doubles": 16,
             "triples_worse": 2
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Noel, Rod",
-          "handicap_index": 17.8,
+          "handicap_index": 17.9,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1835,7 +1932,8 @@
             "doubles": 15,
             "triples_worse": 3
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1849,7 +1947,7 @@
       "players": [
         {
           "name": "Martin, Jason",
-          "handicap_index": 12.0,
+          "handicap_index": 11.7,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1858,11 +1956,12 @@
             "doubles": 6,
             "triples_worse": 3
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Hills, Rob",
-          "handicap_index": 23.4,
+          "handicap_index": 23.5,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1871,7 +1970,8 @@
             "doubles": 17,
             "triples_worse": 10
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1885,7 +1985,7 @@
       "players": [
         {
           "name": "Wojtkowski, Noah",
-          "handicap_index": 16.7,
+          "handicap_index": 16.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1894,11 +1994,12 @@
             "doubles": 11,
             "triples_worse": 5
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Maccallum, Donald",
-          "handicap_index": 19.9,
+          "handicap_index": 19.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1907,7 +2008,8 @@
             "doubles": 10,
             "triples_worse": 3
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1921,7 +2023,7 @@
       "players": [
         {
           "name": "Hart, Hunter",
-          "handicap_index": 18.2,
+          "handicap_index": 19.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1930,11 +2032,12 @@
             "doubles": 13,
             "triples_worse": 5
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Lebell, Daniel",
-          "handicap_index": 19.6,
+          "handicap_index": 19.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1943,7 +2046,8 @@
             "doubles": 15,
             "triples_worse": 2
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -1965,11 +2069,12 @@
             "bogeys": 0,
             "doubles": 0,
             "triples_worse": 0
-          }
+          },
+          "plus_handicap": false
         },
         {
           "name": "Taylor, John",
-          "handicap_index": 20.7,
+          "handicap_index": 20.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1978,7 +2083,8 @@
             "doubles": 14,
             "triples_worse": 6
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2001,11 +2107,12 @@
             "doubles": 0,
             "triples_worse": 0
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Foster, Steve",
-          "handicap_index": 22.5,
+          "handicap_index": 23.6,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2013,7 +2120,8 @@
             "bogeys": 19,
             "doubles": 15,
             "triples_worse": 7
-          }
+          },
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2027,7 +2135,7 @@
       "players": [
         {
           "name": "Ciccotelli, Mike",
-          "handicap_index": 20.0,
+          "handicap_index": 20.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2036,11 +2144,12 @@
             "doubles": 19,
             "triples_worse": 3
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Lagace, Alex",
-          "handicap_index": 19.8,
+          "handicap_index": 19.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2049,7 +2158,8 @@
             "doubles": 14,
             "triples_worse": 4
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2063,7 +2173,7 @@
       "players": [
         {
           "name": "Trowbridge, Andrew",
-          "handicap_index": 21.8,
+          "handicap_index": 22.2,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -2072,11 +2182,12 @@
             "doubles": 16,
             "triples_worse": 6
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Mertens, Scott",
-          "handicap_index": 22.1,
+          "handicap_index": 22.5,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2085,7 +2196,8 @@
             "doubles": 15,
             "triples_worse": 12
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2099,7 +2211,7 @@
       "players": [
         {
           "name": "Desrosiers, David",
-          "handicap_index": 25.0,
+          "handicap_index": 25.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2108,11 +2220,12 @@
             "doubles": 18,
             "triples_worse": 12
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Desrosiers, Jeffrey",
-          "handicap_index": 19.9,
+          "handicap_index": 20.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2121,7 +2234,8 @@
             "doubles": 20,
             "triples_worse": 12
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2135,7 +2249,7 @@
       "players": [
         {
           "name": "Porter, Bob",
-          "handicap_index": 12.6,
+          "handicap_index": 13.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2144,11 +2258,12 @@
             "doubles": 7,
             "triples_worse": 1
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Hadley, Brian",
-          "handicap_index": 31.7,
+          "handicap_index": 32.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2157,7 +2272,8 @@
             "doubles": 9,
             "triples_worse": 18
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2171,7 +2287,7 @@
       "players": [
         {
           "name": "Dunnells, Cliff",
-          "handicap_index": 22.3,
+          "handicap_index": 22.7,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2180,11 +2296,12 @@
             "doubles": 11,
             "triples_worse": 7
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Kelly, John",
-          "handicap_index": 24.0,
+          "handicap_index": 24.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2193,7 +2310,8 @@
             "doubles": 15,
             "triples_worse": 8
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2207,7 +2325,7 @@
       "players": [
         {
           "name": "Guptill, Ian",
-          "handicap_index": 19.9,
+          "handicap_index": 20.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2216,11 +2334,12 @@
             "doubles": 14,
             "triples_worse": 4
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Turcotte, Matt",
-          "handicap_index": 25.5,
+          "handicap_index": 21.8,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2229,7 +2348,8 @@
             "doubles": 14,
             "triples_worse": 9
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2243,7 +2363,7 @@
       "players": [
         {
           "name": "McKenney, David",
-          "handicap_index": 22.7,
+          "handicap_index": 22.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2252,11 +2372,12 @@
             "doubles": 20,
             "triples_worse": 4
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         },
         {
           "name": "Dias, Drew",
-          "handicap_index": 25.6,
+          "handicap_index": 24.7,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -2265,7 +2386,8 @@
             "doubles": 10,
             "triples_worse": 6
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2288,11 +2410,12 @@
             "doubles": 13,
             "triples_worse": 17
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Stokes, Mark",
-          "handicap_index": 22.7,
+          "handicap_index": 23.2,
           "stats": {
             "eagles": 0,
             "birdies": 2,
@@ -2301,7 +2424,8 @@
             "doubles": 14,
             "triples_worse": 5
           },
-          "tee": "white"
+          "tee": "white",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2324,7 +2448,8 @@
             "doubles": 22,
             "triples_worse": 6
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Bogan, David",
@@ -2337,7 +2462,8 @@
             "doubles": 2,
             "triples_worse": 4
           },
-          "tee": "white"
+          "tee": "white",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -2360,11 +2486,12 @@
             "doubles": 3,
             "triples_worse": 5
           },
-          "tee": "blue"
+          "tee": "blue",
+          "plus_handicap": false
         },
         {
           "name": "Vetter, Scott",
-          "handicap_index": 25.1,
+          "handicap_index": 24.3,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -2373,7 +2500,8 @@
             "doubles": 5,
             "triples_worse": 8
           },
-          "tee": "combo"
+          "tee": "combo",
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -4464,7 +4592,7 @@
   "subs": [
     {
       "name": "Bellio, Michael",
-      "handicap_index": null,
+      "handicap_index": 24.5,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4472,11 +4600,12 @@
         "bogeys": 4,
         "doubles": 1,
         "triples_worse": 3
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Brown, Cam",
-      "handicap_index": null,
+      "handicap_index": 3.2,
       "stats": {
         "eagles": 0,
         "birdies": 1,
@@ -4484,11 +4613,12 @@
         "bogeys": 3,
         "doubles": 0,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Loring, Aaron",
-      "handicap_index": null,
+      "handicap_index": 2.3,
       "stats": {
         "eagles": 1,
         "birdies": 3,
@@ -4496,11 +4626,12 @@
         "bogeys": 9,
         "doubles": 0,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Martel, Ryan",
-      "handicap_index": null,
+      "handicap_index": 1.0,
       "stats": {
         "eagles": 1,
         "birdies": 3,
@@ -4508,11 +4639,12 @@
         "bogeys": 10,
         "doubles": 2,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "McGilvray, Josh",
-      "handicap_index": null,
+      "handicap_index": 1.3,
       "stats": {
         "eagles": 0,
         "birdies": 6,
@@ -4520,11 +4652,12 @@
         "bogeys": 8,
         "doubles": 1,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Therrien, David",
-      "handicap_index": null,
+      "handicap_index": 9.8,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4532,11 +4665,12 @@
         "bogeys": 6,
         "doubles": 1,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Bean, Zac",
-      "handicap_index": null,
+      "handicap_index": 14.0,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4544,11 +4678,12 @@
         "bogeys": 6,
         "doubles": 5,
         "triples_worse": 2
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Blanchard, Eric",
-      "handicap_index": null,
+      "handicap_index": 6.6,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4556,11 +4691,12 @@
         "bogeys": 2,
         "doubles": 1,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Bougie, Stephen",
-      "handicap_index": null,
+      "handicap_index": 17.1,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4568,11 +4704,12 @@
         "bogeys": 4,
         "doubles": 2,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Brown, Alan",
-      "handicap_index": null,
+      "handicap_index": 18.1,
       "stats": {
         "eagles": 0,
         "birdies": 1,
@@ -4580,11 +4717,12 @@
         "bogeys": 7,
         "doubles": 6,
         "triples_worse": 3
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Brown, Matthew",
-      "handicap_index": null,
+      "handicap_index": 16.5,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4592,11 +4730,12 @@
         "bogeys": 6,
         "doubles": 2,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Bubar, Ryan",
-      "handicap_index": null,
+      "handicap_index": 9.7,
       "stats": {
         "eagles": 0,
         "birdies": 1,
@@ -4604,11 +4743,12 @@
         "bogeys": 8,
         "doubles": 3,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Carignan, Kyle",
-      "handicap_index": null,
+      "handicap_index": 6.6,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4616,11 +4756,12 @@
         "bogeys": 7,
         "doubles": 2,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Collins, Mark",
-      "handicap_index": null,
+      "handicap_index": 17.9,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4628,11 +4769,12 @@
         "bogeys": 1,
         "doubles": 3,
         "triples_worse": 3
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Coulstring, Douglas",
-      "handicap_index": null,
+      "handicap_index": 15.1,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4640,11 +4782,12 @@
         "bogeys": 12,
         "doubles": 9,
         "triples_worse": 2
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Dow, Taylor",
-      "handicap_index": null,
+      "handicap_index": 9.1,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4652,11 +4795,12 @@
         "bogeys": 5,
         "doubles": 0,
         "triples_worse": 2
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Enscoe, Jacob",
-      "handicap_index": null,
+      "handicap_index": 17.8,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4664,11 +4808,12 @@
         "bogeys": 8,
         "doubles": 4,
         "triples_worse": 3
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Erricolo, James",
-      "handicap_index": null,
+      "handicap_index": 10.4,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4676,11 +4821,12 @@
         "bogeys": 5,
         "doubles": 1,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Guilmette, Justin",
-      "handicap_index": null,
+      "handicap_index": 8.4,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4688,11 +4834,12 @@
         "bogeys": 4,
         "doubles": 2,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Katz, Aaron",
-      "handicap_index": null,
+      "handicap_index": 13.7,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4700,11 +4847,12 @@
         "bogeys": 16,
         "doubles": 4,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Labatte, Eric",
-      "handicap_index": null,
+      "handicap_index": 6.7,
       "stats": {
         "eagles": 0,
         "birdies": 1,
@@ -4712,11 +4860,12 @@
         "bogeys": 4,
         "doubles": 0,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Shugrue, Joe",
-      "handicap_index": null,
+      "handicap_index": 21.8,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4724,11 +4873,12 @@
         "bogeys": 4,
         "doubles": 8,
         "triples_worse": 3
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Tessier, Robert",
-      "handicap_index": null,
+      "handicap_index": 29.7,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4736,11 +4886,12 @@
         "bogeys": 1,
         "doubles": 4,
         "triples_worse": 4
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Thorner, Bruce",
-      "handicap_index": null,
+      "handicap_index": 21.2,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4748,11 +4899,12 @@
         "bogeys": 2,
         "doubles": 4,
         "triples_worse": 2
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Vinciguerra, Tim",
-      "handicap_index": null,
+      "handicap_index": 12.3,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4760,11 +4912,12 @@
         "bogeys": 5,
         "doubles": 2,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Curtis, Glen",
-      "handicap_index": null,
+      "handicap_index": 21.2,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4772,11 +4925,12 @@
         "bogeys": 4,
         "doubles": 2,
         "triples_worse": 3
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Dormody, Chris",
-      "handicap_index": null,
+      "handicap_index": 12.6,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4784,11 +4938,12 @@
         "bogeys": 4,
         "doubles": 1,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Filiault, Michael",
-      "handicap_index": null,
+      "handicap_index": 8.1,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4796,11 +4951,12 @@
         "bogeys": 3,
         "doubles": 1,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Gagnon, Nate",
-      "handicap_index": null,
+      "handicap_index": 7.0,
       "stats": {
         "eagles": 0,
         "birdies": 2,
@@ -4808,11 +4964,12 @@
         "bogeys": 2,
         "doubles": 2,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Lee, Mark",
-      "handicap_index": null,
+      "handicap_index": 21.0,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4820,17 +4977,123 @@
         "bogeys": 4,
         "doubles": 5,
         "triples_worse": 0
-      }
+      },
+      "plus_handicap": false
     },
     {
       "name": "Levesque, Jeremy",
-      "handicap_index": null,
+      "handicap_index": 7.8,
       "stats": {
         "eagles": 0,
         "birdies": 1,
         "pars": 2,
         "bogeys": 5,
         "doubles": 1,
+        "triples_worse": 0
+      },
+      "plus_handicap": false
+    },
+    {
+      "name": "Dean, Zach",
+      "handicap_index": null,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Ferland, Kevin",
+      "handicap_index": 14.2,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Flanagan, Mike",
+      "handicap_index": 10.9,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Fournier, Jay",
+      "handicap_index": 17.1,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Keilty, Peter",
+      "handicap_index": 0.8,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "King, Travis",
+      "handicap_index": 16.0,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Lyder, David",
+      "handicap_index": 6.8,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Raney, Bill",
+      "handicap_index": 1.6,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
         "triples_worse": 0
       }
     }

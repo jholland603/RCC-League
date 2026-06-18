@@ -72,15 +72,19 @@ function getRoundDate(roundKey) {
   return `${months[m[1].toLowerCase()]}/${parseInt(m[2])}`;
 }
 
-function calcPlayingHandicap(hi, tee, courseRatings) {
+// hi: the player's handicap_index as stored (always a positive number).
+// isPlus: true if this player carries a PLUS handicap (i.e. better than scratch);
+//         in that case the index is treated as negative for all calculations.
+function calcPlayingHandicap(hi, tee, courseRatings, isPlus) {
   const teeData = courseRatings.tees[tee] || courseRatings.tees['blue'];
-  const ch = Math.round(hi * teeData.slope / 113);
+  const signedHi = isPlus ? -hi : hi;
+  const ch = Math.round(signedHi * teeData.slope / 113);
   const ph = ch + Math.round(teeData.rating - courseRatings.par);
   return ph;
 }
 
 function getStrokesFor4(players, courseRatings) {
-  const phs = players.map(p => calcPlayingHandicap(p.hi, p.tee || 'blue', courseRatings));
+  const phs = players.map(p => calcPlayingHandicap(p.hi, p.tee || 'blue', courseRatings, p.isPlus));
   const low = Math.min(...phs);
   return phs.map(ph => ph - low);
 }
@@ -180,4 +184,10 @@ function initials(fullName) {
 // Format a score number: integers show without decimal, halves show .5
 function fmt(n) {
   return (n % 1 === 0) ? String(n) : n.toFixed(1);
+}
+
+// Format a handicap index for display, prefixing "+" for plus-handicap players.
+function formatHI(hi, isPlus) {
+  if (hi === null || hi === undefined) return '?';
+  return isPlus ? `+${hi}` : `${hi}`;
 }
