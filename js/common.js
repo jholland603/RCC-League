@@ -83,8 +83,16 @@ function calcPlayingHandicap(hi, tee, courseRatings, isPlus) {
   return ph;
 }
 
+// Handicap allowance for this league's Four-Ball Match Play format.
+const HANDICAP_ALLOWANCE = 0.80;
+
 function getStrokesFor4(players, courseRatings) {
-  const phs = players.map(p => calcPlayingHandicap(p.hi, p.tee || 'blue', courseRatings, p.isPlus));
+  // Apply the handicap allowance to each player's playing handicap before
+  // computing the low-man differential. Round to nearest integer.
+  const phs = players.map(p => {
+    const ph = calcPlayingHandicap(p.hi, p.tee || 'blue', courseRatings, p.isPlus);
+    return Math.round(ph * HANDICAP_ALLOWANCE);
+  });
   const low = Math.min(...phs);
   return phs.map(ph => ph - low);
 }

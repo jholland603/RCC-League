@@ -32,7 +32,7 @@ All data lives in `RCC_League_2026.json`. Never use prior conversation context o
       "total_points",   ← TRUST THIS. Never recalculate.
       "purse",
       "overall_rank",   ← IGNORE. Always recalculate.
-      "players": [ { "name", "handicap_index", "tee", "stats": {eagles, birdies, pars, bogeys, doubles, triples_worse} } ]
+      "players": [ { "name", "handicap_index", "plus_handicap", "tee", "stats": {eagles, birdies, pars, bogeys, doubles, triples_worse} } ]
     }
   ],
   "schedule": { "round_N_wed_mon_dd": [[team_a, team_b], ...] },
@@ -51,10 +51,7 @@ All data lives in `RCC_League_2026.json`. Never use prior conversation context o
 - Sunshine alternates Front/Back starting Round 1 = Front. Lollipops is opposite.
 
 ## PLUS HANDICAP PLAYERS
-These are stored as positive numbers but represent plus handicaps:
-- **Ferullo, Kory** (Team 1): 0.6 = +0.6
-- **Strong, Kevin** (Team 3): 0.7 = +0.7
-- **Cleveland, Jayson** (Team 8): 0.6 = +0.6
+Players with plus handicaps (better than scratch) are flagged with `"plus_handicap": true` on their player record in the JSON. Their `handicap_index` is still stored as a positive number — when `plus_handicap` is true, treat that number as negative for all handicap and stroke calculations.
 
 ---
 
@@ -84,7 +81,7 @@ Values in `round_scores` are stored exactly as shown in the weekly points report
 course_handicap = round(handicap_index × slope / 113)
 playing_handicap = course_handicap + round(rating − par)
 ```
-Par = 72. Use tee's rating and slope from `course_ratings`.
+Par = 72. Use tee's rating and slope from `course_ratings`. If `plus_handicap` is true for a player, use **−handicap_index** in the formula above.
 
 ### Course Ratings
 | Tee | Rating | Slope |
@@ -95,9 +92,10 @@ Par = 72. Use tee's rating and slope from `course_ratings`.
 
 ### Strokes Off (Low Man Method)
 1. Calculate playing_handicap for all 4 players.
-2. Low man = 0 strokes. Each other player's strokes = their PH − low man's PH.
-3. For 9 holes, halve the full difference. If odd: **front nine gets the extra stroke**.
-4. Show only strokes for the nine being played that round.
+2. Apply **80% handicap allowance**: multiply each playing_handicap by 0.80 and round to nearest integer.
+3. Low man = 0 strokes. Each other player's strokes = their adjusted PH − low man's adjusted PH.
+4. For 9 holes, halve the full difference. If odd: **front nine gets the extra stroke**.
+5. Show only strokes for the nine being played that round.
 
 ---
 
@@ -149,4 +147,5 @@ When new data is provided:
 1. **Round scores** — add to `round_scores` exactly as shown in the report. No back-calculation needed.
 2. **Player stats** — update `teams[].players[].stats`. Unmatched names go in `subs[]`.
 3. **Team totals** — update `total_points` and `purse` directly from the standings report. **Do not calculate.**
-4. Save JSON and confirm what was updated.
+4. **Handicaps** (when a roster/handicap report is given) — update `handicap_index` for each player. A `+` prefix in the report means `plus_handicap: true`; store the index as a positive number either way.
+5. Save JSON and confirm what was updated.
