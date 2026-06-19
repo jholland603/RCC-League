@@ -162,10 +162,14 @@ function renderTeam(data, teamNum) {
           <div class="team-meta">
             <span class="badge ${flightBadge}">${flightIcon} ${team.flight}</span>
             <span class="badge badge-points">${team.total_points} pts</span>
-            <span class="badge badge-rank">${rankStr} of ${flightSize}</span>
+            <span class="badge badge-rank">${rankStr}</span>
             ${purseStr ? `<span class="badge badge-points">${purseStr} purse</span>` : ''}
-            ${from1st !== null ? `<span class="badge badge-points">${from1st === 0 ? 'In 1st' : `-${fmt(from1st)} from 1st`}</span>` : ''}
-            ${from5th !== null ? `<span class="badge badge-points">${from5th <= 0 ? 'In top 5' : `-${fmt(from5th)} from 5th`}</span>` : ''}
+            ${(from1st !== null || from5th !== null) ? `<span class="badge badge-points badge-stack">${
+              [
+                from1st !== null ? `First: ${from1st === 0 ? '—' : `-${fmt(from1st)}`}` : null,
+                from5th !== null ? `Fifth: ${from5th <= 0 ? '—' : `-${fmt(from5th)}`}` : null
+              ].filter(Boolean).join('<br>')
+            }</span>` : ''}
             ${sparkline ? `<span class="badge badge-trend ${movement > 0 ? 'badge-up' : movement < 0 ? 'badge-down' : 'badge-flat'}">${sparkline}</span>` : ''}
           </div>
         </div>

@@ -11,6 +11,12 @@
   vertical-align: middle;
 }
 
+/* ── STACKED TWO-LINE BADGE (First/Fifth) ─────────────────────────────────── */
+.badge-stack {
+  line-height: 1.35;
+  text-align: center;
+}
+
 /* ── SELECTOR PANEL ─────────────────────────────────────────────────────────── */
 .selector-panel {
   background: var(--white);
