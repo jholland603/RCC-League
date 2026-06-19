@@ -1,3 +1,16 @@
+/* ── RANK TREND SPARKLINE (in header badge) ───────────────────────────────── */
+.badge-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.rank-sparkline {
+  display: block;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
 /* ── SELECTOR PANEL ─────────────────────────────────────────────────────────── */
 .selector-panel {
   background: var(--white);

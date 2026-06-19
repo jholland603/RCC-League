@@ -28,6 +28,8 @@ function renderTeam(data, teamNum) {
   const weeklyTotalPoints = data.weekly_total_points || {};
   const latestRound = latestWeeklyRound(weeklyTotalPoints);
   const movement = latestRound ? calcMovement(teamNum, team.flight, teams, weeklyTotalPoints, latestRound) : null;
+  const trajectory = rankTrajectory(teamNum, team.flight, teams, weeklyTotalPoints);
+  const sparkline  = buildRankSparkline(trajectory, flightSize);
 
   // W/L/T record from round_scores
   const myScores = round_scores[String(teamNum)] || {};
@@ -166,10 +168,10 @@ function renderTeam(data, teamNum) {
             ${from5th !== null ? `<span class="badge badge-points">${from5th <= 0 ? 'In top 5' : `-${fmt(from5th)} from 5th`}</span>` : ''}
             ${movement !== null ? (
               movement > 0
-                ? `<span class="badge badge-up">▲ ${movement} this week</span>`
+                ? `<span class="badge badge-up badge-trend">▲ ${movement} this week ${sparkline}</span>`
                 : movement < 0
-                  ? `<span class="badge badge-down">▼ ${Math.abs(movement)} this week</span>`
-                  : `<span class="badge badge-flat">— no change this week</span>`
+                  ? `<span class="badge badge-down badge-trend">▼ ${Math.abs(movement)} this week ${sparkline}</span>`
+                  : `<span class="badge badge-flat badge-trend">— no change this week ${sparkline}</span>`
             ) : ''}
           </div>
         </div>

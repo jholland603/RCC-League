@@ -105,7 +105,63 @@ function calcMovers(data, flightTeams, targetWeek) {
   return movers;
 }
 
-// ── RENDER FLIGHT TABLE ──────────────────────────────────────────────────────
+// ── BIGGEST MOVERS CALLOUT ───────────────────────────────────────────────────
+// Finds the top risers and fallers across BOTH flights for the given week
+// (or the latest week if omitted). Movement is computed within each team's
+// own flight (never comparing Sunshine to Lollipops), then merged for display.
+function biggestMovers(data, targetWeek, topN = 3) {
+  const sunshine  = data.teams.filter(t => t.flight === 'Sunshine');
+  const lollipops = data.teams.filter(t => t.flight === 'Lollipops');
+
+  const sunMovers = calcMovers(data, sunshine, targetWeek);
+  const lolMovers = calcMovers(data, lollipops, targetWeek);
+
+  const allMovers = [];
+  sunshine.forEach(t => {
+    const mv = sunMovers[t.team_number];
+    if (mv !== undefined && mv !== 0) allMovers.push({ team: t, mv });
+  });
+  lollipops.forEach(t => {
+    const mv = lolMovers[t.team_number];
+    if (mv !== undefined && mv !== 0) allMovers.push({ team: t, mv });
+  });
+
+  const risers = allMovers.filter(m => m.mv > 0).sort((a, b) => b.mv - a.mv).slice(0, topN);
+  const fallers = allMovers.filter(m => m.mv < 0).sort((a, b) => a.mv - b.mv).slice(0, topN);
+
+  return { risers, fallers };
+}
+
+function renderMoversCallout(data, targetWeek) {
+  const { risers, fallers } = biggestMovers(data, targetWeek);
+  if (risers.length === 0 && fallers.length === 0) return '';
+
+  const riserItems = risers.map(({ team, mv }) => `
+    <div class="mover-item">
+      <span class="mover-arrow mover-up">▲${mv}</span>
+      <span class="mover-team">${team.players_display}</span>
+      <span class="mover-flight">${team.flight === 'Sunshine' ? '☀' : '🍭'} T${team.team_number}</span>
+    </div>`).join('');
+
+  const fallerItems = fallers.map(({ team, mv }) => `
+    <div class="mover-item">
+      <span class="mover-arrow mover-down">▼${Math.abs(mv)}</span>
+      <span class="mover-team">${team.players_display}</span>
+      <span class="mover-flight">${team.flight === 'Sunshine' ? '☀' : '🍭'} T${team.team_number}</span>
+    </div>`).join('');
+
+  return `
+  <div class="movers-callout">
+    <div class="movers-col">
+      <div class="movers-col-title movers-title-up">Biggest Risers</div>
+      ${riserItems || '<div class="movers-empty">No movement</div>'}
+    </div>
+    <div class="movers-col">
+      <div class="movers-col-title movers-title-down">Biggest Fallers</div>
+      ${fallerItems || '<div class="movers-empty">No movement</div>'}
+    </div>
+  </div>`;
+}
 // pointsOverride: optional map { teamNum: points } used when viewing a historical
 // week. When omitted, falls back to each team's current total_points (live standings).
 // showMovers/showPurse: suppressed for historical weeks since "this week's movement"
@@ -220,6 +276,7 @@ function renderForSelection(selectedValue) {
   }
 
   document.getElementById('standingsWrap').innerHTML =
+    renderMoversCallout(data, targetWeek) +
     renderFlight('Sunshine',  sunshine,  records, pointsOverride, isHistorical, targetWeek) +
     renderFlight('Lollipops', lollipops, records, pointsOverride, isHistorical, targetWeek);
 
