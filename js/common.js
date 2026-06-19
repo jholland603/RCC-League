@@ -281,11 +281,12 @@ function rankTrajectory(teamNum, flight, teams, weeklyTotalPoints) {
 // so the y-axis is inverted (rank 1 plots near the top).
 // trajectory: array of { round, rank } as returned by rankTrajectory().
 // flightSize: total teams in the flight, used to scale the y-axis.
-function buildRankSparkline(trajectory, flightSize, width = 110, height = 32) {
+function buildRankSparkline(trajectory, flightSize, width = 130, height = 32) {
   if (!trajectory || trajectory.length < 2) return '';
 
-  const padX = 3, padY = 4;
-  const innerW = width - padX * 2;
+  const labelW = 18; // reserved space on each side for the rank number labels
+  const padX = 3, padY = 6;
+  const innerW = width - labelW * 2 - padX * 2;
   const innerH = height - padY * 2;
   const n = trajectory.length;
 
@@ -301,7 +302,7 @@ function buildRankSparkline(trajectory, flightSize, width = 110, height = 32) {
   const rangePadded = Math.max(maxRank - minRank, 1) + 2;
   const rangeMin = Math.max(minRank - 1, 1);
 
-  const xFor = (i) => padX + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW);
+  const xFor = (i) => labelW + padX + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW);
   const yFor = (rank) => padY + ((rank - rangeMin) / rangePadded) * innerH;
 
   const points = trajectory.map((pt, i) => `${xFor(i).toFixed(1)},${yFor(pt.rank).toFixed(1)}`);
@@ -313,12 +314,17 @@ function buildRankSparkline(trajectory, flightSize, width = 110, height = 32) {
   const worsened = last > first;
   const lineColor = improved ? 'var(--win)' : worsened ? 'var(--loss)' : 'var(--text-muted)';
 
+  const firstX = xFor(0);
+  const firstY = yFor(first);
   const lastX = xFor(n - 1);
   const lastY = yFor(last);
 
   return `
   <svg class="rank-sparkline" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+    <text x="${(labelW - 4).toFixed(1)}" y="${(firstY + 3).toFixed(1)}" text-anchor="end" font-size="9" font-weight="600" fill="var(--text-muted)">${first}</text>
     <polyline points="${polyline}" fill="none" stroke="${lineColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="${firstX.toFixed(1)}" cy="${firstY.toFixed(1)}" r="1.6" fill="${lineColor}" opacity="0.5" />
     <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="2.4" fill="${lineColor}" />
+    <text x="${(width - labelW + 4).toFixed(1)}" y="${(lastY + 3).toFixed(1)}" text-anchor="start" font-size="9" font-weight="700" fill="${lineColor}">${last}</text>
   </svg>`;
 }
