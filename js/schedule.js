@@ -166,13 +166,7 @@ function renderTeam(data, teamNum) {
             ${purseStr ? `<span class="badge badge-points">${purseStr} purse</span>` : ''}
             ${from1st !== null ? `<span class="badge badge-points">${from1st === 0 ? 'In 1st' : `-${fmt(from1st)} from 1st`}</span>` : ''}
             ${from5th !== null ? `<span class="badge badge-points">${from5th <= 0 ? 'In top 5' : `-${fmt(from5th)} from 5th`}</span>` : ''}
-            ${movement !== null ? (
-              movement > 0
-                ? `<span class="badge badge-up badge-trend">▲ ${movement} this week ${sparkline}</span>`
-                : movement < 0
-                  ? `<span class="badge badge-down badge-trend">▼ ${Math.abs(movement)} this week ${sparkline}</span>`
-                  : `<span class="badge badge-flat badge-trend">— no change this week ${sparkline}</span>`
-            ) : ''}
+            ${sparkline ? `<span class="badge badge-trend ${movement > 0 ? 'badge-up' : movement < 0 ? 'badge-down' : 'badge-flat'}">${sparkline}</span>` : ''}
           </div>
         </div>
       </div>

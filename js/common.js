@@ -281,16 +281,28 @@ function rankTrajectory(teamNum, flight, teams, weeklyTotalPoints) {
 // so the y-axis is inverted (rank 1 plots near the top).
 // trajectory: array of { round, rank } as returned by rankTrajectory().
 // flightSize: total teams in the flight, used to scale the y-axis.
-function buildRankSparkline(trajectory, flightSize, width = 90, height = 28) {
+function buildRankSparkline(trajectory, flightSize, width = 110, height = 32) {
   if (!trajectory || trajectory.length < 2) return '';
 
-  const padX = 3, padY = 3;
+  const padX = 3, padY = 4;
   const innerW = width - padX * 2;
   const innerH = height - padY * 2;
   const n = trajectory.length;
 
+  // Scale to the actual range of ranks this team has occupied, not the full
+  // flight size — a 3-spot swing should look like a clear move, not a flat
+  // line buried in a 32-team range.
+  const ranks = trajectory.map(pt => pt.rank);
+  const minRank = Math.min(...ranks);
+  const maxRank = Math.max(...ranks);
+  // Pad the range by 1 on each side (clamped to valid rank bounds) so a line
+  // that's been perfectly flat, or that touches the best/worst point, still
+  // has breathing room above/below instead of running along the edge.
+  const rangePadded = Math.max(maxRank - minRank, 1) + 2;
+  const rangeMin = Math.max(minRank - 1, 1);
+
   const xFor = (i) => padX + (n === 1 ? innerW / 2 : (i / (n - 1)) * innerW);
-  const yFor = (rank) => padY + ((rank - 1) / Math.max(flightSize - 1, 1)) * innerH;
+  const yFor = (rank) => padY + ((rank - rangeMin) / rangePadded) * innerH;
 
   const points = trajectory.map((pt, i) => `${xFor(i).toFixed(1)},${yFor(pt.rank).toFixed(1)}`);
   const polyline = points.join(' ');
@@ -306,7 +318,7 @@ function buildRankSparkline(trajectory, flightSize, width = 90, height = 28) {
 
   return `
   <svg class="rank-sparkline" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-    <polyline points="${polyline}" fill="none" stroke="${lineColor}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-    <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="2.2" fill="${lineColor}" />
+    <polyline points="${polyline}" fill="none" stroke="${lineColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="2.4" fill="${lineColor}" />
   </svg>`;
 }

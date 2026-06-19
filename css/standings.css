@@ -210,23 +210,30 @@ table.standings tbody td.num {
   padding: 1rem 1.25rem;
 }
 
-.movers-col-title {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-}
-
+.movers-col-title   { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
 .movers-title-up   { color: var(--win); }
 .movers-title-down { color: var(--loss); }
+
+.movers-flight-group + .movers-flight-group {
+  margin-top: 0.6rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--cream-dark);
+}
+
+.movers-flight-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
 
 .mover-item {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.35rem 0;
-  font-size: 0.82rem;
+  padding: 0.25rem 0;
+  font-size: 0.8rem;
 }
 
 .mover-item + .mover-item {
