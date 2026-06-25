@@ -4,6 +4,29 @@ let leagueData = null;
 let allRosterPlayers = []; // flat list of { name, team, flight, stats } for all 128 regular roster players (no subs)
 let chartInstance = null;
 
+// Sets the "Back" link to wherever the visitor actually came from (stats or
+// schedule), falling back to Stats if the referrer is unclear (direct link,
+// bookmark, or a page outside this site).
+function setSmartBackLink() {
+  const link = document.getElementById('backLink');
+  if (!link) return;
+
+  let from = '';
+  try {
+    from = new URL(document.referrer).pathname.split('/').pop() || '';
+  } catch (e) {
+    from = '';
+  }
+
+  if (from === 'schedule.html') {
+    link.href = 'schedule.html';
+    link.textContent = '\u2190 Back to Schedule';
+  } else {
+    link.href = 'stats.html';
+    link.textContent = '\u2190 Back to Stats';
+  }
+}
+
 const BUCKETS = [
   { key: 'eagles',        label: 'Eagles or better' },
   { key: 'birdies',       label: 'Birdies' },
@@ -186,6 +209,8 @@ document.getElementById('compareSelect').addEventListener('change', function () 
 });
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────
+setSmartBackLink();
+
 loadLeagueData()
   .then(data => {
     leagueData = data;
