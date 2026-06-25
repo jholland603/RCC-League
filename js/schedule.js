@@ -127,12 +127,14 @@ function renderTeam(data, teamNum) {
       <td class="nine-cell" rowspan="2">${nine}</td>
       <td>
         ${playerLink(shortName(team.players[0]?.name), team.players[0]?.name, 'opp-name')}
-        <span class="opp-hi">(${formatHI(team.players[0]?.handicap_index, team.players[0]?.plus_handicap)})</span>${chip(nineStrokes[0])}
+        <span class="opp-hi">(${formatHI(team.players[0]?.handicap_index, team.players[0]?.plus_handicap)})</span>
       </td>
+      <td class="strokes-cell">${chip(nineStrokes[0])}</td>
       <td>
         ${playerLink(shortName(oppTeam.players[0]?.name), oppTeam.players[0]?.name, 'opp-name')}
-        <span class="opp-hi">(${formatHI(oppTeam.players[0]?.handicap_index, oppTeam.players[0]?.plus_handicap)})</span>${chip(nineStrokes[2])}
+        <span class="opp-hi">(${formatHI(oppTeam.players[0]?.handicap_index, oppTeam.players[0]?.plus_handicap)})</span>
       </td>
+      <td class="strokes-cell">${chip(nineStrokes[2])}</td>
       <td class="opp-rank" rowspan="2">${oppRankStr}</td>
       <td class="score-cell${usDisp   === '—' ? ' score-dash' : ''}" rowspan="2">${usDisp}</td>
       <td class="score-cell${themDisp === '—' ? ' score-dash' : ''}" rowspan="2">${themDisp}</td>
@@ -142,12 +144,14 @@ function renderTeam(data, teamNum) {
     <tr class="match-second">
       <td>
         ${playerLink(shortName(team.players[1]?.name), team.players[1]?.name, 'opp-name')}
-        <span class="opp-hi">(${formatHI(team.players[1]?.handicap_index, team.players[1]?.plus_handicap)})</span>${chip(nineStrokes[1])}
+        <span class="opp-hi">(${formatHI(team.players[1]?.handicap_index, team.players[1]?.plus_handicap)})</span>
       </td>
+      <td class="strokes-cell">${chip(nineStrokes[1])}</td>
       <td>
         ${playerLink(shortName(oppTeam.players[1]?.name), oppTeam.players[1]?.name, 'opp-name')}
-        <span class="opp-hi">(${formatHI(oppTeam.players[1]?.handicap_index, oppTeam.players[1]?.plus_handicap)})</span>${chip(nineStrokes[3])}
+        <span class="opp-hi">(${formatHI(oppTeam.players[1]?.handicap_index, oppTeam.players[1]?.plus_handicap)})</span>
       </td>
+      <td class="strokes-cell">${chip(nineStrokes[3])}</td>
     </tr>`;
   });
 
@@ -199,7 +203,9 @@ function renderTeam(data, teamNum) {
             <th>Date</th>
             <th>Nine</th>
             <th>Team</th>
+            <th>Strokes</th>
             <th>Opponent</th>
+            <th>Strokes</th>
             <th>Opp Rank</th>
             <th>Team</th>
             <th>Opp</th>

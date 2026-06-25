@@ -169,15 +169,25 @@ table.schedule thead th {
 }
 
 /* Tighten the right-hand columns (Opp Rank, Move, Team/Opp scores, Result) */
-table.schedule thead th:nth-child(6),
-table.schedule thead th:nth-child(7),
 table.schedule thead th:nth-child(8),
 table.schedule thead th:nth-child(9),
-table.schedule thead th:nth-child(10) {
+table.schedule thead th:nth-child(10),
+table.schedule thead th:nth-child(11),
+table.schedule thead th:nth-child(12) {
   padding-left: 0.4rem;
   padding-right: 0.4rem;
   width: 1%;
   white-space: nowrap;
+}
+
+/* Tighten the two Strokes columns (5th and 7th) so they hug their chip */
+table.schedule thead th:nth-child(5),
+table.schedule thead th:nth-child(7) {
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  width: 1%;
+  white-space: nowrap;
+  text-align: center;
 }
 
 table.schedule tbody tr          { border-bottom: 1px solid var(--cream-dark); }
@@ -245,7 +255,12 @@ table.schedule tbody tr.match-second td {
   border-radius: 3px;
   background: var(--cream-dark);
   color: var(--text-mid);
-  margin-left: 4px;
+}
+
+.strokes-cell {
+  text-align: center;
+  padding-left: 0.4rem !important;
+  padding-right: 0.4rem !important;
 }
 
 .strokes-chip.zero { opacity: 0.45; }
