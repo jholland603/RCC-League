@@ -88,8 +88,8 @@ function renderComparison(playerName, compareValue) {
   const playerData  = BUCKETS.map(b => player.stats[b.key] || 0);
   const compareData = BUCKETS.map(b => compareStats[b.key] || 0);
 
-  const colorCompare = '#5a8fd6';
-  const colorPlayer  = '#2c2c2a';
+  const colorPlayer  = '#3a6b52';
+  const colorCompare = '#8a9bab';
 
   document.getElementById('chartLegend').innerHTML = `
     <span style="display:flex;align-items:center;gap:6px;">
