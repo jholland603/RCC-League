@@ -108,7 +108,7 @@ function calcMovers(data, flightTeams, targetWeek) {
 // ── BIGGEST MOVERS CALLOUT ───────────────────────────────────────────────────
 // Finds the top risers and fallers WITHIN EACH FLIGHT separately for the given
 // week (or the latest week if omitted). Returns { Sunshine: {risers, fallers}, Lollipops: {...} }.
-function biggestMovers(data, targetWeek, topN = 2) {
+function biggestMovers(data, targetWeek, topN = 5) {
   const result = {};
   ['Sunshine', 'Lollipops'].forEach(flight => {
     const flightTeams = data.teams.filter(t => t.flight === flight);
