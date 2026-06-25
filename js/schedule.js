@@ -2,6 +2,14 @@
 
 let leagueData = null;
 
+// Builds a clickable player name span that navigates to player.html.
+// displayName: the text to show (may be shortened/initialed); fullName: the
+// actual player name used to look them up on the player comparison page.
+function playerLink(displayName, fullName, cssClass) {
+  if (!fullName) return `<span class="${cssClass}">${displayName || '—'}</span>`;
+  return `<span class="${cssClass} player-link" data-player="${encodeURIComponent(fullName)}">${displayName}</span>`;
+}
+
 // ── RENDER ───────────────────────────────────────────────────────────────────
 
 function renderTeam(data, teamNum) {
@@ -118,11 +126,11 @@ function renderTeam(data, teamNum) {
       <td class="date-cell" rowspan="2">${date}</td>
       <td class="nine-cell" rowspan="2">${nine}</td>
       <td>
-        <span class="opp-name">${shortName(team.players[0]?.name)}</span>
+        ${playerLink(shortName(team.players[0]?.name), team.players[0]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(team.players[0]?.handicap_index, team.players[0]?.plus_handicap)})</span>${chip(nineStrokes[0])}
       </td>
       <td>
-        <span class="opp-name">${shortName(oppTeam.players[0]?.name)}</span>
+        ${playerLink(shortName(oppTeam.players[0]?.name), oppTeam.players[0]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(oppTeam.players[0]?.handicap_index, oppTeam.players[0]?.plus_handicap)})</span>${chip(nineStrokes[2])}
       </td>
       <td class="opp-rank" rowspan="2">${oppRankStr}</td>
@@ -133,11 +141,11 @@ function renderTeam(data, teamNum) {
     </tr>
     <tr class="match-second">
       <td>
-        <span class="opp-name">${shortName(team.players[1]?.name)}</span>
+        ${playerLink(shortName(team.players[1]?.name), team.players[1]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(team.players[1]?.handicap_index, team.players[1]?.plus_handicap)})</span>${chip(nineStrokes[1])}
       </td>
       <td>
-        <span class="opp-name">${shortName(oppTeam.players[1]?.name)}</span>
+        ${playerLink(shortName(oppTeam.players[1]?.name), oppTeam.players[1]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(oppTeam.players[1]?.handicap_index, oppTeam.players[1]?.plus_handicap)})</span>${chip(nineStrokes[3])}
       </td>
     </tr>`;
@@ -148,7 +156,7 @@ function renderTeam(data, teamNum) {
     <div class="player-chip">
       <div class="player-avatar">${initials(p.name || '')}</div>
       <div>
-        <div class="player-name">${p.name || '—'}</div>
+        <div class="player-name-wrap">${playerLink(p.name || '—', p.name, 'player-name')}</div>
         <div class="player-detail">HI: ${formatHI(p.handicap_index, p.plus_handicap)}${p.tee ? ' · ' + p.tee + ' tees' : ''}</div>
       </div>
     </div>`).join('');
@@ -218,6 +226,14 @@ function renderTeam(data, teamNum) {
       </span>
       &nbsp;·&nbsp; ${Object.keys(myScores).length} rounds played
     </div>`;
+
+  card.querySelectorAll('.player-link').forEach(el => {
+    el.addEventListener('click', () => {
+      const name = decodeURIComponent(el.dataset.player);
+      localStorage.setItem('rcc_player', name);
+      window.location.href = 'player.html';
+    });
+  });
 }
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────

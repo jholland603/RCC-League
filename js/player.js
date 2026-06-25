@@ -23,6 +23,8 @@ function buildRosterPlayers(data) {
         name: p.name,
         team: team.team_number,
         flight: team.flight,
+        hi: p.handicap_index,
+        plusHandicap: p.plus_handicap || false,
         stats: p.stats,
       });
     });
@@ -69,7 +71,7 @@ function renderComparison(playerName, compareValue) {
 
   card.innerHTML = `
     <div class="player-header">
-      <h2>${player.name}</h2>
+      <h2>${player.name} <span class="player-hi">(${formatHI(player.hi, player.plusHandicap)})</span></h2>
       <div class="player-meta">
         <span class="badge ${player.flight === 'Sunshine' ? 'badge-sun' : 'badge-lol'}">${flightIcon} ${player.flight}</span>
         <span class="badge badge-points">T${player.team}</span>
@@ -91,10 +93,10 @@ function renderComparison(playerName, compareValue) {
 
   document.getElementById('chartLegend').innerHTML = `
     <span style="display:flex;align-items:center;gap:6px;">
-      <span style="width:10px;height:10px;border-radius:2px;background:${colorCompare};"></span>${compareLabel}
+      <span style="width:10px;height:10px;border-radius:2px;background:${colorPlayer};"></span>${player.name}
     </span>
     <span style="display:flex;align-items:center;gap:6px;">
-      <span style="width:10px;height:10px;border-radius:2px;background:${colorPlayer};"></span>${player.name}
+      <span style="width:10px;height:10px;border-radius:2px;background:${colorCompare};"></span>${compareLabel}
     </span>`;
 
   if (chartInstance) chartInstance.destroy();
@@ -106,15 +108,15 @@ function renderComparison(playerName, compareValue) {
       labels: BUCKETS.map(b => b.label),
       datasets: [
         {
-          label: compareLabel,
-          data: compareData.map(v => Math.round(v * 10) / 10),
-          backgroundColor: colorCompare,
-          borderRadius: 3,
-        },
-        {
           label: player.name,
           data: playerData,
           backgroundColor: colorPlayer,
+          borderRadius: 3,
+        },
+        {
+          label: compareLabel,
+          data: compareData.map(v => Math.round(v * 10) / 10),
+          backgroundColor: colorCompare,
           borderRadius: 3,
         },
       ],
