@@ -138,7 +138,7 @@ function renderMoversCallout(data, targetWeek) {
     <div class="mover-item">
       <span class="mover-arrow ${cls}">${arrow}${Math.abs(mv)}</span>
       <span class="mover-team">${team.players_display}</span>
-      <span class="mover-flight">T${team.team_number}</span>
+      <span class="mover-flight">Team ${team.team_number}</span>
     </div>`;
   }
 
@@ -215,7 +215,7 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
       <td class="rank-cell ${isTop3 ? 'top3' : ''}">${rankStr}</td>
       <td class="team-name-cell">
         <div class="players">${team.players_display}</div>
-        <div class="team-num">T${team.team_number}</div>
+        <div class="team-num">Team ${team.team_number}</div>
       </td>
       <td class="record-cell">
         <span class="rec-w">${rec.w}</span><span class="rec-sep">-</span><span class="rec-l">${rec.l}</span>${rec.t > 0 ? `<span class="rec-sep">-</span><span class="rec-t">${rec.t}</span>` : ''}

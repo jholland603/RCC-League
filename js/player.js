@@ -74,7 +74,7 @@ function renderComparison(playerName, compareValue) {
       <h2>${player.name} <span class="player-hi">(${formatHI(player.hi, player.plusHandicap)})</span></h2>
       <div class="player-meta">
         <span class="badge ${player.flight === 'Sunshine' ? 'badge-sun' : 'badge-lol'}">${flightIcon} ${player.flight}</span>
-        <span class="badge badge-points">T${player.team}</span>
+        <span class="badge badge-points">Team ${player.team}</span>
         <span class="badge badge-points">${holes} holes recorded</span>
       </div>
     </div>
@@ -152,12 +152,12 @@ function populatePickers() {
       .forEach(p => {
         const opt1 = document.createElement('option');
         opt1.value = p.name;
-        opt1.textContent = `${p.name} (T${p.team})`;
+        opt1.textContent = `${p.name} (Team ${p.team})`;
         group1.appendChild(opt1);
 
         const opt2 = document.createElement('option');
         opt2.value = p.name;
-        opt2.textContent = `${p.name} (T${p.team})`;
+        opt2.textContent = `${p.name} (Team ${p.team})`;
         group2.appendChild(opt2);
       });
 

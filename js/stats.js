@@ -103,7 +103,7 @@ function render() {
       <td class="s-rank ${rankCls}">${rank}</td>
       <td>
         <div class="s-name">${p.name}</div>
-        <div class="s-team">${fi} T${p.team} &nbsp;·&nbsp; ${p.holes} holes</div>
+        <div class="s-team">${fi} Team ${p.team} &nbsp;·&nbsp; ${p.holes} holes</div>
       </td>
       ${tds}
     </tr>`;
