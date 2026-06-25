@@ -87,14 +87,15 @@ function calcPlayingHandicap(hi, tee, courseRatings, isPlus) {
 const HANDICAP_ALLOWANCE = 0.80;
 
 function getStrokesFor4(players, courseRatings) {
-  // Apply the handicap allowance to each player's playing handicap before
-  // computing the low-man differential. Round to nearest integer.
-  const phs = players.map(p => {
-    const ph = calcPlayingHandicap(p.hi, p.tee || 'blue', courseRatings, p.isPlus);
-    return Math.round(ph * HANDICAP_ALLOWANCE);
-  });
+  // Compute each player's full playing handicap first.
+  const phs = players.map(p => calcPlayingHandicap(p.hi, p.tee || 'blue', courseRatings, p.isPlus));
+  // Find the low man and get the raw stroke differential (low man = 0).
   const low = Math.min(...phs);
-  return phs.map(ph => ph - low);
+  const rawDiffs = phs.map(ph => ph - low);
+  // Apply the handicap allowance to the DIFFERENTIAL, not to each player's raw
+  // playing handicap — applying it before the low-man subtraction double-counts
+  // the rounding and can overstate strokes for higher-handicap players.
+  return rawDiffs.map(diff => Math.round(diff * HANDICAP_ALLOWANCE));
 }
 
 // For 9 holes: halve full strokes. Front gets extra stroke if odd.

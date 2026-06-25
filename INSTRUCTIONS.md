@@ -96,8 +96,8 @@ Par = 72. Use tee's rating and slope from `course_ratings`. If `plus_handicap` i
 
 ### Strokes Off (Low Man Method)
 1. Calculate playing_handicap for all 4 players.
-2. Apply **80% handicap allowance**: multiply each playing_handicap by 0.80 and round to nearest integer.
-3. Low man = 0 strokes. Each other player's strokes = their adjusted PH − low man's adjusted PH.
+2. Low man = 0 strokes. Each other player's strokes = their PH − low man's PH (the raw differential).
+3. Apply **80% handicap allowance**: multiply each player's differential by 0.80 and round to nearest integer. (Apply the allowance to the differential, not to each player's raw playing handicap — doing it beforehand double-rounds and overstates strokes.)
 4. For 9 holes, halve the full difference. If odd: **front nine gets the extra stroke**.
 5. Show only strokes for the nine being played that round.
 

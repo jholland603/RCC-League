@@ -231,6 +231,11 @@ table.schedule tbody tr.match-second td {
 .opp-hi   { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-muted); }
 .opp-rank { font-size: 0.72rem; color: var(--text-muted); padding-left: 0.4rem !important; padding-right: 0.4rem !important; }
 
+/* Pull the Strokes column in tight against its Team/Opponent name column */
+table.schedule tbody td.name-cell {
+  padding-right: 0.3rem !important;
+}
+
 .move-cell {
   font-family: 'DM Mono', monospace;
   font-size: 0.78rem;
@@ -259,8 +264,8 @@ table.schedule tbody tr.match-second td {
 
 .strokes-cell {
   text-align: center;
-  padding-left: 0.4rem !important;
-  padding-right: 0.4rem !important;
+  padding-left: 0.25rem !important;
+  padding-right: 0.5rem !important;
 }
 
 .strokes-chip.zero { opacity: 0.45; }

@@ -125,12 +125,12 @@ function renderTeam(data, teamNum) {
       <td class="rnd-cell"  rowspan="2">${rndLabel_str}</td>
       <td class="date-cell" rowspan="2">${date}</td>
       <td class="nine-cell" rowspan="2">${nine}</td>
-      <td>
+      <td class="name-cell">
         ${playerLink(shortName(team.players[0]?.name), team.players[0]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(team.players[0]?.handicap_index, team.players[0]?.plus_handicap)})</span>
       </td>
       <td class="strokes-cell">${chip(nineStrokes[0])}</td>
-      <td>
+      <td class="name-cell">
         ${playerLink(shortName(oppTeam.players[0]?.name), oppTeam.players[0]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(oppTeam.players[0]?.handicap_index, oppTeam.players[0]?.plus_handicap)})</span>
       </td>
@@ -142,12 +142,12 @@ function renderTeam(data, teamNum) {
       <td class="move-cell" rowspan="2">${moveCell}</td>
     </tr>
     <tr class="match-second">
-      <td>
+      <td class="name-cell">
         ${playerLink(shortName(team.players[1]?.name), team.players[1]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(team.players[1]?.handicap_index, team.players[1]?.plus_handicap)})</span>
       </td>
       <td class="strokes-cell">${chip(nineStrokes[1])}</td>
-      <td>
+      <td class="name-cell">
         ${playerLink(shortName(oppTeam.players[1]?.name), oppTeam.players[1]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(oppTeam.players[1]?.handicap_index, oppTeam.players[1]?.plus_handicap)})</span>
       </td>
