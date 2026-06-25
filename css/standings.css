@@ -227,11 +227,14 @@ table.standings tbody td.num {
   padding: 1rem 1.25rem;
 }
 
-.movers-col-title   { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
-.movers-title-up   { color: var(--win); }
-.movers-title-down { color: var(--loss); }
+.movers-col-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
 
-.movers-flight-group + .movers-flight-group {
+.movers-subgroup + .movers-subgroup {
   margin-top: 0.6rem;
   padding-top: 0.5rem;
   border-top: 1px dashed var(--cream-dark);
@@ -240,10 +243,13 @@ table.standings tbody td.num {
 .movers-flight-label {
   font-size: 0.65rem;
   font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
 }
+
+.movers-title-up   { color: var(--win); }
+.movers-title-down { color: var(--loss); }
 
 .mover-item {
   display: flex;

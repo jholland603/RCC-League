@@ -142,32 +142,27 @@ function renderMoversCallout(data, targetWeek) {
     </div>`;
   }
 
+  function flightCard(flight) {
+    const { risers, fallers } = byFlight[flight];
+    const icon = flight === 'Sunshine' ? '☀' : '🍭';
+    return `
+    <div class="movers-col">
+      <div class="movers-col-title">${icon} ${flight}</div>
+      <div class="movers-subgroup">
+        <div class="movers-flight-label movers-title-up">Biggest Risers</div>
+        ${risers.length ? risers.map(r => itemRow(r, true)).join('') : '<div class="movers-empty">No movement</div>'}
+      </div>
+      <div class="movers-subgroup">
+        <div class="movers-flight-label movers-title-down">Biggest Fallers</div>
+        ${fallers.length ? fallers.map(f => itemRow(f, false)).join('') : '<div class="movers-empty">No movement</div>'}
+      </div>
+    </div>`;
+  }
+
   return `
   <div class="movers-callout">
-    <div class="movers-col">
-      <div class="movers-col-title movers-title-up">Biggest Risers</div>
-      ${['Sunshine', 'Lollipops'].map(flight => {
-        const { risers } = byFlight[flight];
-        const icon = flight === 'Sunshine' ? '☀' : '🍭';
-        return `
-        <div class="movers-flight-group">
-          <div class="movers-flight-label">${icon} ${flight}</div>
-          ${risers.length ? risers.map(r => itemRow(r, true)).join('') : '<div class="movers-empty">No movement</div>'}
-        </div>`;
-      }).join('')}
-    </div>
-    <div class="movers-col">
-      <div class="movers-col-title movers-title-down">Biggest Fallers</div>
-      ${['Sunshine', 'Lollipops'].map(flight => {
-        const { fallers } = byFlight[flight];
-        const icon = flight === 'Sunshine' ? '☀' : '🍭';
-        return `
-        <div class="movers-flight-group">
-          <div class="movers-flight-label">${icon} ${flight}</div>
-          ${fallers.length ? fallers.map(f => itemRow(f, false)).join('') : '<div class="movers-empty">No movement</div>'}
-        </div>`;
-      }).join('')}
-    </div>
+    ${flightCard('Sunshine')}
+    ${flightCard('Lollipops')}
   </div>`;
 }
 
