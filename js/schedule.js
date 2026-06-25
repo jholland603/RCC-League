@@ -134,7 +134,7 @@ function renderTeam(data, teamNum) {
         ${playerLink(shortName(oppTeam.players[0]?.name), oppTeam.players[0]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(oppTeam.players[0]?.handicap_index, oppTeam.players[0]?.plus_handicap)})</span>
       </td>
-      <td class="strokes-cell">${chip(nineStrokes[2])}</td>
+      <td class="strokes-cell opp-strokes">${chip(nineStrokes[2])}</td>
       <td class="opp-rank" rowspan="2">${oppRankStr}</td>
       <td class="score-cell${usDisp   === '—' ? ' score-dash' : ''}" rowspan="2">${usDisp}</td>
       <td class="score-cell${themDisp === '—' ? ' score-dash' : ''}" rowspan="2">${themDisp}</td>
@@ -151,7 +151,7 @@ function renderTeam(data, teamNum) {
         ${playerLink(shortName(oppTeam.players[1]?.name), oppTeam.players[1]?.name, 'opp-name')}
         <span class="opp-hi">(${formatHI(oppTeam.players[1]?.handicap_index, oppTeam.players[1]?.plus_handicap)})</span>
       </td>
-      <td class="strokes-cell">${chip(nineStrokes[3])}</td>
+      <td class="strokes-cell opp-strokes">${chip(nineStrokes[3])}</td>
     </tr>`;
   });
 
