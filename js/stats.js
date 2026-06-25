@@ -99,7 +99,7 @@ function render() {
       return `<td class="num${active ? ' sort-active-cell' : ''}">${disp}</td>`;
     }).join('');
 
-    return `<tr>
+    return `<tr class="player-row" data-player="${encodeURIComponent(p.name)}" style="cursor:pointer;">
       <td class="s-rank ${rankCls}">${rank}</td>
       <td>
         <div class="s-name">${p.name}</div>
@@ -141,6 +141,14 @@ function render() {
         sortDir   = 1;
       }
       render();
+    });
+  });
+
+  document.querySelectorAll('#statsTable tbody tr.player-row').forEach(tr => {
+    tr.addEventListener('click', () => {
+      const name = decodeURIComponent(tr.dataset.player);
+      localStorage.setItem('rcc_player', name);
+      window.location.href = 'player.html';
     });
   });
 }
