@@ -250,6 +250,7 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 let data = null;
+let showMovers = false; // movers callout is hidden by default, toggled via link
 
 function populateWeekSelect() {
   const sel = document.getElementById('weekSelect');
@@ -286,7 +287,7 @@ function renderForSelection(selectedValue) {
   }
 
   document.getElementById('standingsWrap').innerHTML =
-    renderMoversCallout(data, targetWeek) +
+    (showMovers ? renderMoversCallout(data, targetWeek) : '') +
     renderFlight('Sunshine',  sunshine,  records, pointsOverride, isHistorical, targetWeek) +
     renderFlight('Lollipops', lollipops, records, pointsOverride, isHistorical, targetWeek);
 
@@ -308,6 +309,15 @@ function renderForSelection(selectedValue) {
 
 document.getElementById('weekSelect').addEventListener('change', function () {
   renderForSelection(this.value);
+});
+
+document.getElementById('moversToggle').addEventListener('click', function (e) {
+  e.preventDefault();
+  showMovers = !showMovers;
+  this.textContent = showMovers ? 'Hide Biggest Risers/Fallers' : 'Show Biggest Risers/Fallers';
+  if (data) {
+    renderForSelection(document.getElementById('weekSelect').value);
+  }
 });
 
 loadLeagueData()

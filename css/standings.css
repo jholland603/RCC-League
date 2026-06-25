@@ -194,6 +194,23 @@ table.standings tbody td.num {
   margin-left: 2px;
 }
 
+/* ── MOVERS TOGGLE LINK ────────────────────────────────────────────────────── */
+.movers-toggle-row {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.movers-toggle-link {
+  font-size: 0.78rem;
+  color: var(--green-mid);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.movers-toggle-link:hover {
+  text-decoration: underline;
+}
+
 /* ── BIGGEST MOVERS CALLOUT ─────────────────────────────────────────────────── */
 .movers-callout {
   grid-column: 1 / -1;
