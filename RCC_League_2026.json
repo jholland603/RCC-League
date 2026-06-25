@@ -81,17 +81,17 @@
       "team_number": 1,
       "flight": "Sunshine",
       "players_display": "Ferullo, Kory + Allen, Jd",
-      "total_points": 47.5,
+      "total_points": 54.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Ferullo, Kory",
           "handicap_index": 0.1,
           "stats": {
-            "eagles": 0,
-            "birdies": 3,
-            "pars": 16,
-            "bogeys": 8,
+            "eagles": 1,
+            "birdies": 4,
+            "pars": 21,
+            "bogeys": 10,
             "doubles": 0,
             "triples_worse": 0
           },
@@ -100,12 +100,12 @@
         },
         {
           "name": "Allen, Jd",
-          "handicap_index": 8.4,
+          "handicap_index": 8.5,
           "stats": {
             "eagles": 0,
-            "birdies": 2,
-            "pars": 23,
-            "bogeys": 16,
+            "birdies": 3,
+            "pars": 27,
+            "bogeys": 20,
             "doubles": 4,
             "triples_worse": 0
           },
@@ -119,17 +119,17 @@
       "team_number": 2,
       "flight": "Sunshine",
       "players_display": "Christie, Ian + Stevens, Cody",
-      "total_points": 41.5,
+      "total_points": 47.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Christie, Ian",
-          "handicap_index": 7.8,
+          "handicap_index": 7.9,
           "stats": {
             "eagles": 1,
             "birdies": 1,
-            "pars": 17,
-            "bogeys": 23,
+            "pars": 19,
+            "bogeys": 30,
             "doubles": 1,
             "triples_worse": 0
           },
@@ -138,12 +138,12 @@
         },
         {
           "name": "Stevens, Cody",
-          "handicap_index": 1.5,
+          "handicap_index": 1.4,
           "stats": {
             "eagles": 0,
-            "birdies": 1,
-            "pars": 20,
-            "bogeys": 13,
+            "birdies": 2,
+            "pars": 26,
+            "bogeys": 15,
             "doubles": 2,
             "triples_worse": 0
           },
@@ -157,7 +157,7 @@
       "team_number": 3,
       "flight": "Sunshine",
       "players_display": "Kretschmar, David + Strong, Kevin",
-      "total_points": 42.0,
+      "total_points": 51.0,
       "purse": 0.0,
       "players": [
         {
@@ -166,9 +166,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 18,
-            "bogeys": 13,
-            "doubles": 3,
+            "pars": 21,
+            "bogeys": 18,
+            "doubles": 4,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -176,17 +176,17 @@
         },
         {
           "name": "Strong, Kevin",
-          "handicap_index": 0.5,
+          "handicap_index": 0.0,
           "stats": {
             "eagles": 0,
             "birdies": 6,
-            "pars": 23,
-            "bogeys": 6,
+            "pars": 29,
+            "bogeys": 9,
             "doubles": 1,
             "triples_worse": 0
           },
           "tee": "blue",
-          "plus_handicap": true
+          "plus_handicap": false
         }
       ],
       "overall_rank": 0
@@ -195,17 +195,17 @@
       "team_number": 4,
       "flight": "Sunshine",
       "players_display": "Blood, Ray + Mitcherson, Jeff",
-      "total_points": 39.0,
+      "total_points": 47.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Blood, Ray",
-          "handicap_index": 10.7,
+          "handicap_index": 10.8,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 18,
-            "bogeys": 21,
+            "pars": 22,
+            "bogeys": 26,
             "doubles": 6,
             "triples_worse": 0
           },
@@ -214,12 +214,12 @@
         },
         {
           "name": "Mitcherson, Jeff",
-          "handicap_index": 1.6,
+          "handicap_index": 1.9,
           "stats": {
             "eagles": 1,
             "birdies": 2,
-            "pars": 34,
-            "bogeys": 8,
+            "pars": 40,
+            "bogeys": 11,
             "doubles": 0,
             "triples_worse": 0
           },
@@ -233,7 +233,7 @@
       "team_number": 5,
       "flight": "Sunshine",
       "players_display": "Newton, Keith + Adjutant, Mike",
-      "total_points": 47.5,
+      "total_points": 56.5,
       "purse": 0.0,
       "players": [
         {
@@ -242,9 +242,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 4,
-            "pars": 21,
-            "bogeys": 18,
-            "doubles": 2,
+            "pars": 28,
+            "bogeys": 19,
+            "doubles": 3,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -252,13 +252,13 @@
         },
         {
           "name": "Adjutant, Mike",
-          "handicap_index": 6.0,
+          "handicap_index": 5.9,
           "stats": {
             "eagles": 1,
-            "birdies": 2,
-            "pars": 23,
-            "bogeys": 17,
-            "doubles": 2,
+            "birdies": 4,
+            "pars": 27,
+            "bogeys": 19,
+            "doubles": 3,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -271,7 +271,7 @@
       "team_number": 6,
       "flight": "Sunshine",
       "players_display": "Carignan, Hunter + Strayer, Jackson",
-      "total_points": 46.5,
+      "total_points": 53.5,
       "purse": 25.0,
       "players": [
         {
@@ -279,10 +279,10 @@
           "handicap_index": 4.5,
           "stats": {
             "eagles": 0,
-            "birdies": 9,
-            "pars": 21,
-            "bogeys": 12,
-            "doubles": 3,
+            "birdies": 10,
+            "pars": 23,
+            "bogeys": 17,
+            "doubles": 4,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -294,8 +294,8 @@
           "stats": {
             "eagles": 0,
             "birdies": 6,
-            "pars": 17,
-            "bogeys": 11,
+            "pars": 20,
+            "bogeys": 17,
             "doubles": 2,
             "triples_worse": 0
           },
@@ -309,17 +309,17 @@
       "team_number": 7,
       "flight": "Sunshine",
       "players_display": "Levesque, Todd + McCarthy, Ryan",
-      "total_points": 44.0,
+      "total_points": 52.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Levesque, Todd",
-          "handicap_index": 6.9,
+          "handicap_index": 6.6,
           "stats": {
             "eagles": 0,
-            "birdies": 3,
-            "pars": 16,
-            "bogeys": 20,
+            "birdies": 5,
+            "pars": 20,
+            "bogeys": 23,
             "doubles": 6,
             "triples_worse": 0
           },
@@ -328,13 +328,13 @@
         },
         {
           "name": "McCarthy, Ryan",
-          "handicap_index": 4.3,
+          "handicap_index": 4.1,
           "stats": {
             "eagles": 0,
-            "birdies": 8,
-            "pars": 18,
-            "bogeys": 19,
-            "doubles": 0,
+            "birdies": 9,
+            "pars": 24,
+            "bogeys": 20,
+            "doubles": 1,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -347,16 +347,16 @@
       "team_number": 8,
       "flight": "Sunshine",
       "players_display": "Cleveland, Jayson + Roy, Trevor",
-      "total_points": 49.0,
+      "total_points": 57.0,
       "purse": 25.0,
       "players": [
         {
           "name": "Cleveland, Jayson",
-          "handicap_index": 0.8,
+          "handicap_index": 0.6,
           "stats": {
             "eagles": 1,
-            "birdies": 11,
-            "pars": 24,
+            "birdies": 12,
+            "pars": 32,
             "bogeys": 7,
             "doubles": 2,
             "triples_worse": 0
@@ -366,13 +366,13 @@
         },
         {
           "name": "Roy, Trevor",
-          "handicap_index": 13.1,
+          "handicap_index": 13.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 16,
-            "bogeys": 15,
-            "doubles": 11,
+            "pars": 19,
+            "bogeys": 18,
+            "doubles": 14,
             "triples_worse": 1
           },
           "tee": "blue",
@@ -385,18 +385,18 @@
       "team_number": 9,
       "flight": "Sunshine",
       "players_display": "Eggbiggboo, Jose + Catalfo, Chris",
-      "total_points": 47.0,
+      "total_points": 53.0,
       "purse": 25.0,
       "players": [
         {
           "name": "Eggbiggboo, Jose",
-          "handicap_index": 10.1,
+          "handicap_index": 10.4,
           "stats": {
             "eagles": 0,
-            "birdies": 1,
-            "pars": 15,
-            "bogeys": 22,
-            "doubles": 6,
+            "birdies": 2,
+            "pars": 18,
+            "bogeys": 26,
+            "doubles": 7,
             "triples_worse": 1
           },
           "tee": "blue",
@@ -407,9 +407,9 @@
           "handicap_index": 4.1,
           "stats": {
             "eagles": 0,
-            "birdies": 3,
-            "pars": 23,
-            "bogeys": 13,
+            "birdies": 4,
+            "pars": 27,
+            "bogeys": 17,
             "doubles": 6,
             "triples_worse": 0
           },
@@ -423,18 +423,18 @@
       "team_number": 10,
       "flight": "Sunshine",
       "players_display": "Montigny, Don + Chavaree, Brett",
-      "total_points": 45.0,
+      "total_points": 51.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Montigny, Don",
-          "handicap_index": 12.4,
+          "handicap_index": 12.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 24,
-            "bogeys": 19,
-            "doubles": 2,
+            "pars": 29,
+            "bogeys": 22,
+            "doubles": 3,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -461,18 +461,18 @@
       "team_number": 11,
       "flight": "Sunshine",
       "players_display": "Edmunds, Mitch + Marino, Dj",
-      "total_points": 34.5,
+      "total_points": 42.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Edmunds, Mitch",
-          "handicap_index": 7.8,
+          "handicap_index": 8.1,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 10,
-            "bogeys": 31,
-            "doubles": 2,
+            "pars": 13,
+            "bogeys": 35,
+            "doubles": 4,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -484,8 +484,8 @@
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 15,
-            "bogeys": 17,
+            "pars": 20,
+            "bogeys": 21,
             "doubles": 2,
             "triples_worse": 0
           },
@@ -499,18 +499,18 @@
       "team_number": 12,
       "flight": "Sunshine",
       "players_display": "Vinciguerra, Caleb + Moore, Josh",
-      "total_points": 44.5,
+      "total_points": 52.5,
       "purse": 25.0,
       "players": [
         {
           "name": "Vinciguerra, Caleb",
-          "handicap_index": 2.4,
+          "handicap_index": 2.2,
           "stats": {
             "eagles": 0,
-            "birdies": 5,
-            "pars": 29,
-            "bogeys": 10,
-            "doubles": 1,
+            "birdies": 8,
+            "pars": 33,
+            "bogeys": 11,
+            "doubles": 2,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -522,9 +522,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 4,
-            "pars": 15,
-            "bogeys": 19,
-            "doubles": 6,
+            "pars": 17,
+            "bogeys": 24,
+            "doubles": 8,
             "triples_worse": 1
           },
           "tee": "blue",
@@ -537,18 +537,18 @@
       "team_number": 13,
       "flight": "Sunshine",
       "players_display": "Milne, Gino + Cyr, Glenn",
-      "total_points": 42.0,
+      "total_points": 47.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Milne, Gino",
-          "handicap_index": 8.7,
+          "handicap_index": 8.6,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 21,
-            "bogeys": 21,
-            "doubles": 3,
+            "pars": 27,
+            "bogeys": 23,
+            "doubles": 4,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -556,13 +556,13 @@
         },
         {
           "name": "Cyr, Glenn",
-          "handicap_index": 7.7,
+          "handicap_index": 7.8,
           "stats": {
             "eagles": 0,
             "birdies": 3,
-            "pars": 16,
-            "bogeys": 14,
-            "doubles": 3,
+            "pars": 17,
+            "bogeys": 21,
+            "doubles": 4,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -575,18 +575,18 @@
       "team_number": 14,
       "flight": "Sunshine",
       "players_display": "Paquette, Brock + Paquette, Wade",
-      "total_points": 40.0,
+      "total_points": 46.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Paquette, Brock",
-          "handicap_index": 12.6,
+          "handicap_index": 12.5,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 14,
-            "bogeys": 24,
-            "doubles": 6,
+            "pars": 18,
+            "bogeys": 25,
+            "doubles": 10,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -594,13 +594,13 @@
         },
         {
           "name": "Paquette, Wade",
-          "handicap_index": 5.4,
+          "handicap_index": 5.2,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 24,
-            "bogeys": 17,
-            "doubles": 3,
+            "pars": 29,
+            "bogeys": 20,
+            "doubles": 4,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -613,8 +613,8 @@
       "team_number": 15,
       "flight": "Sunshine",
       "players_display": "Morris, John + Hussey, Brendan",
-      "total_points": 45.0,
-      "purse": 0.0,
+      "total_points": 52.0,
+      "purse": 25.0,
       "players": [
         {
           "name": "Morris, John",
@@ -622,9 +622,9 @@
           "stats": {
             "eagles": 1,
             "birdies": 4,
-            "pars": 20,
-            "bogeys": 18,
-            "doubles": 2,
+            "pars": 25,
+            "bogeys": 21,
+            "doubles": 3,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -632,13 +632,13 @@
         },
         {
           "name": "Hussey, Brendan",
-          "handicap_index": 8.5,
+          "handicap_index": 8.3,
           "stats": {
             "eagles": 0,
-            "birdies": 2,
-            "pars": 20,
-            "bogeys": 21,
-            "doubles": 2,
+            "birdies": 3,
+            "pars": 24,
+            "bogeys": 24,
+            "doubles": 3,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -651,7 +651,7 @@
       "team_number": 16,
       "flight": "Sunshine",
       "players_display": "Macgregor, Nick + Creteau, Rick",
-      "total_points": 37.0,
+      "total_points": 42.0,
       "purse": 25.0,
       "players": [
         {
@@ -660,9 +660,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 3,
-            "bogeys": 17,
-            "doubles": 6,
+            "pars": 6,
+            "bogeys": 19,
+            "doubles": 10,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -670,12 +670,12 @@
         },
         {
           "name": "Creteau, Rick",
-          "handicap_index": 3.2,
+          "handicap_index": 3.1,
           "stats": {
             "eagles": 0,
-            "birdies": 5,
-            "pars": 22,
-            "bogeys": 16,
+            "birdies": 7,
+            "pars": 26,
+            "bogeys": 19,
             "doubles": 2,
             "triples_worse": 0
           },
@@ -689,18 +689,18 @@
       "team_number": 17,
       "flight": "Sunshine",
       "players_display": "Angelopoulos, Chris + Todd, Heath",
-      "total_points": 48.0,
+      "total_points": 53.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Angelopoulos, Chris",
-          "handicap_index": 7.6,
+          "handicap_index": 8.1,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 25,
-            "bogeys": 15,
-            "doubles": 3,
+            "pars": 31,
+            "bogeys": 17,
+            "doubles": 4,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -708,12 +708,12 @@
         },
         {
           "name": "Todd, Heath",
-          "handicap_index": 9.7,
+          "handicap_index": 9.6,
           "stats": {
             "eagles": 0,
-            "birdies": 1,
-            "pars": 15,
-            "bogeys": 18,
+            "birdies": 3,
+            "pars": 20,
+            "bogeys": 20,
             "doubles": 2,
             "triples_worse": 0
           },
@@ -727,18 +727,18 @@
       "team_number": 18,
       "flight": "Sunshine",
       "players_display": "Hamilton, Matthew + Cordeiro, Ryan",
-      "total_points": 42.0,
+      "total_points": 47.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Hamilton, Matthew",
-          "handicap_index": 8.3,
+          "handicap_index": 8.6,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 14,
-            "bogeys": 23,
-            "doubles": 7,
+            "pars": 16,
+            "bogeys": 27,
+            "doubles": 10,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -746,13 +746,13 @@
         },
         {
           "name": "Cordeiro, Ryan",
-          "handicap_index": 7.6,
+          "handicap_index": 8.1,
           "stats": {
             "eagles": 0,
-            "birdies": 2,
-            "pars": 20,
+            "birdies": 3,
+            "pars": 26,
             "bogeys": 18,
-            "doubles": 4,
+            "doubles": 6,
             "triples_worse": 1
           },
           "tee": "blue",
@@ -765,18 +765,18 @@
       "team_number": 19,
       "flight": "Sunshine",
       "players_display": "Conroy, Casey + Faist, Eric",
-      "total_points": 37.5,
+      "total_points": 45.5,
       "purse": 100.0,
       "players": [
         {
           "name": "Conroy, Casey",
-          "handicap_index": 9.2,
+          "handicap_index": 9.5,
           "stats": {
             "eagles": 0,
             "birdies": 1,
             "pars": 14,
-            "bogeys": 26,
-            "doubles": 4,
+            "bogeys": 34,
+            "doubles": 5,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -784,12 +784,12 @@
         },
         {
           "name": "Faist, Eric",
-          "handicap_index": 8.4,
+          "handicap_index": 7.9,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 16,
-            "bogeys": 16,
+            "pars": 21,
+            "bogeys": 20,
             "doubles": 3,
             "triples_worse": 0
           },
@@ -802,8 +802,8 @@
       "team_number": 20,
       "flight": "Sunshine",
       "players_display": "Puffer, Stephen + Rowntree, Jack",
-      "total_points": 42.0,
-      "purse": 0.0,
+      "total_points": 50.0,
+      "purse": 25.0,
       "players": [
         {
           "name": "Puffer, Stephen",
@@ -811,9 +811,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 20,
-            "bogeys": 13,
-            "doubles": 10,
+            "pars": 23,
+            "bogeys": 17,
+            "doubles": 12,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -824,10 +824,10 @@
           "handicap_index": 8.7,
           "stats": {
             "eagles": 0,
-            "birdies": 0,
+            "birdies": 3,
             "pars": 19,
-            "bogeys": 12,
-            "doubles": 5,
+            "bogeys": 16,
+            "doubles": 6,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -840,7 +840,7 @@
       "team_number": 21,
       "flight": "Sunshine",
       "players_display": "Hanson, Scott + Hanson, Trevor",
-      "total_points": 36.0,
+      "total_points": 40.0,
       "purse": 0.0,
       "players": [
         {
@@ -849,10 +849,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 17,
-            "bogeys": 20,
-            "doubles": 6,
-            "triples_worse": 1
+            "pars": 19,
+            "bogeys": 24,
+            "doubles": 8,
+            "triples_worse": 2
           },
           "tee": "blue",
           "plus_handicap": false
@@ -878,18 +878,18 @@
       "team_number": 22,
       "flight": "Sunshine",
       "players_display": "Ceppetelli, Dante + Frank, Cameron",
-      "total_points": 42.0,
+      "total_points": 49.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Ceppetelli, Dante",
-          "handicap_index": 6.4,
+          "handicap_index": 6.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 25,
-            "bogeys": 16,
-            "doubles": 2,
+            "pars": 28,
+            "bogeys": 20,
+            "doubles": 4,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -897,13 +897,13 @@
         },
         {
           "name": "Frank, Cameron",
-          "handicap_index": 9.5,
+          "handicap_index": 9.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 20,
-            "bogeys": 17,
-            "doubles": 5,
+            "pars": 21,
+            "bogeys": 21,
+            "doubles": 9,
             "triples_worse": 1
           },
           "tee": "blue",
@@ -916,12 +916,12 @@
       "team_number": 23,
       "flight": "Sunshine",
       "players_display": "Radwan, Jacob + Pridham, Casey",
-      "total_points": 33.5,
+      "total_points": 42.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Radwan, Jacob",
-          "handicap_index": 8.1,
+          "handicap_index": 7.8,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -939,9 +939,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 18,
-            "bogeys": 23,
-            "doubles": 3,
+            "pars": 19,
+            "bogeys": 27,
+            "doubles": 7,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -954,7 +954,7 @@
       "team_number": 24,
       "flight": "Sunshine",
       "players_display": "Keough, Jay + White, Erik",
-      "total_points": 32.0,
+      "total_points": 40.0,
       "purse": 0.0,
       "players": [
         {
@@ -963,9 +963,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 13,
-            "bogeys": 21,
-            "doubles": 7,
+            "pars": 14,
+            "bogeys": 23,
+            "doubles": 13,
             "triples_worse": 2
           },
           "tee": "blue",
@@ -973,13 +973,13 @@
         },
         {
           "name": "White, Erik",
-          "handicap_index": 10.7,
+          "handicap_index": 10.8,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 8,
-            "bogeys": 20,
-            "doubles": 15,
+            "pars": 11,
+            "bogeys": 23,
+            "doubles": 18,
             "triples_worse": 2
           },
           "tee": "blue",
@@ -992,7 +992,7 @@
       "team_number": 25,
       "flight": "Sunshine",
       "players_display": "Roberts, Luke + McCabe, Dyllan",
-      "total_points": 31.0,
+      "total_points": 38.0,
       "purse": 0.0,
       "players": [
         {
@@ -1001,9 +1001,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 13,
-            "bogeys": 12,
-            "doubles": 9,
+            "pars": 15,
+            "bogeys": 17,
+            "doubles": 11,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -1015,9 +1015,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 10,
-            "bogeys": 16,
-            "doubles": 9,
+            "pars": 13,
+            "bogeys": 21,
+            "doubles": 10,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -1030,18 +1030,18 @@
       "team_number": 26,
       "flight": "Sunshine",
       "players_display": "Holland, Jeffry + Spalding, David",
-      "total_points": 40.0,
+      "total_points": 47.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Holland, Jeffry",
-          "handicap_index": 9.7,
+          "handicap_index": 9.5,
           "stats": {
             "eagles": 0,
-            "birdies": 2,
-            "pars": 23,
+            "birdies": 3,
+            "pars": 28,
             "bogeys": 16,
-            "doubles": 4,
+            "doubles": 7,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -1049,12 +1049,12 @@
         },
         {
           "name": "Spalding, David",
-          "handicap_index": 13.5,
+          "handicap_index": 13.3,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 13,
-            "bogeys": 24,
+            "pars": 18,
+            "bogeys": 28,
             "doubles": 8,
             "triples_worse": 0
           },
@@ -1068,18 +1068,18 @@
       "team_number": 27,
       "flight": "Sunshine",
       "players_display": "Tapley, Josh + Pepin, Drew",
-      "total_points": 36.0,
+      "total_points": 43.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Tapley, Josh",
-          "handicap_index": 14.1,
+          "handicap_index": 15.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 7,
-            "bogeys": 24,
-            "doubles": 5,
+            "pars": 8,
+            "bogeys": 29,
+            "doubles": 8,
             "triples_worse": 0
           },
           "tee": "blue",
@@ -1087,12 +1087,12 @@
         },
         {
           "name": "Pepin, Drew",
-          "handicap_index": 9.6,
+          "handicap_index": 9.9,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 18,
-            "bogeys": 20,
+            "pars": 23,
+            "bogeys": 24,
             "doubles": 6,
             "triples_worse": 0
           },
@@ -1106,7 +1106,7 @@
       "team_number": 28,
       "flight": "Sunshine",
       "players_display": "Daudelin, Doug + Zwirn, Robert",
-      "total_points": 43.0,
+      "total_points": 49.0,
       "purse": 0.0,
       "players": [
         {
@@ -1115,9 +1115,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 21,
-            "bogeys": 19,
-            "doubles": 5,
+            "pars": 25,
+            "bogeys": 23,
+            "doubles": 6,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -1125,12 +1125,12 @@
         },
         {
           "name": "Zwirn, Robert",
-          "handicap_index": 12.4,
+          "handicap_index": 12.1,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 26,
-            "bogeys": 14,
+            "pars": 31,
+            "bogeys": 18,
             "doubles": 4,
             "triples_worse": 0
           },
@@ -1144,7 +1144,7 @@
       "team_number": 29,
       "flight": "Sunshine",
       "players_display": "Gadomski, Bob + Hite, Mark",
-      "total_points": 46.5,
+      "total_points": 51.0,
       "purse": 0.0,
       "players": [
         {
@@ -1152,10 +1152,10 @@
           "handicap_index": 15.9,
           "stats": {
             "eagles": 0,
-            "birdies": 0,
-            "pars": 18,
-            "bogeys": 20,
-            "doubles": 7,
+            "birdies": 1,
+            "pars": 20,
+            "bogeys": 24,
+            "doubles": 9,
             "triples_worse": 0
           },
           "tee": "white",
@@ -1163,14 +1163,14 @@
         },
         {
           "name": "Hite, Mark",
-          "handicap_index": 8.8,
+          "handicap_index": 8.7,
           "stats": {
             "eagles": 0,
-            "birdies": 0,
-            "pars": 24,
-            "bogeys": 15,
+            "birdies": 1,
+            "pars": 27,
+            "bogeys": 19,
             "doubles": 6,
-            "triples_worse": 0
+            "triples_worse": 1
           },
           "tee": "blue",
           "plus_handicap": false
@@ -1182,18 +1182,18 @@
       "team_number": 30,
       "flight": "Sunshine",
       "players_display": "LaChapelle, Logan + Zriny, Nate",
-      "total_points": 36.5,
+      "total_points": 43.5,
       "purse": 25.0,
       "players": [
         {
           "name": "LaChapelle, Logan",
-          "handicap_index": 11.0,
+          "handicap_index": 11.2,
           "stats": {
             "eagles": 0,
-            "birdies": 1,
-            "pars": 13,
-            "bogeys": 24,
-            "doubles": 6,
+            "birdies": 2,
+            "pars": 14,
+            "bogeys": 29,
+            "doubles": 8,
             "triples_worse": 1
           },
           "tee": "blue",
@@ -1205,8 +1205,8 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 16,
-            "bogeys": 21,
+            "pars": 17,
+            "bogeys": 29,
             "doubles": 8,
             "triples_worse": 0
           },
@@ -1220,7 +1220,7 @@
       "team_number": 31,
       "flight": "Sunshine",
       "players_display": "Harte, Mike + Ferullo, Lou",
-      "total_points": 40.5,
+      "total_points": 49.5,
       "purse": 0.0,
       "players": [
         {
@@ -1229,9 +1229,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 15,
-            "bogeys": 23,
-            "doubles": 7,
+            "pars": 18,
+            "bogeys": 28,
+            "doubles": 8,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -1258,12 +1258,12 @@
       "team_number": 32,
       "flight": "Sunshine",
       "players_display": "Ceppetelli, Derek + McKenney, Jim",
-      "total_points": 43.5,
+      "total_points": 40.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Ceppetelli, Derek",
-          "handicap_index": 11.6,
+          "handicap_index": 11.4,
           "stats": {
             "eagles": 0,
             "birdies": 1,
@@ -1296,7 +1296,7 @@
       "team_number": 33,
       "flight": "Lollipops",
       "players_display": "Carignan, Derek + Young, Brian",
-      "total_points": 36.0,
+      "total_points": 44.0,
       "purse": 25.0,
       "players": [
         {
@@ -1305,10 +1305,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 7,
-            "bogeys": 16,
-            "doubles": 17,
-            "triples_worse": 4
+            "pars": 8,
+            "bogeys": 21,
+            "doubles": 18,
+            "triples_worse": 5
           },
           "tee": "combo",
           "plus_handicap": false
@@ -1319,10 +1319,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 1,
+            "pars": 2,
             "bogeys": 5,
-            "doubles": 6,
-            "triples_worse": 6
+            "doubles": 2,
+            "triples_worse": 0
           },
           "tee": "combo",
           "plus_handicap": false
@@ -1334,17 +1334,17 @@
       "team_number": 34,
       "flight": "Lollipops",
       "players_display": "White, Tucker + Hederman, Michael",
-      "total_points": 30.0,
+      "total_points": 38.5,
       "purse": 0.0,
       "players": [
         {
           "name": "White, Tucker",
-          "handicap_index": 10.6,
+          "handicap_index": 11.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 8,
-            "bogeys": 16,
+            "pars": 10,
+            "bogeys": 23,
             "doubles": 7,
             "triples_worse": 2
           },
@@ -1353,13 +1353,13 @@
         },
         {
           "name": "Hederman, Michael",
-          "handicap_index": 11.3,
+          "handicap_index": 11.0,
           "stats": {
             "eagles": 0,
             "birdies": 3,
-            "pars": 6,
-            "bogeys": 13,
-            "doubles": 8,
+            "pars": 9,
+            "bogeys": 17,
+            "doubles": 10,
             "triples_worse": 6
           },
           "tee": "blue",
@@ -1372,18 +1372,18 @@
       "team_number": 35,
       "flight": "Lollipops",
       "players_display": "Reisert, Kevin + Morin, Joe",
-      "total_points": 47.0,
+      "total_points": 52.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Reisert, Kevin",
-          "handicap_index": 17.0,
+          "handicap_index": 16.7,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 7,
-            "bogeys": 13,
-            "doubles": 6,
+            "pars": 11,
+            "bogeys": 17,
+            "doubles": 7,
             "triples_worse": 8
           },
           "tee": "blue",
@@ -1391,12 +1391,12 @@
         },
         {
           "name": "Morin, Joe",
-          "handicap_index": 6.6,
+          "handicap_index": 7.1,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 20,
-            "bogeys": 22,
+            "pars": 24,
+            "bogeys": 26,
             "doubles": 1,
             "triples_worse": 0
           },
@@ -1410,31 +1410,31 @@
       "team_number": 36,
       "flight": "Lollipops",
       "players_display": "Strayer, James + Putney, Phil",
-      "total_points": 44.5,
+      "total_points": 52.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Strayer, James",
-          "handicap_index": 14.1,
+          "handicap_index": 13.8,
           "stats": {
             "eagles": 0,
-            "birdies": 2,
-            "pars": 13,
-            "bogeys": 19,
+            "birdies": 3,
+            "pars": 19,
+            "bogeys": 20,
             "doubles": 10,
-            "triples_worse": 1
+            "triples_worse": 2
           },
           "tee": "combo",
           "plus_handicap": false
         },
         {
           "name": "Putney, Phil",
-          "handicap_index": 8.1,
+          "handicap_index": 8.7,
           "stats": {
             "eagles": 0,
-            "birdies": 2,
-            "pars": 23,
-            "bogeys": 16,
+            "birdies": 3,
+            "pars": 27,
+            "bogeys": 20,
             "doubles": 4,
             "triples_worse": 0
           },
@@ -1448,7 +1448,7 @@
       "team_number": 37,
       "flight": "Lollipops",
       "players_display": "Perron, Jake + King, Carter",
-      "total_points": 48.0,
+      "total_points": 52.5,
       "purse": 25.0,
       "players": [
         {
@@ -1467,13 +1467,13 @@
         },
         {
           "name": "King, Carter",
-          "handicap_index": 16.3,
+          "handicap_index": 15.8,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 10,
-            "bogeys": 25,
-            "doubles": 7,
+            "pars": 14,
+            "bogeys": 27,
+            "doubles": 10,
             "triples_worse": 3
           },
           "tee": "blue",
@@ -1486,18 +1486,18 @@
       "team_number": 38,
       "flight": "Lollipops",
       "players_display": "Dias, Chris + Genkinger, Darryl",
-      "total_points": 46.5,
+      "total_points": 54.0,
       "purse": 25.0,
       "players": [
         {
           "name": "Dias, Chris",
-          "handicap_index": 16.4,
+          "handicap_index": 16.5,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 10,
-            "bogeys": 23,
-            "doubles": 11,
+            "pars": 15,
+            "bogeys": 26,
+            "doubles": 12,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -1509,9 +1509,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 6,
-            "bogeys": 25,
-            "doubles": 4,
+            "pars": 10,
+            "bogeys": 28,
+            "doubles": 6,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -1524,18 +1524,18 @@
       "team_number": 39,
       "flight": "Lollipops",
       "players_display": "Shannon, Jim + Robar, Jeffrey",
-      "total_points": 40.5,
+      "total_points": 49.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Shannon, Jim",
-          "handicap_index": 16.1,
+          "handicap_index": 15.6,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 11,
-            "bogeys": 22,
-            "doubles": 7,
+            "pars": 14,
+            "bogeys": 26,
+            "doubles": 9,
             "triples_worse": 3
           },
           "tee": "combo",
@@ -1547,9 +1547,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 19,
-            "bogeys": 15,
-            "doubles": 9,
+            "pars": 22,
+            "bogeys": 19,
+            "doubles": 11,
             "triples_worse": 0
           },
           "tee": "combo",
@@ -1562,18 +1562,18 @@
       "team_number": 40,
       "flight": "Lollipops",
       "players_display": "Campbell, Packy + Trepanier, Paul",
-      "total_points": 45.5,
-      "purse": 0.0,
+      "total_points": 51.5,
+      "purse": 25.0,
       "players": [
         {
           "name": "Campbell, Packy",
-          "handicap_index": 19.2,
+          "handicap_index": 19.4,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 7,
-            "bogeys": 22,
-            "doubles": 14,
+            "pars": 9,
+            "bogeys": 26,
+            "doubles": 17,
             "triples_worse": 1
           },
           "tee": "combo",
@@ -1585,9 +1585,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 15,
-            "bogeys": 21,
-            "doubles": 6,
+            "pars": 17,
+            "bogeys": 25,
+            "doubles": 9,
             "triples_worse": 1
           },
           "tee": "blue",
@@ -1600,18 +1600,18 @@
       "team_number": 41,
       "flight": "Lollipops",
       "players_display": "Carbonar, Tony + Harrigan, Colin",
-      "total_points": 45.5,
+      "total_points": 50.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Carbonar, Tony",
-          "handicap_index": 21.5,
+          "handicap_index": 21.0,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 2,
-            "bogeys": 12,
-            "doubles": 21,
+            "pars": 6,
+            "bogeys": 16,
+            "doubles": 22,
             "triples_worse": 6
           },
           "tee": "blue",
@@ -1619,12 +1619,12 @@
         },
         {
           "name": "Harrigan, Colin",
-          "handicap_index": 9.9,
+          "handicap_index": 9.6,
           "stats": {
             "eagles": 0,
-            "birdies": 3,
-            "pars": 10,
-            "bogeys": 20,
+            "birdies": 4,
+            "pars": 15,
+            "bogeys": 23,
             "doubles": 11,
             "triples_worse": 0
           },
@@ -1638,18 +1638,18 @@
       "team_number": 42,
       "flight": "Lollipops",
       "players_display": "Foss, Christopher + Berthiaume, Jeremy",
-      "total_points": 38.5,
+      "total_points": 43.0,
       "purse": 25.0,
       "players": [
         {
           "name": "Foss, Christopher",
-          "handicap_index": 19.3,
+          "handicap_index": 18.9,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 4,
-            "bogeys": 17,
-            "doubles": 20,
+            "pars": 6,
+            "bogeys": 19,
+            "doubles": 25,
             "triples_worse": 4
           },
           "tee": "blue",
@@ -1657,12 +1657,12 @@
         },
         {
           "name": "Berthiaume, Jeremy",
-          "handicap_index": 11.6,
+          "handicap_index": 11.1,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 10,
-            "bogeys": 19,
+            "pars": 15,
+            "bogeys": 23,
             "doubles": 7,
             "triples_worse": 0
           },
@@ -1676,7 +1676,7 @@
       "team_number": 43,
       "flight": "Lollipops",
       "players_display": "Billings, Derek + Ambrogio, Andrew",
-      "total_points": 48.0,
+      "total_points": 57.5,
       "purse": 0.0,
       "players": [
         {
@@ -1685,9 +1685,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 4,
-            "bogeys": 19,
-            "doubles": 19,
+            "pars": 5,
+            "bogeys": 25,
+            "doubles": 21,
             "triples_worse": 3
           },
           "tee": "blue",
@@ -1695,13 +1695,13 @@
         },
         {
           "name": "Ambrogio, Andrew",
-          "handicap_index": 12.3,
+          "handicap_index": 11.9,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 16,
-            "bogeys": 17,
-            "doubles": 8,
+            "pars": 18,
+            "bogeys": 23,
+            "doubles": 9,
             "triples_worse": 2
           },
           "tee": "blue",
@@ -1714,19 +1714,19 @@
       "team_number": 44,
       "flight": "Lollipops",
       "players_display": "Cardarelli, Kevin + Nelson, Don",
-      "total_points": 44.0,
+      "total_points": 53.5,
       "purse": 25.0,
       "players": [
         {
           "name": "Cardarelli, Kevin",
-          "handicap_index": 18.1,
+          "handicap_index": 18.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 5,
-            "bogeys": 21,
-            "doubles": 16,
-            "triples_worse": 3
+            "pars": 6,
+            "bogeys": 25,
+            "doubles": 17,
+            "triples_worse": 6
           },
           "tee": "blue",
           "plus_handicap": false
@@ -1737,9 +1737,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 3,
-            "pars": 12,
-            "bogeys": 20,
-            "doubles": 8,
+            "pars": 16,
+            "bogeys": 23,
+            "doubles": 10,
             "triples_worse": 2
           },
           "tee": "blue",
@@ -1752,19 +1752,19 @@
       "team_number": 45,
       "flight": "Lollipops",
       "players_display": "Dureau, Greg + Dureau, Nate",
-      "total_points": 49.0,
+      "total_points": 57.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Dureau, Greg",
-          "handicap_index": 13.6,
+          "handicap_index": 14.0,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 14,
-            "bogeys": 17,
-            "doubles": 8,
-            "triples_worse": 5
+            "pars": 16,
+            "bogeys": 22,
+            "doubles": 9,
+            "triples_worse": 6
           },
           "tee": "blue",
           "plus_handicap": false
@@ -1775,9 +1775,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 5,
-            "bogeys": 22,
-            "doubles": 13,
+            "pars": 6,
+            "bogeys": 27,
+            "doubles": 16,
             "triples_worse": 3
           },
           "tee": "blue",
@@ -1790,7 +1790,7 @@
       "team_number": 46,
       "flight": "Lollipops",
       "players_display": "Jolly, Mike + DiMartino, Derek",
-      "total_points": 27.5,
+      "total_points": 33.0,
       "purse": 0.0,
       "players": [
         {
@@ -1809,7 +1809,7 @@
         },
         {
           "name": "DiMartino, Derek",
-          "handicap_index": 18.7,
+          "handicap_index": 18.9,
           "stats": {
             "eagles": 0,
             "birdies": 0,
@@ -1828,7 +1828,7 @@
       "team_number": 47,
       "flight": "Lollipops",
       "players_display": "Bouchie, Marty + Carmichael, Jeff",
-      "total_points": 47.0,
+      "total_points": 52.5,
       "purse": 0.0,
       "players": [
         {
@@ -1837,23 +1837,23 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 9,
-            "bogeys": 22,
-            "doubles": 14,
-            "triples_worse": 0
+            "pars": 10,
+            "bogeys": 25,
+            "doubles": 18,
+            "triples_worse": 1
           },
           "tee": "combo",
           "plus_handicap": false
         },
         {
           "name": "Carmichael, Jeff",
-          "handicap_index": 17.4,
+          "handicap_index": 17.7,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 17,
-            "bogeys": 18,
-            "doubles": 9,
+            "pars": 22,
+            "bogeys": 19,
+            "doubles": 12,
             "triples_worse": 1
           },
           "tee": "white",
@@ -1866,18 +1866,18 @@
       "team_number": 48,
       "flight": "Lollipops",
       "players_display": "Fournier, Joe + Scott, Andy",
-      "total_points": 39.0,
+      "total_points": 48.5,
       "purse": 25.0,
       "players": [
         {
           "name": "Fournier, Joe",
-          "handicap_index": 11.5,
+          "handicap_index": 11.7,
           "stats": {
             "eagles": 0,
             "birdies": 2,
-            "pars": 7,
-            "bogeys": 17,
-            "doubles": 8,
+            "pars": 12,
+            "bogeys": 20,
+            "doubles": 9,
             "triples_worse": 2
           },
           "tee": "blue",
@@ -1885,14 +1885,14 @@
         },
         {
           "name": "Scott, Andy",
-          "handicap_index": 23.7,
+          "handicap_index": 23.8,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 1,
-            "bogeys": 13,
-            "doubles": 18,
-            "triples_worse": 3
+            "pars": 2,
+            "bogeys": 17,
+            "doubles": 21,
+            "triples_worse": 4
           },
           "tee": "blue",
           "plus_handicap": false
@@ -1904,33 +1904,33 @@
       "team_number": 49,
       "flight": "Lollipops",
       "players_display": "Behan, Bill + Noel, Rod",
-      "total_points": 34.5,
+      "total_points": 40.0,
       "purse": 0.0,
       "players": [
         {
           "name": "Behan, Bill",
-          "handicap_index": 17.2,
+          "handicap_index": 16.6,
           "stats": {
             "eagles": 0,
             "birdies": 0,
             "pars": 2,
-            "bogeys": 25,
-            "doubles": 16,
-            "triples_worse": 2
+            "bogeys": 32,
+            "doubles": 17,
+            "triples_worse": 3
           },
           "tee": "combo",
           "plus_handicap": false
         },
         {
           "name": "Noel, Rod",
-          "handicap_index": 17.9,
+          "handicap_index": 18.1,
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 8,
-            "bogeys": 18,
-            "doubles": 15,
-            "triples_worse": 3
+            "pars": 12,
+            "bogeys": 20,
+            "doubles": 17,
+            "triples_worse": 4
           },
           "tee": "combo",
           "plus_handicap": false
@@ -1942,18 +1942,18 @@
       "team_number": 50,
       "flight": "Lollipops",
       "players_display": "Martin, Jason + Hills, Rob",
-      "total_points": 34.5,
-      "purse": 0.0,
+      "total_points": 42.5,
+      "purse": 25.0,
       "players": [
         {
           "name": "Martin, Jason",
-          "handicap_index": 11.7,
+          "handicap_index": 11.4,
           "stats": {
             "eagles": 0,
-            "birdies": 1,
-            "pars": 11,
-            "bogeys": 15,
-            "doubles": 6,
+            "birdies": 2,
+            "pars": 13,
+            "bogeys": 20,
+            "doubles": 7,
             "triples_worse": 3
           },
           "tee": "blue",
@@ -1965,10 +1965,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 1,
-            "pars": 2,
-            "bogeys": 15,
-            "doubles": 17,
-            "triples_worse": 10
+            "pars": 3,
+            "bogeys": 18,
+            "doubles": 18,
+            "triples_worse": 14
           },
           "tee": "blue",
           "plus_handicap": false
@@ -1980,17 +1980,17 @@
       "team_number": 51,
       "flight": "Lollipops",
       "players_display": "Wojtkowski, Noah + Maccallum, Donald",
-      "total_points": 40.0,
+      "total_points": 45.5,
       "purse": 25.0,
       "players": [
         {
           "name": "Wojtkowski, Noah",
-          "handicap_index": 16.4,
+          "handicap_index": 16.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 10,
-            "bogeys": 19,
+            "pars": 13,
+            "bogeys": 25,
             "doubles": 11,
             "triples_worse": 5
           },
@@ -1999,14 +1999,14 @@
         },
         {
           "name": "Maccallum, Donald",
-          "handicap_index": 19.1,
+          "handicap_index": 19.2,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 10,
-            "bogeys": 13,
-            "doubles": 10,
-            "triples_worse": 3
+            "pars": 11,
+            "bogeys": 17,
+            "doubles": 12,
+            "triples_worse": 5
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2018,19 +2018,19 @@
       "team_number": 52,
       "flight": "Lollipops",
       "players_display": "Hart, Hunter + Lebell, Daniel",
-      "total_points": 41.5,
+      "total_points": 50.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Hart, Hunter",
-          "handicap_index": 19.2,
+          "handicap_index": 20.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 6,
-            "bogeys": 21,
-            "doubles": 13,
-            "triples_worse": 5
+            "pars": 8,
+            "bogeys": 25,
+            "doubles": 14,
+            "triples_worse": 7
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2041,9 +2041,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 10,
-            "bogeys": 18,
-            "doubles": 15,
+            "pars": 12,
+            "bogeys": 23,
+            "doubles": 17,
             "triples_worse": 2
           },
           "tee": "blue",
@@ -2056,7 +2056,7 @@
       "team_number": 53,
       "flight": "Lollipops",
       "players_display": "Crowell, Steve + Taylor, John",
-      "total_points": 32.0,
+      "total_points": 36.5,
       "purse": 0.0,
       "players": [
         {
@@ -2078,10 +2078,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 6,
-            "bogeys": 17,
-            "doubles": 14,
-            "triples_worse": 6
+            "pars": 7,
+            "bogeys": 21,
+            "doubles": 16,
+            "triples_worse": 8
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2093,7 +2093,7 @@
       "team_number": 54,
       "flight": "Lollipops",
       "players_display": "Douglas, Kurt + Foster, Steve",
-      "total_points": 29.0,
+      "total_points": 35.0,
       "purse": 0.0,
       "players": [
         {
@@ -2112,13 +2112,13 @@
         },
         {
           "name": "Foster, Steve",
-          "handicap_index": 23.6,
+          "handicap_index": 23.3,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 2,
-            "bogeys": 19,
-            "doubles": 15,
+            "pars": 4,
+            "bogeys": 22,
+            "doubles": 19,
             "triples_worse": 7
           },
           "plus_handicap": false
@@ -2130,18 +2130,18 @@
       "team_number": 55,
       "flight": "Lollipops",
       "players_display": "Ciccotelli, Mike + Lagace, Alex",
-      "total_points": 46.5,
+      "total_points": 53.5,
       "purse": 25.0,
       "players": [
         {
           "name": "Ciccotelli, Mike",
-          "handicap_index": 20.4,
+          "handicap_index": 20.6,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 3,
-            "bogeys": 20,
-            "doubles": 19,
+            "pars": 5,
+            "bogeys": 25,
+            "doubles": 21,
             "triples_worse": 3
           },
           "tee": "blue",
@@ -2152,10 +2152,10 @@
           "handicap_index": 19.2,
           "stats": {
             "eagles": 0,
-            "birdies": 0,
+            "birdies": 1,
             "pars": 9,
-            "bogeys": 18,
-            "doubles": 14,
+            "bogeys": 22,
+            "doubles": 18,
             "triples_worse": 4
           },
           "tee": "blue",
@@ -2168,7 +2168,7 @@
       "team_number": 56,
       "flight": "Lollipops",
       "players_display": "Trowbridge, Andrew + Mertens, Scott",
-      "total_points": 46.0,
+      "total_points": 52.0,
       "purse": 25.0,
       "players": [
         {
@@ -2187,14 +2187,14 @@
         },
         {
           "name": "Mertens, Scott",
-          "handicap_index": 22.5,
+          "handicap_index": 22.8,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 5,
-            "bogeys": 11,
-            "doubles": 15,
-            "triples_worse": 12
+            "pars": 8,
+            "bogeys": 12,
+            "doubles": 16,
+            "triples_worse": 16
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2206,7 +2206,7 @@
       "team_number": 57,
       "flight": "Lollipops",
       "players_display": "Desrosiers, David + Desrosiers, Jeffrey",
-      "total_points": 34.0,
+      "total_points": 42.0,
       "purse": 0.0,
       "players": [
         {
@@ -2215,10 +2215,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 1,
-            "bogeys": 14,
-            "doubles": 18,
-            "triples_worse": 12
+            "pars": 2,
+            "bogeys": 17,
+            "doubles": 20,
+            "triples_worse": 15
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2230,9 +2230,9 @@
             "eagles": 0,
             "birdies": 0,
             "pars": 4,
-            "bogeys": 9,
-            "doubles": 20,
-            "triples_worse": 12
+            "bogeys": 13,
+            "doubles": 24,
+            "triples_worse": 13
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2244,7 +2244,7 @@
       "team_number": 58,
       "flight": "Lollipops",
       "players_display": "Porter, Bob + Hadley, Brian",
-      "total_points": 38.5,
+      "total_points": 47.0,
       "purse": 0.0,
       "players": [
         {
@@ -2253,9 +2253,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 5,
-            "bogeys": 14,
-            "doubles": 7,
+            "pars": 7,
+            "bogeys": 20,
+            "doubles": 8,
             "triples_worse": 1
           },
           "tee": "combo",
@@ -2267,10 +2267,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 5,
-            "bogeys": 13,
-            "doubles": 9,
-            "triples_worse": 18
+            "pars": 6,
+            "bogeys": 18,
+            "doubles": 11,
+            "triples_worse": 19
           },
           "tee": "combo",
           "plus_handicap": false
@@ -2282,18 +2282,18 @@
       "team_number": 59,
       "flight": "Lollipops",
       "players_display": "Dunnells, Cliff + Kelly, John",
-      "total_points": 49.5,
+      "total_points": 55.5,
       "purse": 0.0,
       "players": [
         {
           "name": "Dunnells, Cliff",
-          "handicap_index": 22.7,
+          "handicap_index": 22.5,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 6,
-            "bogeys": 21,
-            "doubles": 11,
+            "pars": 8,
+            "bogeys": 27,
+            "doubles": 12,
             "triples_worse": 7
           },
           "tee": "combo",
@@ -2301,13 +2301,13 @@
         },
         {
           "name": "Kelly, John",
-          "handicap_index": 24.4,
+          "handicap_index": 23.8,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 7,
-            "bogeys": 15,
-            "doubles": 15,
+            "pars": 11,
+            "bogeys": 19,
+            "doubles": 16,
             "triples_worse": 8
           },
           "tee": "combo",
@@ -2320,7 +2320,7 @@
       "team_number": 60,
       "flight": "Lollipops",
       "players_display": "Guptill, Ian + Turcotte, Matt",
-      "total_points": 39.5,
+      "total_points": 54.0,
       "purse": 0.0,
       "players": [
         {
@@ -2329,9 +2329,9 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 5,
-            "bogeys": 22,
-            "doubles": 14,
+            "pars": 10,
+            "bogeys": 24,
+            "doubles": 16,
             "triples_worse": 4
           },
           "tee": "blue",
@@ -2343,10 +2343,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 5,
-            "bogeys": 17,
-            "doubles": 14,
-            "triples_worse": 9
+            "pars": 7,
+            "bogeys": 21,
+            "doubles": 15,
+            "triples_worse": 11
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2358,19 +2358,19 @@
       "team_number": 61,
       "flight": "Lollipops",
       "players_display": "McKenney, David + Dias, Drew",
-      "total_points": 44.0,
+      "total_points": 51.0,
       "purse": 0.0,
       "players": [
         {
           "name": "McKenney, David",
-          "handicap_index": 22.4,
+          "handicap_index": 22.5,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 4,
-            "bogeys": 17,
-            "doubles": 20,
-            "triples_worse": 4
+            "pars": 5,
+            "bogeys": 19,
+            "doubles": 25,
+            "triples_worse": 5
           },
           "tee": "combo",
           "plus_handicap": false
@@ -2382,9 +2382,9 @@
             "eagles": 0,
             "birdies": 1,
             "pars": 5,
-            "bogeys": 14,
-            "doubles": 10,
-            "triples_worse": 6
+            "bogeys": 18,
+            "doubles": 11,
+            "triples_worse": 10
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2396,7 +2396,7 @@
       "team_number": 62,
       "flight": "Lollipops",
       "players_display": "Foss, Ryan + Stokes, Mark",
-      "total_points": 35.0,
+      "total_points": 42.0,
       "purse": 0.0,
       "players": [
         {
@@ -2406,9 +2406,9 @@
             "eagles": 0,
             "birdies": 1,
             "pars": 4,
-            "bogeys": 10,
-            "doubles": 13,
-            "triples_worse": 17
+            "bogeys": 13,
+            "doubles": 16,
+            "triples_worse": 20
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2420,9 +2420,9 @@
             "eagles": 0,
             "birdies": 2,
             "pars": 6,
-            "bogeys": 18,
-            "doubles": 14,
-            "triples_worse": 5
+            "bogeys": 23,
+            "doubles": 17,
+            "triples_worse": 6
           },
           "tee": "white",
           "plus_handicap": false
@@ -2434,7 +2434,7 @@
       "team_number": 63,
       "flight": "Lollipops",
       "players_display": "Powers, Ty + Bogan, David",
-      "total_points": 35.0,
+      "total_points": 43.5,
       "purse": 0.0,
       "players": [
         {
@@ -2443,24 +2443,24 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 3,
-            "bogeys": 14,
-            "doubles": 22,
-            "triples_worse": 6
+            "pars": 4,
+            "bogeys": 16,
+            "doubles": 23,
+            "triples_worse": 11
           },
           "tee": "blue",
           "plus_handicap": false
         },
         {
           "name": "Bogan, David",
-          "handicap_index": 30.2,
+          "handicap_index": 30.5,
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 0,
+            "pars": 1,
             "bogeys": 3,
-            "doubles": 2,
-            "triples_worse": 4
+            "doubles": 9,
+            "triples_worse": 5
           },
           "tee": "white",
           "plus_handicap": false
@@ -2472,19 +2472,19 @@
       "team_number": 64,
       "flight": "Lollipops",
       "players_display": "Jacques, Kevin + Vetter, Scott",
-      "total_points": 31.5,
+      "total_points": 36.5,
       "purse": 25.0,
       "players": [
         {
           "name": "Jacques, Kevin",
-          "handicap_index": 31.1,
+          "handicap_index": 31.4,
           "stats": {
             "eagles": 0,
             "birdies": 0,
             "pars": 0,
-            "bogeys": 1,
-            "doubles": 3,
-            "triples_worse": 5
+            "bogeys": 2,
+            "doubles": 8,
+            "triples_worse": 8
           },
           "tee": "blue",
           "plus_handicap": false
@@ -2495,10 +2495,10 @@
           "stats": {
             "eagles": 0,
             "birdies": 0,
-            "pars": 0,
-            "bogeys": 5,
-            "doubles": 5,
-            "triples_worse": 8
+            "pars": 1,
+            "bogeys": 6,
+            "doubles": 6,
+            "triples_worse": 14
           },
           "tee": "combo",
           "plus_handicap": false
@@ -4592,7 +4592,7 @@
   "subs": [
     {
       "name": "Bellio, Michael",
-      "handicap_index": 24.5,
+      "handicap_index": 24.0,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4618,12 +4618,12 @@
     },
     {
       "name": "Loring, Aaron",
-      "handicap_index": 2.3,
+      "handicap_index": 2.5,
       "stats": {
         "eagles": 1,
-        "birdies": 3,
-        "pars": 14,
-        "bogeys": 9,
+        "birdies": 5,
+        "pars": 18,
+        "bogeys": 12,
         "doubles": 0,
         "triples_worse": 0
       },
@@ -4631,13 +4631,13 @@
     },
     {
       "name": "Martel, Ryan",
-      "handicap_index": 1.0,
+      "handicap_index": 0.7,
       "stats": {
         "eagles": 1,
-        "birdies": 3,
-        "pars": 29,
-        "bogeys": 10,
-        "doubles": 2,
+        "birdies": 4,
+        "pars": 35,
+        "bogeys": 11,
+        "doubles": 3,
         "triples_worse": 0
       },
       "plus_handicap": false
@@ -4647,17 +4647,17 @@
       "handicap_index": 1.3,
       "stats": {
         "eagles": 0,
-        "birdies": 6,
-        "pars": 30,
-        "bogeys": 8,
-        "doubles": 1,
-        "triples_worse": 0
+        "birdies": 7,
+        "pars": 34,
+        "bogeys": 10,
+        "doubles": 2,
+        "triples_worse": 1
       },
       "plus_handicap": false
     },
     {
       "name": "Therrien, David",
-      "handicap_index": 9.8,
+      "handicap_index": 9.6,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4670,7 +4670,7 @@
     },
     {
       "name": "Bean, Zac",
-      "handicap_index": 14.0,
+      "handicap_index": 14.6,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4683,7 +4683,7 @@
     },
     {
       "name": "Blanchard, Eric",
-      "handicap_index": 6.6,
+      "handicap_index": 6.9,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4696,7 +4696,7 @@
     },
     {
       "name": "Bougie, Stephen",
-      "handicap_index": 17.1,
+      "handicap_index": 16.9,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4735,7 +4735,7 @@
     },
     {
       "name": "Bubar, Ryan",
-      "handicap_index": 9.7,
+      "handicap_index": 9.8,
       "stats": {
         "eagles": 0,
         "birdies": 1,
@@ -4761,7 +4761,7 @@
     },
     {
       "name": "Collins, Mark",
-      "handicap_index": 17.9,
+      "handicap_index": 18.5,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4813,7 +4813,7 @@
     },
     {
       "name": "Erricolo, James",
-      "handicap_index": 10.4,
+      "handicap_index": 10.8,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4839,14 +4839,14 @@
     },
     {
       "name": "Katz, Aaron",
-      "handicap_index": 13.7,
+      "handicap_index": 13.3,
       "stats": {
         "eagles": 0,
         "birdies": 0,
-        "pars": 7,
-        "bogeys": 16,
-        "doubles": 4,
-        "triples_worse": 0
+        "pars": 8,
+        "bogeys": 19,
+        "doubles": 6,
+        "triples_worse": 3
       },
       "plus_handicap": false
     },
@@ -4891,7 +4891,7 @@
     },
     {
       "name": "Thorner, Bruce",
-      "handicap_index": 21.2,
+      "handicap_index": 21.6,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4908,10 +4908,10 @@
       "stats": {
         "eagles": 0,
         "birdies": 0,
-        "pars": 2,
-        "bogeys": 5,
-        "doubles": 2,
-        "triples_worse": 0
+        "pars": 4,
+        "bogeys": 9,
+        "doubles": 3,
+        "triples_worse": 2
       },
       "plus_handicap": false
     },
@@ -4921,16 +4921,16 @@
       "stats": {
         "eagles": 0,
         "birdies": 0,
-        "pars": 0,
-        "bogeys": 4,
-        "doubles": 2,
-        "triples_worse": 3
+        "pars": 1,
+        "bogeys": 7,
+        "doubles": 6,
+        "triples_worse": 4
       },
       "plus_handicap": false
     },
     {
       "name": "Dormody, Chris",
-      "handicap_index": 12.6,
+      "handicap_index": 12.3,
       "stats": {
         "eagles": 0,
         "birdies": 0,
@@ -4956,7 +4956,7 @@
     },
     {
       "name": "Gagnon, Nate",
-      "handicap_index": 7.0,
+      "handicap_index": 7.3,
       "stats": {
         "eagles": 0,
         "birdies": 2,
@@ -5008,15 +5008,15 @@
     },
     {
       "name": "Ferland, Kevin",
-      "handicap_index": 14.2,
+      "handicap_index": 14.9,
       "plus_handicap": false,
       "stats": {
         "eagles": 0,
         "birdies": 0,
-        "pars": 0,
-        "bogeys": 0,
-        "doubles": 0,
-        "triples_worse": 0
+        "pars": 1,
+        "bogeys": 4,
+        "doubles": 3,
+        "triples_worse": 1
       }
     },
     {
@@ -5047,7 +5047,7 @@
     },
     {
       "name": "Keilty, Peter",
-      "handicap_index": 0.8,
+      "handicap_index": 0.9,
       "plus_handicap": false,
       "stats": {
         "eagles": 0,
@@ -5060,14 +5060,14 @@
     },
     {
       "name": "King, Travis",
-      "handicap_index": 16.0,
+      "handicap_index": 15.8,
       "plus_handicap": false,
       "stats": {
         "eagles": 0,
         "birdies": 0,
-        "pars": 0,
-        "bogeys": 0,
-        "doubles": 0,
+        "pars": 1,
+        "bogeys": 6,
+        "doubles": 2,
         "triples_worse": 0
       }
     },
@@ -5086,7 +5086,59 @@
     },
     {
       "name": "Raney, Bill",
-      "handicap_index": 1.6,
+      "handicap_index": 1.5,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Benoit, Jean",
+      "handicap_index": 9.9,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Boyatsis, Tim",
+      "handicap_index": 12.1,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Stickles, Tim",
+      "handicap_index": 14.6,
+      "plus_handicap": false,
+      "stats": {
+        "eagles": 0,
+        "birdies": 0,
+        "pars": 0,
+        "bogeys": 0,
+        "doubles": 0,
+        "triples_worse": 0
+      }
+    },
+    {
+      "name": "Zielfelder, Scott",
+      "handicap_index": 6.4,
       "plus_handicap": false,
       "stats": {
         "eagles": 0,
@@ -6089,6 +6141,72 @@
       "63": 3.5,
       "60": 2.0,
       "58": 2.0
+    },
+    "7": {
+      "43": 9.5,
+      "44": 9.5,
+      "48": 9.5,
+      "52": 9.0,
+      "3": 9.0,
+      "5": 9.0,
+      "4": 8.5,
+      "63": 8.5,
+      "23": 8.5,
+      "39": 8.5,
+      "34": 8.5,
+      "33": 8.0,
+      "8": 8.0,
+      "19": 8.0,
+      "57": 8.0,
+      "45": 8.0,
+      "11": 8.0,
+      "60": 8.0,
+      "24": 8.0,
+      "7": 8.0,
+      "50": 8.0,
+      "20": 8.0,
+      "12": 8.0,
+      "38": 7.5,
+      "36": 7.5,
+      "6": 7.0,
+      "22": 7.0,
+      "55": 7.0,
+      "1": 7.0,
+      "62": 7.0,
+      "26": 7.0,
+      "30": 7.0,
+      "61": 7.0,
+      "15": 7.0,
+      "25": 7.0,
+      "27": 7.0,
+      "40": 6.0,
+      "2": 6.0,
+      "28": 6.0,
+      "54": 6.0,
+      "59": 6.0,
+      "9": 6.0,
+      "10": 6.0,
+      "14": 6.0,
+      "56": 6.0,
+      "17": 5.5,
+      "49": 5.5,
+      "47": 5.5,
+      "46": 5.5,
+      "51": 5.5,
+      "32": 5.0,
+      "18": 5.0,
+      "64": 5.0,
+      "16": 5.0,
+      "13": 5.0,
+      "58": 5.0,
+      "35": 5.0,
+      "41": 4.5,
+      "53": 4.5,
+      "42": 4.5,
+      "29": 4.5,
+      "37": 4.5,
+      "21": 4.0,
+      "31": 9.0
     }
   }
 }
