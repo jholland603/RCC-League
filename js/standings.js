@@ -99,7 +99,7 @@ function calcMovers(data, flightTeams, targetWeek) {
   flightTeams.forEach(t => {
     const cur  = parseInt(currentRanks[t.team_number].replace('T', ''));
     const prev = parseInt(previousRanks[t.team_number].replace('T', ''));
-    movers[t.team_number] = prev - cur; // positive = moved up, negative = moved down
+    movers[t.team_number] = { delta: prev - cur, currentRank: currentRanks[t.team_number] }; // delta positive = moved up
   });
 
   return movers;
@@ -115,7 +115,10 @@ function biggestMovers(data, targetWeek, topN = 5) {
     const movers = calcMovers(data, flightTeams, targetWeek);
 
     const entries = flightTeams
-      .map(t => ({ team: t, mv: movers[t.team_number] }))
+      .map(t => {
+        const m = movers[t.team_number];
+        return { team: t, mv: m?.delta, rank: m?.currentRank };
+      })
       .filter(e => e.mv !== undefined && e.mv !== 0);
 
     const risers  = entries.filter(e => e.mv > 0).sort((a, b) => b.mv - a.mv).slice(0, topN);
@@ -131,14 +134,15 @@ function renderMoversCallout(data, targetWeek) {
   const hasAny = Object.values(byFlight).some(f => f.risers.length || f.fallers.length);
   if (!hasAny) return '';
 
-  function itemRow({ team, mv }, isRiser) {
+  function itemRow({ team, mv, rank }, isRiser) {
     const cls   = isRiser ? 'mover-up' : 'mover-down';
     const arrow = isRiser ? '▲' : '▼';
+    const rankLabelStr = rank ? rankLabel(rank) : '';
     return `
     <div class="mover-item">
       <span class="mover-arrow ${cls}">${arrow}${Math.abs(mv)}</span>
       <span class="mover-team">${team.players_display}</span>
-      <span class="mover-flight">Team ${team.team_number}</span>
+      <span class="mover-flight">Team ${team.team_number}${rankLabelStr ? ` &nbsp;·&nbsp; now ${rankLabelStr}` : ''}</span>
     </div>`;
   }
 
@@ -194,7 +198,7 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
     const purseStr = team.purse > 0 ? `$${team.purse.toFixed(0)}` : '—';
     const ptsVal   = getPts(team);
 
-    const mv = movers[team.team_number];
+    const mv = movers[team.team_number]?.delta;
     let moverCell = `<span class="mover-none">—</span>`;
     if (mv !== undefined && mv !== 0) {
       const cls   = mv > 0 ? 'mover-up' : 'mover-down';
