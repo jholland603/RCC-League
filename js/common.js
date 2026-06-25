@@ -34,6 +34,7 @@
         ${navLink('standings.html', 'Standings')}
         ${navLink('schedule.html', 'Schedule')}
         ${navLink('stats.html', 'Stats')}
+        <a href="https://www.golfgenius.com/pages/12709176177269456174" target="_blank" rel="noopener" class="external-link">Golf Genius ↗</a>
       </nav>
     </header>`;
 
