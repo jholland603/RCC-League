@@ -215,7 +215,7 @@ function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
   const teamNums    = flightTeams.map(t => t.team_number);
   const weeklyTotalPoints = data.weekly_total_points || {};
   const playedRounds = availableWeeks(data);
-  if (playedRounds.length === 0) return {};
+  if (playedRounds.length === 0) return { odds: {}, details: {} };
 
   const maxRound  = Math.max(...Object.keys(data.schedule).map(getRoundNumber));
   const playedSet = new Set(playedRounds);
@@ -283,19 +283,21 @@ function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
   const currentPoints = {};
   flightTeams.forEach(t => { currentPoints[t.team_number] = t.total_points; });
 
-  // Season already over: just report the actual finish.
+  // Season already over: just report the actual finish (no useful "detail" to show).
   if (remainingRounds.length === 0) {
-    const result = {};
+    const odds = {}, details = {};
     teamNums.forEach(tn => {
       const above = teamNums.filter(o => currentPoints[o] > currentPoints[tn]).length;
-      result[tn] = (above + 1) <= topN ? 100 : 0;
+      odds[tn] = (above + 1) <= topN ? 100 : 0;
+      details[tn] = null;
     });
-    return result;
+    return { odds, details };
   }
 
   const rng = mulberry32(0x9E3779B9 ^ maxRound ^ playedRounds.length);
   const topCounts = {};
-  teamNums.forEach(tn => { topCounts[tn] = 0; });
+  const projSum = {};
+  teamNums.forEach(tn => { topCounts[tn] = 0; projSum[tn] = 0; });
 
   for (let s = 0; s < simulations; s++) {
     const totals = {};
@@ -311,6 +313,7 @@ function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
         proj += Math.max(0, adjMean + noise);
       });
       totals[tn] = currentPoints[tn] + proj;
+      projSum[tn] += totals[tn];
     });
     teamNums.forEach(tn => {
       const above = teamNums.filter(o => totals[o] > totals[tn]).length;
@@ -318,9 +321,27 @@ function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
     });
   }
 
-  const result = {};
-  teamNums.forEach(tn => { result[tn] = (100 * topCounts[tn]) / simulations; });
-  return result;
+  const odds = {}, details = {};
+  teamNums.forEach(tn => {
+    odds[tn] = (100 * topCounts[tn]) / simulations;
+    const avgOppStrength = remainingRounds.reduce((sum, r) => {
+      const opp = (opponentOf[tn] || {})[r];
+      return sum + (opp !== undefined && seasonAvg[opp] !== undefined ? seasonAvg[opp] : flightAvgStrength);
+    }, 0) / remainingRounds.length;
+    details[tn] = {
+      currentPoints: currentPoints[tn],
+      seasonAvg: seasonAvg[tn],
+      recentMean: recentMean[tn],
+      avgOppStrength,
+      flightAvgStrength,
+      beta,
+      remainingRounds: remainingRounds.length,
+      projFinal: projSum[tn] / simulations,
+      simulations,
+    };
+  });
+
+  return { odds, details };
 }
 
 function formatTopPct(p) {
@@ -329,6 +350,30 @@ function formatTopPct(p) {
   if (p < 1) return '<1%';
   if (p < 10) return `${p.toFixed(1)}%`;
   return `${Math.round(p)}%`;
+}
+
+// Builds the per-team hover explanation for a Top 5% cell, using the detail
+// object returned alongside the odds from simulateTopNOdds().
+function buildTop5Tooltip(team, rankStr, pct, d, flight) {
+  if (!d) return `${formatTopPct(pct)} chance of finishing top 5 in ${flight}.`;
+
+  const trendDir = d.recentMean > d.seasonAvg ? 'up' : d.recentMean < d.seasonAvg ? 'down' : 'flat';
+  const trendWord = trendDir === 'up' ? 'trending up' : trendDir === 'down' ? 'trending down' : 'steady';
+
+  const oppDiff = d.avgOppStrength - d.flightAvgStrength;
+  const oppWord = oppDiff > 0.15 ? 'tougher than average' : oppDiff < -0.15 ? 'easier than average' : 'about average';
+
+  const lines = [
+    `${rankLabel(rankStr)} in ${flight} · ${fmt(d.currentPoints)} pts now`,
+    ``,
+    `Recent form (last 4 rds, 2x weighted): ${d.recentMean.toFixed(2)} pts/rd — ${trendWord} vs ${d.seasonAvg.toFixed(2)} season avg`,
+    `Remaining ${d.remainingRounds} rounds' opponents: ${d.avgOppStrength.toFixed(2)} avg strength — ${oppWord} (flight avg ${d.flightAvgStrength.toFixed(2)})`,
+    `Schedule effect: ${d.beta.toFixed(2)} pts per pt of relative opponent strength`,
+    `Projected final total: ~${d.projFinal.toFixed(1)} pts (avg of ${d.simulations.toLocaleString()} simulated seasons)`,
+    ``,
+    `→ ${formatTopPct(pct)} chance of finishing top 5 in ${flight}`,
+  ];
+  return lines.join('\n');
 }
 
 // ── RENDER FLIGHT TABLE ──────────────────────────────────────────────────────
@@ -372,9 +417,11 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
 
     let top5Cell = '';
     if (!isHistorical) {
-      const pct = probOdds ? probOdds[team.team_number] : undefined;
+      const pct = probOdds ? probOdds.odds[team.team_number] : undefined;
+      const detail = probOdds ? probOdds.details[team.team_number] : undefined;
       const pctCls = (pct !== undefined && pct >= 50) ? 'high' : (pct !== undefined && pct < 1) ? 'low' : '';
-      top5Cell = `<td class="top5-cell ${pctCls}">${formatTopPct(pct)}</td>`;
+      const tooltip = buildTop5Tooltip(team, rankStr, pct, detail, flight);
+      top5Cell = `<td class="top5-cell ${pctCls}" title="${tooltip.replace(/"/g, '&quot;')}">${formatTopPct(pct)}</td>`;
     }
 
     return `
@@ -395,7 +442,7 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
   }).join('');
 
   const top5Header = isHistorical ? '' :
-    `<th class="num top5-th" title="Modeled probability of finishing top 5 in ${flight} by season end — accounts for recent form (last 4 rounds weighted 2x) and strength of remaining schedule. See INSTRUCTIONS.md.">Top 5%</th>`;
+    `<th class="num top5-th" title="Modeled probability of finishing top 5 in ${flight} by season end — accounts for recent form (last 4 rounds weighted 2x) and strength of remaining schedule. Hover a team's percentage for the full breakdown.">Top 5%</th>`;
 
   return `
   <div class="flight-panel">
@@ -423,7 +470,7 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 let data = null;
 let showMovers = false; // movers callout is hidden by default, toggled via link
-let probOddsCache = { Sunshine: {}, Lollipops: {} }; // top-5 odds, current week only
+let probOddsCache = { Sunshine: { odds: {}, details: {} }, Lollipops: { odds: {}, details: {} } }; // top-5 odds, current week only
 
 function populateWeekSelect() {
   const sel = document.getElementById('weekSelect');
