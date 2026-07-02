@@ -170,12 +170,173 @@ function renderMoversCallout(data, targetWeek) {
   </div>`;
 }
 
+// ── TOP-N SEASON-END PROBABILITY (Monte Carlo) ───────────────────────────────
+// Methodology mirrors INSTRUCTIONS.md → "TOP-5 / PLAYOFF ODDS METHODOLOGY":
+//   1. Recent-trend baseline: last 4 played rounds weighted 2x vs. earlier rounds
+//   2. Strength of remaining schedule: regress each team's per-round deviation
+//      from its own season average against its opponent's relative strength
+//      that round (pooled across the whole flight) to get a single slope (beta).
+//      Each remaining round's projection is shifted by beta × (that round's
+//      actual scheduled opponent's relative strength, from data.schedule).
+//   3. Bootstrap-resampled residuals (deviations from the team's own season
+//      average) supply the week-to-week noise.
+// Basis is weekly_total_points (NOT round_scores) — see GOLDEN RULE #1 / the
+// methodology section for why.
+
+// Small deterministic PRNG so odds don't jitter on every page load between
+// data updates (reseeded only when the underlying schedule/rounds change).
+function mulberry32(seed) {
+  return function () {
+    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// { teamNum: { roundNum: opponentTeamNum } }, built from data.schedule.
+function buildOpponentMap(schedule) {
+  const opponentOf = {};
+  Object.keys(schedule).forEach(roundKey => {
+    const rnum = getRoundNumber(roundKey);
+    schedule[roundKey].forEach(([a, b]) => {
+      opponentOf[a] = opponentOf[a] || {};
+      opponentOf[b] = opponentOf[b] || {};
+      opponentOf[a][rnum] = b;
+      opponentOf[b][rnum] = a;
+    });
+  });
+  return opponentOf;
+}
+
+// Returns { teamNum: percentChanceTopN } for one flight.
+function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
+  const flightTeams = data.teams.filter(t => t.flight === flight);
+  const teamNums    = flightTeams.map(t => t.team_number);
+  const weeklyTotalPoints = data.weekly_total_points || {};
+  const playedRounds = availableWeeks(data);
+  if (playedRounds.length === 0) return {};
+
+  const maxRound  = Math.max(...Object.keys(data.schedule).map(getRoundNumber));
+  const playedSet = new Set(playedRounds);
+  const remainingRounds = [];
+  for (let r = 1; r <= maxRound; r++) if (!playedSet.has(r)) remainingRounds.push(r);
+
+  const opponentOf = buildOpponentMap(data.schedule);
+
+  // Per-round historical points, this flight only.
+  const histPts = {};
+  teamNums.forEach(tn => {
+    histPts[tn] = {};
+    playedRounds.forEach(r => {
+      const v = (weeklyTotalPoints[String(r)] || {})[String(tn)];
+      if (v !== undefined) histPts[tn][r] = v;
+    });
+  });
+
+  const seasonAvg = {};
+  teamNums.forEach(tn => {
+    const vals = Object.values(histPts[tn]);
+    seasonAvg[tn] = vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
+  });
+  const flightAvgStrength = teamNums.reduce((s, tn) => s + seasonAvg[tn], 0) / teamNums.length;
+
+  // ── Strength-of-schedule regression ──
+  const xs = [], ys = [];
+  teamNums.forEach(tn => {
+    playedRounds.forEach(r => {
+      if (histPts[tn][r] === undefined) return;
+      const opp = (opponentOf[tn] || {})[r];
+      if (opp === undefined || seasonAvg[opp] === undefined) return;
+      xs.push(seasonAvg[opp] - flightAvgStrength);
+      ys.push(histPts[tn][r] - seasonAvg[tn]);
+    });
+  });
+  let beta = 0;
+  if (xs.length > 1) {
+    const meanX = xs.reduce((a, b) => a + b, 0) / xs.length;
+    const meanY = ys.reduce((a, b) => a + b, 0) / ys.length;
+    let cov = 0, varX = 0;
+    for (let i = 0; i < xs.length; i++) { cov += (xs[i] - meanX) * (ys[i] - meanY); varX += (xs[i] - meanX) ** 2; }
+    beta = varX > 0 ? cov / varX : 0;
+  }
+
+  // ── Recent-trend baseline (last 4 played rounds weighted 2x) ──
+  const recentMean = {};
+  teamNums.forEach(tn => {
+    const cutoff = playedRounds[Math.max(0, playedRounds.length - 4)];
+    const recent = playedRounds.filter(r => r >= cutoff && histPts[tn][r] !== undefined).map(r => histPts[tn][r]);
+    const early  = playedRounds.filter(r => r <  cutoff && histPts[tn][r] !== undefined).map(r => histPts[tn][r]);
+    if (recent.length === 0) { recentMean[tn] = seasonAvg[tn]; return; }
+    const wR = 2, wE = 1;
+    const totalW = wR * recent.length + wE * early.length;
+    const s = wR * recent.reduce((a, b) => a + b, 0) + wE * early.reduce((a, b) => a + b, 0);
+    recentMean[tn] = totalW > 0 ? s / totalW : seasonAvg[tn];
+  });
+
+  const residuals = {};
+  teamNums.forEach(tn => {
+    residuals[tn] = Object.values(histPts[tn]).map(v => v - seasonAvg[tn]);
+    if (residuals[tn].length === 0) residuals[tn] = [0];
+  });
+
+  const currentPoints = {};
+  flightTeams.forEach(t => { currentPoints[t.team_number] = t.total_points; });
+
+  // Season already over: just report the actual finish.
+  if (remainingRounds.length === 0) {
+    const result = {};
+    teamNums.forEach(tn => {
+      const above = teamNums.filter(o => currentPoints[o] > currentPoints[tn]).length;
+      result[tn] = (above + 1) <= topN ? 100 : 0;
+    });
+    return result;
+  }
+
+  const rng = mulberry32(0x9E3779B9 ^ maxRound ^ playedRounds.length);
+  const topCounts = {};
+  teamNums.forEach(tn => { topCounts[tn] = 0; });
+
+  for (let s = 0; s < simulations; s++) {
+    const totals = {};
+    teamNums.forEach(tn => {
+      const base = recentMean[tn];
+      const pool = residuals[tn];
+      let proj = 0;
+      remainingRounds.forEach(r => {
+        const opp = (opponentOf[tn] || {})[r];
+        const oppRel = (opp !== undefined && seasonAvg[opp] !== undefined) ? (seasonAvg[opp] - flightAvgStrength) : 0;
+        const adjMean = base + beta * oppRel;
+        const noise = pool[Math.floor(rng() * pool.length)];
+        proj += Math.max(0, adjMean + noise);
+      });
+      totals[tn] = currentPoints[tn] + proj;
+    });
+    teamNums.forEach(tn => {
+      const above = teamNums.filter(o => totals[o] > totals[tn]).length;
+      if (above + 1 <= topN) topCounts[tn]++;
+    });
+  }
+
+  const result = {};
+  teamNums.forEach(tn => { result[tn] = (100 * topCounts[tn]) / simulations; });
+  return result;
+}
+
+function formatTopPct(p) {
+  if (p === undefined || p === null) return '—';
+  if (p <= 0) return '0%';
+  if (p < 1) return '<1%';
+  if (p < 10) return `${p.toFixed(1)}%`;
+  return `${Math.round(p)}%`;
+}
+
 // ── RENDER FLIGHT TABLE ──────────────────────────────────────────────────────
 // pointsOverride: optional map { teamNum: points } used when viewing a historical
 // week. When omitted, falls back to each team's current total_points (live standings).
 // showMovers/showPurse: suppressed for historical weeks since "this week's movement"
 // and purse winnings aren't meaningful snapshots of a past date in the same way.
-function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical, targetWeek) {
+function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical, targetWeek, probOdds) {
   const getPts = (t) => pointsOverride ? (pointsOverride[t.team_number] ?? 0) : t.total_points;
 
   const teamPoints = flightTeams.map(t => ({ num: t.team_number, pts: getPts(t) }));
@@ -209,6 +370,13 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
       moverCell = `<span class="mover-flat">—</span>`;
     }
 
+    let top5Cell = '';
+    if (!isHistorical) {
+      const pct = probOdds ? probOdds[team.team_number] : undefined;
+      const pctCls = (pct !== undefined && pct >= 50) ? 'high' : (pct !== undefined && pct < 1) ? 'low' : '';
+      top5Cell = `<td class="top5-cell ${pctCls}">${formatTopPct(pct)}</td>`;
+    }
+
     return `
     <tr onclick="goToSchedule('${team.flight}', ${team.team_number})" style="cursor:pointer;">
       <td class="rank-cell ${isTop3 ? 'top3' : ''}">${rankStr}</td>
@@ -220,10 +388,14 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
         <span class="rec-w">${rec.w}</span><span class="rec-sep">-</span><span class="rec-l">${rec.l}</span>${rec.t > 0 ? `<span class="rec-sep">-</span><span class="rec-t">${rec.t}</span>` : ''}
       </td>
       <td class="points-cell">${fmt(ptsVal)}</td>
+      ${top5Cell}
       <td class="mover-cell">${moverCell}</td>
       <td class="purse-cell ${(!isHistorical && team.purse > 0) ? '' : 'empty'}">${isHistorical ? '—' : purseStr}</td>
     </tr>`;
   }).join('');
+
+  const top5Header = isHistorical ? '' :
+    `<th class="num top5-th" title="Modeled probability of finishing top 5 in ${flight} by season end — accounts for recent form (last 4 rounds weighted 2x) and strength of remaining schedule. See INSTRUCTIONS.md.">Top 5%</th>`;
 
   return `
   <div class="flight-panel">
@@ -238,6 +410,7 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
           <th>Team</th>
           <th>Record</th>
           <th class="num">Pts</th>
+          ${top5Header}
           <th class="num" title="Position change vs the previous week (based on weekly total points)">+/-</th>
           <th class="num">Purse</th>
         </tr>
@@ -250,6 +423,7 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 let data = null;
 let showMovers = false; // movers callout is hidden by default, toggled via link
+let probOddsCache = { Sunshine: {}, Lollipops: {} }; // top-5 odds, current week only
 
 function populateWeekSelect() {
   const sel = document.getElementById('weekSelect');
@@ -287,8 +461,8 @@ function renderForSelection(selectedValue) {
 
   document.getElementById('standingsWrap').innerHTML =
     (showMovers ? renderMoversCallout(data, targetWeek) : '') +
-    renderFlight('Sunshine',  sunshine,  records, pointsOverride, isHistorical, targetWeek) +
-    renderFlight('Lollipops', lollipops, records, pointsOverride, isHistorical, targetWeek);
+    renderFlight('Sunshine',  sunshine,  records, pointsOverride, isHistorical, targetWeek, probOddsCache.Sunshine) +
+    renderFlight('Lollipops', lollipops, records, pointsOverride, isHistorical, targetWeek, probOddsCache.Lollipops);
 
   if (isHistorical) {
     document.getElementById('lastUpdated').textContent =
@@ -322,6 +496,8 @@ document.getElementById('moversToggle').addEventListener('click', function (e) {
 loadLeagueData()
   .then(d => {
     data = d;
+    probOddsCache.Sunshine  = simulateTopNOdds(data, 'Sunshine', 5);
+    probOddsCache.Lollipops = simulateTopNOdds(data, 'Lollipops', 5);
     populateWeekSelect();
     renderForSelection('current');
   })

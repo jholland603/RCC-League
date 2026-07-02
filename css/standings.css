@@ -124,6 +124,27 @@ table.standings tbody td.num {
   white-space: nowrap;
 }
 
+/* ── TOP 5% CELL (Monte Carlo season-end odds, current week only) ─────────── */
+.top5-cell {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: right;
+  color: var(--text-mid);
+  white-space: nowrap;
+}
+
+.top5-cell.high {
+  color: var(--win);
+  font-weight: 600;
+}
+
+.top5-cell.low {
+  color: var(--text-muted);
+  opacity: 0.55;
+  font-weight: 400;
+}
+
 /* ── RECORD CELL ────────────────────────────────────────────────────────────── */
 .record-cell {
   font-family: 'DM Mono', monospace;
@@ -322,9 +343,13 @@ table.standings tbody td.num {
   table.standings thead th,
   table.standings tbody td { padding: 0.4rem 0.5rem; font-size: 0.75rem; }
 
-  /* hide purse on small screens */
+  /* hide purse on small screens (still the rightmost column) */
   table.standings thead th:last-child,
   table.standings tbody td:last-child { display: none; }
+
+  /* hide top-5% odds too — explicit class, since this column sits in the
+     middle of the row (before +/- and Purse), not at the end */
+  .top5-th, .top5-cell { display: none; }
 
   .team-name-cell .players { font-size: 0.75rem; }
 }
