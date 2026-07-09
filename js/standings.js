@@ -172,16 +172,35 @@ function renderMoversCallout(data, targetWeek) {
 
 // ── TOP-N SEASON-END PROBABILITY (Monte Carlo) ───────────────────────────────
 // Methodology mirrors INSTRUCTIONS.md → "TOP-5 / PLAYOFF ODDS METHODOLOGY":
-//   1. Recent-trend baseline: last 4 played rounds weighted 2x vs. earlier rounds
-//   2. Strength of remaining schedule: regress each team's per-round deviation
-//      from its own season average against its opponent's relative strength
-//      that round (pooled across the whole flight) to get a single slope (beta).
-//      Each remaining round's projection is shifted by beta × (that round's
-//      actual scheduled opponent's relative strength, from data.schedule).
-//   3. Bootstrap-resampled residuals (deviations from the team's own season
-//      average) supply the week-to-week noise.
+//   1. Recency-weighted baseline: each played round is weighted decay^(roundsAgo)
+//      (DECAY chosen so a round ~4 back counts ~half of the most recent one) —
+//      a smooth version of "recent form matters more", no hard cutoff.
+//   2. Schedule-adjusted power ratings: instead of measuring "opponent strength"
+//      as an opponent's raw season average (which is itself distorted by
+//      whatever schedule THAT opponent faced — circular), every team's rating
+//      is solved for jointly via a ridge-regularized, recency-weighted Massey
+//      system: for every played match, margin(a,b) = score_a − score_b is
+//      regressed against rating_a − rating_b, across the whole flight at once.
+//      This nets out schedule strength network-wide (using common opponents
+//      transitively) and the ridge penalty shrinks ratings toward 0 — more so
+//      early in the season when there's less data to trust.
+//   3. Schedule-effect baseline: a team's own recency-weighted average already
+//      reflects whatever mix of opponents it happened to face so far. Projecting
+//      a specific future opponent is done relative to THAT team's own
+//      already-faced average opponent rating (also shrunk toward 0 by games
+//      played), not the flight's grand average — otherwise a team that's had
+//      a historically soft (or brutal) schedule gets mis-projected.
+//   4. Correlated match simulation: remaining rounds are simulated one MATCH at
+//      a time (not one team at a time). Noise is drawn as a matched PAIR from
+//      actual historical match residuals, preserving the real (strongly
+//      negative — see below) correlation between what happens to two teams
+//      playing the same match, rather than treating them as independent.
 // Basis is weekly_total_points (NOT round_scores) — see GOLDEN RULE #1 / the
 // methodology section for why.
+
+const TOP5_DECAY            = 0.8409; // per-round recency weight; decay^4 ≈ 0.5
+const TOP5_RIDGE_LAMBDA_FRAC = 0.3;   // ridge penalty, as a fraction of avg weight/team
+const TOP5_OPP_SHRINK_K     = 12;     // pseudo-rounds of "assume average schedule" prior
 
 // Small deterministic PRNG so odds don't jitter on every page load between
 // data updates (reseeded only when the underlying schedule/rounds change).
@@ -194,35 +213,73 @@ function mulberry32(seed) {
   };
 }
 
-// { teamNum: { roundNum: opponentTeamNum } }, built from data.schedule.
-function buildOpponentMap(schedule) {
+// Solves the n×n linear system M·x = p via Gaussian elimination with partial
+// pivoting. Used to solve the (ridge-regularized) Massey ratings system.
+function solveLinearSystem(M, p, n) {
+  const A = M.map(row => row.slice());
+  const b = p.slice();
+  for (let col = 0; col < n; col++) {
+    let piv = col;
+    for (let r = col + 1; r < n; r++) if (Math.abs(A[r][col]) > Math.abs(A[piv][col])) piv = r;
+    [A[col], A[piv]] = [A[piv], A[col]];
+    [b[col], b[piv]] = [b[piv], b[col]];
+    const pv = A[col][col];
+    if (Math.abs(pv) < 1e-12) continue;
+    for (let r = 0; r < n; r++) {
+      if (r === col) continue;
+      const f = A[r][col] / pv;
+      if (f === 0) continue;
+      for (let c = col; c < n; c++) A[r][c] -= f * A[col][c];
+      b[r] -= f * b[col];
+    }
+  }
+  const x = new Array(n).fill(0);
+  for (let i = 0; i < n; i++) x[i] = Math.abs(A[i][i]) > 1e-12 ? b[i] / A[i][i] : 0;
+  return x;
+}
+
+// { roundNum: [[a, b], ...] } — schedule matches for one flight only, and
+// { teamNum: { roundNum: opponentTeamNum } } for quick per-team lookups.
+function buildScheduleMaps(schedule, teamSet) {
+  const matchesByRound = {};
   const opponentOf = {};
   Object.keys(schedule).forEach(roundKey => {
     const rnum = getRoundNumber(roundKey);
-    schedule[roundKey].forEach(([a, b]) => {
+    const matches = schedule[roundKey].filter(([a, b]) => teamSet.has(a) && teamSet.has(b));
+    if (matches.length) matchesByRound[rnum] = matches;
+    matches.forEach(([a, b]) => {
       opponentOf[a] = opponentOf[a] || {};
       opponentOf[b] = opponentOf[b] || {};
       opponentOf[a][rnum] = b;
       opponentOf[b][rnum] = a;
     });
   });
-  return opponentOf;
+  return { matchesByRound, opponentOf };
 }
 
 // Returns { teamNum: percentChanceTopN } for one flight.
-function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
+function simulateTopNOdds(data, flight, topN = 5, simulations = 8000) {
   const flightTeams = data.teams.filter(t => t.flight === flight);
   const teamNums    = flightTeams.map(t => t.team_number);
+  const teamSet     = new Set(teamNums);
+  const idx = {}; teamNums.forEach((tn, i) => idx[tn] = i);
+  const N = teamNums.length;
+
   const weeklyTotalPoints = data.weekly_total_points || {};
   const playedRounds = availableWeeks(data);
   if (playedRounds.length === 0) return { odds: {}, details: {} };
 
+  const maxPlayed = Math.max(...playedRounds);
   const maxRound  = Math.max(...Object.keys(data.schedule).map(getRoundNumber));
   const playedSet = new Set(playedRounds);
   const remainingRounds = [];
   for (let r = 1; r <= maxRound; r++) if (!playedSet.has(r)) remainingRounds.push(r);
 
-  const opponentOf = buildOpponentMap(data.schedule);
+  const { matchesByRound, opponentOf } = buildScheduleMaps(data.schedule, teamSet);
+
+  // Recency weight per played round: most recent = 1, decaying backward.
+  const w = {};
+  playedRounds.forEach(r => { w[r] = Math.pow(TOP5_DECAY, maxPlayed - r); });
 
   // Per-round historical points, this flight only.
   const histPts = {};
@@ -234,51 +291,82 @@ function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
     });
   });
 
+  // Plain (unweighted) season average — shown in the tooltip as a trend reference only.
   const seasonAvg = {};
   teamNums.forEach(tn => {
     const vals = Object.values(histPts[tn]);
     seasonAvg[tn] = vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0;
   });
-  const flightAvgStrength = teamNums.reduce((s, tn) => s + seasonAvg[tn], 0) / teamNums.length;
 
-  // ── Strength-of-schedule regression ──
-  const xs = [], ys = [];
-  teamNums.forEach(tn => {
-    playedRounds.forEach(r => {
-      if (histPts[tn][r] === undefined) return;
-      const opp = (opponentOf[tn] || {})[r];
-      if (opp === undefined || seasonAvg[opp] === undefined) return;
-      xs.push(seasonAvg[opp] - flightAvgStrength);
-      ys.push(histPts[tn][r] - seasonAvg[tn]);
-    });
-  });
-  let beta = 0;
-  if (xs.length > 1) {
-    const meanX = xs.reduce((a, b) => a + b, 0) / xs.length;
-    const meanY = ys.reduce((a, b) => a + b, 0) / ys.length;
-    let cov = 0, varX = 0;
-    for (let i = 0; i < xs.length; i++) { cov += (xs[i] - meanX) * (ys[i] - meanY); varX += (xs[i] - meanX) ** 2; }
-    beta = varX > 0 ? cov / varX : 0;
-  }
-
-  // ── Recent-trend baseline (last 4 played rounds weighted 2x) ──
+  // ── Recency-weighted baseline ──
   const recentMean = {};
   teamNums.forEach(tn => {
-    const cutoff = playedRounds[Math.max(0, playedRounds.length - 4)];
-    const recent = playedRounds.filter(r => r >= cutoff && histPts[tn][r] !== undefined).map(r => histPts[tn][r]);
-    const early  = playedRounds.filter(r => r <  cutoff && histPts[tn][r] !== undefined).map(r => histPts[tn][r]);
-    if (recent.length === 0) { recentMean[tn] = seasonAvg[tn]; return; }
-    const wR = 2, wE = 1;
-    const totalW = wR * recent.length + wE * early.length;
-    const s = wR * recent.reduce((a, b) => a + b, 0) + wE * early.reduce((a, b) => a + b, 0);
-    recentMean[tn] = totalW > 0 ? s / totalW : seasonAvg[tn];
+    let sw = 0, sv = 0;
+    playedRounds.forEach(r => {
+      if (histPts[tn][r] === undefined) return;
+      sw += w[r]; sv += w[r] * histPts[tn][r];
+    });
+    recentMean[tn] = sw > 0 ? sv / sw : 0;
   });
 
-  const residuals = {};
-  teamNums.forEach(tn => {
-    residuals[tn] = Object.values(histPts[tn]).map(v => v - seasonAvg[tn]);
-    if (residuals[tn].length === 0) residuals[tn] = [0];
+  // ── Ridge-regularized, recency-weighted Massey power ratings ──
+  // For every played match: margin(a,b) = score_a - score_b ≈ rating_a - rating_b,
+  // solved jointly across the whole flight (weighted least squares + ridge shrinkage).
+  const M = Array.from({ length: N }, () => new Array(N).fill(0));
+  const p = new Array(N).fill(0);
+  let totalWeight = 0;
+  playedRounds.forEach(r => {
+    (matchesByRound[r] || []).forEach(([a, b]) => {
+      const sa = histPts[a] && histPts[a][r], sb = histPts[b] && histPts[b][r];
+      if (sa === undefined || sb === undefined) return;
+      const wt = w[r], ia = idx[a], ib = idx[b], margin = sa - sb;
+      M[ia][ia] += wt; M[ib][ib] += wt; M[ia][ib] -= wt; M[ib][ia] -= wt;
+      p[ia] += wt * margin; p[ib] -= wt * margin;
+      totalWeight += wt;
+    });
   });
+  const avgWeightPerTeam = (totalWeight * 2) / N;
+  const lambda = avgWeightPerTeam * TOP5_RIDGE_LAMBDA_FRAC;
+  for (let i = 0; i < N; i++) M[i][i] += lambda;
+  const ratingArr = solveLinearSystem(M, p, N);
+  const meanRating = ratingArr.reduce((a, b) => a + b, 0) / N; // re-center so flight avg = 0
+  const rating = {};
+  teamNums.forEach((tn, i) => { rating[tn] = ratingArr[i] - meanRating; });
+
+  // ── Each team's own already-faced schedule strength (shrunk toward 0) ──
+  // Prevents overreacting to a small-sample "easy" or "brutal" schedule so far.
+  const avgHistOppRating = {};
+  teamNums.forEach(tn => {
+    let sw = 0, sv = 0, cnt = 0;
+    playedRounds.forEach(r => {
+      const opp = (opponentOf[tn] || {})[r];
+      if (opp === undefined || rating[opp] === undefined) return;
+      sw += w[r]; sv += w[r] * rating[opp]; cnt++;
+    });
+    const raw = sw > 0 ? sv / sw : 0;
+    avgHistOppRating[tn] = raw * (cnt / (cnt + TOP5_OPP_SHRINK_K));
+  });
+
+  // Projected score for team t in a round against a specific opponent: t's own
+  // recency-weighted baseline, shifted by how much tougher/easier this opponent
+  // is than what t has typically already faced.
+  function projected(t, opp) {
+    return recentMean[t] - (rating[opp] - avgHistOppRating[t]);
+  }
+
+  // ── Correlated residual pairs from actual played matches ──
+  // Reusing real matched-pairs (rather than drawing independent noise per team)
+  // preserves the strong real correlation between two teams' results in the
+  // same match (empirically ~ -0.8: one team's good night is the other's bad one).
+  const residualPairs = [];
+  playedRounds.forEach(r => {
+    (matchesByRound[r] || []).forEach(([a, b]) => {
+      const sa = histPts[a] && histPts[a][r], sb = histPts[b] && histPts[b][r];
+      if (sa === undefined || sb === undefined) return;
+      residualPairs.push([sa - projected(a, b), sb - projected(b, a)]);
+    });
+  });
+  if (residualPairs.length === 0) residualPairs.push([0, 0]);
 
   const currentPoints = {};
   flightTeams.forEach(t => { currentPoints[t.team_number] = t.total_points; });
@@ -301,20 +389,21 @@ function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
 
   for (let s = 0; s < simulations; s++) {
     const totals = {};
-    teamNums.forEach(tn => {
-      const base = recentMean[tn];
-      const pool = residuals[tn];
-      let proj = 0;
-      remainingRounds.forEach(r => {
-        const opp = (opponentOf[tn] || {})[r];
-        const oppRel = (opp !== undefined && seasonAvg[opp] !== undefined) ? (seasonAvg[opp] - flightAvgStrength) : 0;
-        const adjMean = base + beta * oppRel;
-        const noise = pool[Math.floor(rng() * pool.length)];
-        proj += Math.max(0, adjMean + noise);
+    teamNums.forEach(tn => { totals[tn] = currentPoints[tn]; });
+
+    // Simulate one MATCH at a time so both sides share a single drawn residual pair.
+    remainingRounds.forEach(r => {
+      (matchesByRound[r] || []).forEach(([a, b]) => {
+        const pair = residualPairs[Math.floor(rng() * residualPairs.length)];
+        const swap = rng() < 0.5; // pair isn't ordered by strength, so randomize which side it lands on
+        const rA = swap ? pair[1] : pair[0];
+        const rB = swap ? pair[0] : pair[1];
+        totals[a] += Math.max(0, projected(a, b) + rA);
+        totals[b] += Math.max(0, projected(b, a) + rB);
       });
-      totals[tn] = currentPoints[tn] + proj;
-      projSum[tn] += totals[tn];
     });
+
+    teamNums.forEach(tn => { projSum[tn] += totals[tn]; });
     teamNums.forEach(tn => {
       const above = teamNums.filter(o => totals[o] > totals[tn]).length;
       if (above + 1 <= topN) topCounts[tn]++;
@@ -324,17 +413,17 @@ function simulateTopNOdds(data, flight, topN = 5, simulations = 6000) {
   const odds = {}, details = {};
   teamNums.forEach(tn => {
     odds[tn] = (100 * topCounts[tn]) / simulations;
-    const avgOppStrength = remainingRounds.reduce((sum, r) => {
+    const avgFutureOppRating = remainingRounds.reduce((sum, r) => {
       const opp = (opponentOf[tn] || {})[r];
-      return sum + (opp !== undefined && seasonAvg[opp] !== undefined ? seasonAvg[opp] : flightAvgStrength);
+      return sum + (opp !== undefined && rating[opp] !== undefined ? rating[opp] : 0);
     }, 0) / remainingRounds.length;
     details[tn] = {
       currentPoints: currentPoints[tn],
       seasonAvg: seasonAvg[tn],
       recentMean: recentMean[tn],
-      avgOppStrength,
-      flightAvgStrength,
-      beta,
+      rating: rating[tn],
+      avgHistOppRating: avgHistOppRating[tn],
+      avgFutureOppRating,
       remainingRounds: remainingRounds.length,
       projFinal: projSum[tn] / simulations,
       simulations,
@@ -360,16 +449,18 @@ function buildTop5Tooltip(team, rankStr, pct, d, flight) {
   const trendDir = d.recentMean > d.seasonAvg ? 'up' : d.recentMean < d.seasonAvg ? 'down' : 'flat';
   const trendWord = trendDir === 'up' ? 'trending up' : trendDir === 'down' ? 'trending down' : 'steady';
 
-  const oppDiff = d.avgOppStrength - d.flightAvgStrength;
-  const oppWord = oppDiff > 0.15 ? 'tougher than average' : oppDiff < -0.15 ? 'easier than average' : 'about average';
+  const sign = (v) => (v > 0 ? '+' : '') + v.toFixed(2);
+
+  const oppDiff = d.avgFutureOppRating - d.avgHistOppRating;
+  const oppWord = oppDiff > 0.15 ? 'tougher than' : oppDiff < -0.15 ? 'easier than' : 'about the same as';
 
   const lines = [
     `${rankLabel(rankStr)} in ${flight} · ${fmt(d.currentPoints)} pts now`,
     ``,
-    `Recent form (last 4 rds, 2x weighted): ${d.recentMean.toFixed(2)} pts/rd — ${trendWord} vs ${d.seasonAvg.toFixed(2)} season avg`,
-    `Remaining ${d.remainingRounds} rounds' opponents: ${d.avgOppStrength.toFixed(2)} avg strength — ${oppWord} (flight avg ${d.flightAvgStrength.toFixed(2)})`,
-    `Schedule effect: ${d.beta.toFixed(2)} pts per pt of relative opponent strength`,
-    `Projected final total: ~${d.projFinal.toFixed(1)} pts (avg of ${d.simulations.toLocaleString()} simulated seasons)`,
+    `Recent form (recency-weighted): ${d.recentMean.toFixed(2)} pts/rd — ${trendWord} vs ${d.seasonAvg.toFixed(2)} season avg`,
+    `Power rating (schedule-adjusted): ${sign(d.rating)} pts/rd vs an average ${flight} team`,
+    `Remaining ${d.remainingRounds} rounds' opponents rate ${sign(d.avgFutureOppRating)} avg — ${oppWord} the schedule already played (${sign(d.avgHistOppRating)})`,
+    `Projected final total: ~${d.projFinal.toFixed(1)} pts (avg of ${d.simulations.toLocaleString()} simulated seasons, using actual remaining matchups)`,
     ``,
     `→ ${formatTopPct(pct)} chance of finishing top 5 in ${flight}`,
   ];
@@ -442,7 +533,7 @@ function renderFlight(flight, flightTeams, records, pointsOverride, isHistorical
   }).join('');
 
   const top5Header = isHistorical ? '' :
-    `<th class="num top5-th" title="Modeled probability of finishing top 5 in ${flight} by season end — accounts for recent form (last 4 rounds weighted 2x) and strength of remaining schedule. Hover a team's percentage for the full breakdown.">Top 5%</th>`;
+    `<th class="num top5-th" title="Modeled probability of finishing top 5 in ${flight} by season end — accounts for recency-weighted form, a schedule-adjusted power rating for every team, and each team's actual remaining matchups. Hover a team's percentage for the full breakdown.">Top 5%</th>`;
 
   return `
   <div class="flight-panel">

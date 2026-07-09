@@ -146,6 +146,20 @@ Always display the schedule as a **markdown table**, not an HTML widget. Markdow
 
 ---
 
+## TOP-5 / PLAYOFF ODDS METHODOLOGY
+Implemented in `js/standings.js` (`simulateTopNOdds`). Basis is `weekly_total_points` (includes attendance points), never `round_scores` — see GOLDEN RULE #1. Recomputed per flight, 8,000 simulated seasons, deterministic seed (stable between page loads until the underlying data changes).
+
+1. **Recency weighting.** Each played round is weighted `0.8409^(roundsAgo)` — a smooth decay (≈half weight 4 rounds back) instead of a hard cutoff.
+2. **Power ratings.** A ridge-regularized, recency-weighted Massey system solves for every team's rating jointly: for each played match, `margin(a,b) = score_a − score_b ≈ rating_a − rating_b`, fit across the whole flight at once (so it nets out schedule strength network-wide via common opponents, instead of using an opponent's raw season average — which is itself distorted by whatever schedule *that* opponent faced). Ratings are centered so the flight average is 0. The ridge penalty shrinks ratings toward 0 more when there's less data (early season).
+3. **Schedule-effect baseline.** A team's own recency-weighted average already reflects the mix of opponents it happened to face. Projecting a future round is done relative to that team's own already-faced average opponent rating (also shrunk toward 0 by rounds played), not the flight's grand average — otherwise a team with a historically soft or brutal schedule gets mis-projected.
+4. **Correlated match simulation.** Remaining rounds are simulated one match at a time, not one team at a time. Noise for both sides is drawn as a matched pair from actual historical match residuals (real-world correlation between the two teams in a match is strongly negative, ≈ −0.8) rather than independent per-team draws.
+
+Tunable constants live at the top of the Top-N section in `standings.js`: `TOP5_DECAY`, `TOP5_RIDGE_LAMBDA_FRAC`, `TOP5_OPP_SHRINK_K`.
+
+Sanity invariant: summed across all teams in a flight, the Top-5% odds should always total ~500 (5 spots × 100%, averaged over simulations) — a quick way to catch a broken change.
+
+---
+
 ## WEEKLY UPDATE WORKFLOW
 When new data is provided:
 1. **Round scores** — add to `round_scores` exactly as shown in the report. No back-calculation needed.
