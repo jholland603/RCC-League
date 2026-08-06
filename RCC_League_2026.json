@@ -81,7 +81,7 @@
       "team_number": 1,
       "flight": "Sunshine",
       "players_display": "Ferullo, Kory + Allen, Jd",
-      "total_points": 94.0,
+      "total_points": 102.0,
       "purse": 0.0,
       "players": [
         {
@@ -119,7 +119,7 @@
       "team_number": 2,
       "flight": "Sunshine",
       "players_display": "Christie, Ian + Stevens, Cody",
-      "total_points": 80.5,
+      "total_points": 85.5,
       "purse": 0.0,
       "players": [
         {
@@ -157,7 +157,7 @@
       "team_number": 3,
       "flight": "Sunshine",
       "players_display": "Kretschmar, David + Strong, Kevin",
-      "total_points": 83.5,
+      "total_points": 92.5,
       "purse": 0.0,
       "players": [
         {
@@ -195,7 +195,7 @@
       "team_number": 4,
       "flight": "Sunshine",
       "players_display": "Blood, Ray + Mitcherson, Jeff",
-      "total_points": 83.5,
+      "total_points": 90.5,
       "purse": 25.0,
       "players": [
         {
@@ -233,8 +233,8 @@
       "team_number": 5,
       "flight": "Sunshine",
       "players_display": "Newton, Keith + Adjutant, Mike",
-      "total_points": 94.5,
-      "purse": 25.0,
+      "total_points": 101.5,
+      "purse": 50.0,
       "players": [
         {
           "name": "Newton, Keith",
@@ -271,7 +271,7 @@
       "team_number": 6,
       "flight": "Sunshine",
       "players_display": "Carignan, Hunter + Strayer, Jackson",
-      "total_points": 87.0,
+      "total_points": 92.0,
       "purse": 25.0,
       "players": [
         {
@@ -309,7 +309,7 @@
       "team_number": 7,
       "flight": "Sunshine",
       "players_display": "Levesque, Todd + McCarthy, Ryan",
-      "total_points": 89.0,
+      "total_points": 98.0,
       "purse": 25.0,
       "players": [
         {
@@ -347,7 +347,7 @@
       "team_number": 8,
       "flight": "Sunshine",
       "players_display": "Cleveland, Jayson + Roy, Trevor",
-      "total_points": 85.5,
+      "total_points": 95.0,
       "purse": 50.0,
       "players": [
         {
@@ -385,7 +385,7 @@
       "team_number": 9,
       "flight": "Sunshine",
       "players_display": "Eggbiggboo, Jose + Catalfo, Chris",
-      "total_points": 87.0,
+      "total_points": 93.0,
       "purse": 25.0,
       "players": [
         {
@@ -423,7 +423,7 @@
       "team_number": 10,
       "flight": "Sunshine",
       "players_display": "Montigny, Don + Chavaree, Brett",
-      "total_points": 89.5,
+      "total_points": 95.0,
       "purse": 0.0,
       "players": [
         {
@@ -461,7 +461,7 @@
       "team_number": 11,
       "flight": "Sunshine",
       "players_display": "Edmunds, Mitch + Marino, Dj",
-      "total_points": 78.5,
+      "total_points": 86.5,
       "purse": 0.0,
       "players": [
         {
@@ -499,7 +499,7 @@
       "team_number": 12,
       "flight": "Sunshine",
       "players_display": "Vinciguerra, Caleb + Moore, Josh",
-      "total_points": 91.5,
+      "total_points": 99.5,
       "purse": 25.0,
       "players": [
         {
@@ -537,7 +537,7 @@
       "team_number": 13,
       "flight": "Sunshine",
       "players_display": "Milne, Gino + Cyr, Glenn",
-      "total_points": 86.0,
+      "total_points": 92.0,
       "purse": 0.0,
       "players": [
         {
@@ -575,7 +575,7 @@
       "team_number": 14,
       "flight": "Sunshine",
       "players_display": "Paquette, Brock + Paquette, Wade",
-      "total_points": 79.5,
+      "total_points": 85.5,
       "purse": 0.0,
       "players": [
         {
@@ -613,7 +613,7 @@
       "team_number": 15,
       "flight": "Sunshine",
       "players_display": "Morris, John + Hussey, Brendan",
-      "total_points": 81.0,
+      "total_points": 86.0,
       "purse": 25.0,
       "players": [
         {
@@ -651,7 +651,7 @@
       "team_number": 16,
       "flight": "Sunshine",
       "players_display": "Macgregor, Nick + Creteau, Rick",
-      "total_points": 78.0,
+      "total_points": 87.0,
       "purse": 25.0,
       "players": [
         {
@@ -689,7 +689,7 @@
       "team_number": 17,
       "flight": "Sunshine",
       "players_display": "Angelopoulos, Chris + Todd, Heath",
-      "total_points": 92.0,
+      "total_points": 99.0,
       "purse": 0.0,
       "players": [
         {
@@ -727,7 +727,7 @@
       "team_number": 18,
       "flight": "Sunshine",
       "players_display": "Hamilton, Matthew + Cordeiro, Ryan",
-      "total_points": 90.0,
+      "total_points": 98.5,
       "purse": 0.0,
       "players": [
         {
@@ -765,7 +765,7 @@
       "team_number": 19,
       "flight": "Sunshine",
       "players_display": "Conroy, Casey + Faist, Eric",
-      "total_points": 76.5,
+      "total_points": 82.0,
       "purse": 100.0,
       "players": [
         {
@@ -802,7 +802,7 @@
       "team_number": 20,
       "flight": "Sunshine",
       "players_display": "Puffer, Stephen + Rowntree, Jack",
-      "total_points": 83.0,
+      "total_points": 89.0,
       "purse": 25.0,
       "players": [
         {
@@ -840,8 +840,8 @@
       "team_number": 21,
       "flight": "Sunshine",
       "players_display": "Hanson, Scott + Hanson, Trevor",
-      "total_points": 75.5,
-      "purse": 0.0,
+      "total_points": 83.0,
+      "purse": 25.0,
       "players": [
         {
           "name": "Hanson, Scott",
@@ -878,7 +878,7 @@
       "team_number": 22,
       "flight": "Sunshine",
       "players_display": "Ceppetelli, Dante + Frank, Cameron",
-      "total_points": 82.0,
+      "total_points": 87.5,
       "purse": 0.0,
       "players": [
         {
@@ -916,7 +916,7 @@
       "team_number": 23,
       "flight": "Sunshine",
       "players_display": "Radwan, Jacob + Pridham, Casey",
-      "total_points": 75.5,
+      "total_points": 82.5,
       "purse": 50.0,
       "players": [
         {
@@ -954,7 +954,7 @@
       "team_number": 24,
       "flight": "Sunshine",
       "players_display": "Keough, Jay + White, Erik",
-      "total_points": 70.5,
+      "total_points": 75.5,
       "purse": 25.0,
       "players": [
         {
@@ -992,7 +992,7 @@
       "team_number": 25,
       "flight": "Sunshine",
       "players_display": "Roberts, Luke + McCabe, Dyllan",
-      "total_points": 68.5,
+      "total_points": 77.5,
       "purse": 50.0,
       "players": [
         {
@@ -1030,7 +1030,7 @@
       "team_number": 26,
       "flight": "Sunshine",
       "players_display": "Holland, Jeffry + Spalding, David",
-      "total_points": 85.5,
+      "total_points": 93.5,
       "purse": 0.0,
       "players": [
         {
@@ -1068,7 +1068,7 @@
       "team_number": 27,
       "flight": "Sunshine",
       "players_display": "Tapley, Josh + Pepin, Drew",
-      "total_points": 76.5,
+      "total_points": 84.5,
       "purse": 0.0,
       "players": [
         {
@@ -1106,7 +1106,7 @@
       "team_number": 28,
       "flight": "Sunshine",
       "players_display": "Daudelin, Doug + Zwirn, Robert",
-      "total_points": 79.0,
+      "total_points": 85.0,
       "purse": 0.0,
       "players": [
         {
@@ -1144,7 +1144,7 @@
       "team_number": 29,
       "flight": "Sunshine",
       "players_display": "Gadomski, Bob + Hite, Mark",
-      "total_points": 82.0,
+      "total_points": 88.0,
       "purse": 0.0,
       "players": [
         {
@@ -1182,7 +1182,7 @@
       "team_number": 30,
       "flight": "Sunshine",
       "players_display": "LaChapelle, Logan + Zriny, Nate",
-      "total_points": 77.0,
+      "total_points": 85.5,
       "purse": 25.0,
       "players": [
         {
@@ -1220,7 +1220,7 @@
       "team_number": 31,
       "flight": "Sunshine",
       "players_display": "Harte, Mike + Ferland, Kevin",
-      "total_points": 88.0,
+      "total_points": 96.0,
       "purse": 25.0,
       "players": [
         {
@@ -1258,7 +1258,7 @@
       "team_number": 32,
       "flight": "Sunshine",
       "players_display": "Ceppetelli, Derek + McKenney, Jim",
-      "total_points": 77.0,
+      "total_points": 81.5,
       "purse": 0.0,
       "players": [
         {
@@ -1296,7 +1296,7 @@
       "team_number": 33,
       "flight": "Lollipops",
       "players_display": "Carignan, Derek + Young, Brian",
-      "total_points": 78.5,
+      "total_points": 85.5,
       "purse": 25.0,
       "players": [
         {
@@ -1334,7 +1334,7 @@
       "team_number": 34,
       "flight": "Lollipops",
       "players_display": "White, Tucker + Hederman, Michael",
-      "total_points": 64.5,
+      "total_points": 70.0,
       "purse": 0.0,
       "players": [
         {
@@ -1372,7 +1372,7 @@
       "team_number": 35,
       "flight": "Lollipops",
       "players_display": "Reisert, Kevin + Morin, Joe",
-      "total_points": 94.0,
+      "total_points": 103.5,
       "purse": 25.0,
       "players": [
         {
@@ -1410,7 +1410,7 @@
       "team_number": 36,
       "flight": "Lollipops",
       "players_display": "Strayer, James + Putney, Phil",
-      "total_points": 86.0,
+      "total_points": 95.0,
       "purse": 0.0,
       "players": [
         {
@@ -1448,7 +1448,7 @@
       "team_number": 37,
       "flight": "Lollipops",
       "players_display": "Perron, Jake + King, Carter",
-      "total_points": 87.5,
+      "total_points": 92.5,
       "purse": 25.0,
       "players": [
         {
@@ -1486,7 +1486,7 @@
       "team_number": 38,
       "flight": "Lollipops",
       "players_display": "Dias, Chris + Genkinger, Darryl",
-      "total_points": 90.0,
+      "total_points": 94.5,
       "purse": 25.0,
       "players": [
         {
@@ -1524,7 +1524,7 @@
       "team_number": 39,
       "flight": "Lollipops",
       "players_display": "Shannon, Jim + Robar, Jeffrey",
-      "total_points": 85.5,
+      "total_points": 94.0,
       "purse": 0.0,
       "players": [
         {
@@ -1562,7 +1562,7 @@
       "team_number": 40,
       "flight": "Lollipops",
       "players_display": "Campbell, Packy + Trepanier, Paul",
-      "total_points": 85.0,
+      "total_points": 93.5,
       "purse": 25.0,
       "players": [
         {
@@ -1600,7 +1600,7 @@
       "team_number": 41,
       "flight": "Lollipops",
       "players_display": "Carbonar, Tony + Harrigan, Colin",
-      "total_points": 90.0,
+      "total_points": 99.0,
       "purse": 0.0,
       "players": [
         {
@@ -1638,7 +1638,7 @@
       "team_number": 42,
       "flight": "Lollipops",
       "players_display": "Foss, Christopher + Berthiaume, Jeremy",
-      "total_points": 71.0,
+      "total_points": 80.0,
       "purse": 25.0,
       "players": [
         {
@@ -1676,7 +1676,7 @@
       "team_number": 43,
       "flight": "Lollipops",
       "players_display": "Billings, Derek + Ambrogio, Andrew",
-      "total_points": 90.5,
+      "total_points": 100.0,
       "purse": 0.0,
       "players": [
         {
@@ -1714,7 +1714,7 @@
       "team_number": 44,
       "flight": "Lollipops",
       "players_display": "Cardarelli, Kevin + Nelson, Don",
-      "total_points": 88.5,
+      "total_points": 94.5,
       "purse": 25.0,
       "players": [
         {
@@ -1752,7 +1752,7 @@
       "team_number": 45,
       "flight": "Lollipops",
       "players_display": "Dureau, Greg + Dureau, Nate",
-      "total_points": 98.5,
+      "total_points": 108.5,
       "purse": 25.0,
       "players": [
         {
@@ -1790,7 +1790,7 @@
       "team_number": 46,
       "flight": "Lollipops",
       "players_display": "Jolly, Mike + DiMartino, Derek",
-      "total_points": 65.5,
+      "total_points": 72.5,
       "purse": 50.0,
       "players": [
         {
@@ -1828,7 +1828,7 @@
       "team_number": 47,
       "flight": "Lollipops",
       "players_display": "Bouchie, Marty + Carmichael, Jeff",
-      "total_points": 94.5,
+      "total_points": 104.5,
       "purse": 25.0,
       "players": [
         {
@@ -1866,7 +1866,7 @@
       "team_number": 48,
       "flight": "Lollipops",
       "players_display": "Fournier, Joe + Scott, Andy",
-      "total_points": 86.0,
+      "total_points": 94.5,
       "purse": 25.0,
       "players": [
         {
@@ -1904,7 +1904,7 @@
       "team_number": 49,
       "flight": "Lollipops",
       "players_display": "Behan, Bill + Noel, Rod",
-      "total_points": 72.5,
+      "total_points": 78.0,
       "purse": 0.0,
       "players": [
         {
@@ -1942,7 +1942,7 @@
       "team_number": 50,
       "flight": "Lollipops",
       "players_display": "Martin, Jason + Hills, Rob",
-      "total_points": 79.5,
+      "total_points": 85.0,
       "purse": 75.0,
       "players": [
         {
@@ -1980,8 +1980,8 @@
       "team_number": 51,
       "flight": "Lollipops",
       "players_display": "Wojtkowski, Noah + Maccallum, Donald",
-      "total_points": 85.5,
-      "purse": 50.0,
+      "total_points": 93.5,
+      "purse": 75.0,
       "players": [
         {
           "name": "Wojtkowski, Noah",
@@ -2018,7 +2018,7 @@
       "team_number": 52,
       "flight": "Lollipops",
       "players_display": "Hart, Hunter + Lebell, Daniel",
-      "total_points": 87.5,
+      "total_points": 94.5,
       "purse": 0.0,
       "players": [
         {
@@ -2056,7 +2056,7 @@
       "team_number": 53,
       "flight": "Lollipops",
       "players_display": "Crowell, Steve + Taylor, John",
-      "total_points": 73.5,
+      "total_points": 79.5,
       "purse": 0.0,
       "players": [
         {
@@ -2093,7 +2093,7 @@
       "team_number": 54,
       "flight": "Lollipops",
       "players_display": "Douglas, Kurt + Foster, Steve",
-      "total_points": 71.5,
+      "total_points": 80.0,
       "purse": 0.0,
       "players": [
         {
@@ -2130,8 +2130,8 @@
       "team_number": 55,
       "flight": "Lollipops",
       "players_display": "Ciccotelli, Mike + Lagace, Alex",
-      "total_points": 81.5,
-      "purse": 25.0,
+      "total_points": 90.0,
+      "purse": 50.0,
       "players": [
         {
           "name": "Ciccotelli, Mike",
@@ -2168,7 +2168,7 @@
       "team_number": 56,
       "flight": "Lollipops",
       "players_display": "Trowbridge, Andrew + Mertens, Scott",
-      "total_points": 85.0,
+      "total_points": 90.5,
       "purse": 25.0,
       "players": [
         {
@@ -2206,7 +2206,7 @@
       "team_number": 57,
       "flight": "Lollipops",
       "players_display": "Desrosiers, David + Desrosiers, Jeffrey",
-      "total_points": 68.5,
+      "total_points": 71.5,
       "purse": 0.0,
       "players": [
         {
@@ -2244,7 +2244,7 @@
       "team_number": 58,
       "flight": "Lollipops",
       "players_display": "Porter, Bob + Hadley, Brian",
-      "total_points": 75.0,
+      "total_points": 81.0,
       "purse": 0.0,
       "players": [
         {
@@ -2282,7 +2282,7 @@
       "team_number": 59,
       "flight": "Lollipops",
       "players_display": "Dunnells, Cliff + Kelly, John",
-      "total_points": 94.0,
+      "total_points": 98.0,
       "purse": 0.0,
       "players": [
         {
@@ -2320,7 +2320,7 @@
       "team_number": 60,
       "flight": "Lollipops",
       "players_display": "Guptill, Ian + Turcotte, Matt",
-      "total_points": 84.5,
+      "total_points": 92.5,
       "purse": 0.0,
       "players": [
         {
@@ -2358,7 +2358,7 @@
       "team_number": 61,
       "flight": "Lollipops",
       "players_display": "McKenney, David + Dias, Drew",
-      "total_points": 80.0,
+      "total_points": 84.5,
       "purse": 25.0,
       "players": [
         {
@@ -2396,7 +2396,7 @@
       "team_number": 62,
       "flight": "Lollipops",
       "players_display": "Foss, Ryan + Stokes, Mark",
-      "total_points": 77.0,
+      "total_points": 82.0,
       "purse": 0.0,
       "players": [
         {
@@ -2434,7 +2434,7 @@
       "team_number": 63,
       "flight": "Lollipops",
       "players_display": "Powers, Ty + Bogan, David",
-      "total_points": 75.0,
+      "total_points": 79.0,
       "purse": 0.0,
       "players": [
         {
@@ -2472,7 +2472,7 @@
       "team_number": 64,
       "flight": "Lollipops",
       "players_display": "Jacques, Kevin + Vetter, Scott",
-      "total_points": 66.5,
+      "total_points": 71.0,
       "purse": 50.0,
       "players": [
         {
