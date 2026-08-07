@@ -1,7 +1,7 @@
 {
   "league": "Rochester Country Club Men's Twilight League",
   "season": "2026",
-  "rainout_note": "Season started 1 week late due to rainout. Round 1 = Wed May 13 (not May 6). All round dates in schedule keys are already adjusted.",
+  "rainout_note": "Season started 1 week late due to a rainout. Round 1 = Wed May 13 (not May 6). All round dates in schedule keys are already adjusted.",
   "flights": {
     "Sunshine": {
       "team_numbers": [
