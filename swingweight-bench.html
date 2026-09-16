@@ -134,7 +134,7 @@
     display:block; font-size:12px; color:var(--ink-dim); margin-bottom:5px;
   }
   .field .row2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-  input[type="text"], input[type="number"]{
+  input[type="text"], input[type="number"], select{
     width:100%; padding:9px 10px; border-radius:8px; border:1px solid var(--rule);
     background:var(--panel-2); color:var(--ink); font-family:var(--mono); font-size:14px;
   }
@@ -262,9 +262,14 @@
         <p class="sub">Enter the static weight and balance point. That's all that's required for the swingweight number itself.</p>
 
         <div class="field" id="f-name">
-          <label for="name">Club name</label>
-          <input type="text" id="name" placeholder="e.g. Qi35 Driver" autocomplete="off">
-          <div class="error">Give the club a name.</div>
+          <label for="clubType">Club</label>
+          <select id="clubType"></select>
+          <div class="error">Pick which club this is.</div>
+        </div>
+
+        <div class="field">
+          <label for="name">Manufacturer / Model <span style="opacity:.6;">(optional)</span></label>
+          <input type="text" id="name" placeholder="e.g. TaylorMade Qi35, Takomo Grind1" autocomplete="off">
         </div>
 
         <div class="field">
@@ -283,9 +288,7 @@
 
         <div class="field" id="f-target">
           <label for="target">Target swingweight</label>
-          <input type="text" id="target" placeholder="D2" style="max-width:120px;">
-          <div class="hint">A letter A&ndash;G plus a number 0&ndash;9, like D2.</div>
-          <div class="error">Use a letter A&ndash;G plus a number 0&ndash;9, like D2.</div>
+          <select id="target"></select>
         </div>
 
         <details class="adv">
@@ -329,8 +332,8 @@
       <div class="grid">
         <div>
           <strong style="color:var(--ink); display:block; margin-bottom:4px;">Raw points</strong>
-          <code>(weight × (balance − 14) − 6045.5) ÷ 49.61</code>
-          <p style="margin:8px 0 0;">Result is in points relative to D0. Rounding to the nearest whole point and mapping it onto the letter scale (…C9, D0, D1…) gives the grade.</p>
+          <code>(weight × (balance − 14) − 6052.6) ÷ 49.61</code>
+          <p style="margin:8px 0 0;">This is the actual Lorythmic scale definition used industry-wide: C0 = 196 inch-ounces of moment about the 14&Prime; fulcrum, and each point equals 1.75 inch-ounces (so D0 = 213.5 inch-ounces). Converted to grams, that's the constants above.</p>
         </div>
         <div>
           <strong style="color:var(--ink); display:block; margin-bottom:4px;">Head suggestion</strong>
@@ -355,7 +358,7 @@
   "use strict";
 
   var FULCRUM = 14;
-  var OFFSET = 6045.54;
+  var OFFSET = 6052.62;
   var DIVISOR = 49.6117;
   var STORE_KEY = "swingweightBench.clubs.v1";
 
@@ -364,6 +367,7 @@
     formTitle: document.getElementById('form-title'),
     submitBtn: document.getElementById('submit-btn'),
     cancelBtn: document.getElementById('cancel-edit'),
+    clubType: document.getElementById('clubType'),
     name: document.getElementById('name'),
     weight: document.getElementById('weight'),
     balance: document.getElementById('balance'),
@@ -372,10 +376,42 @@
     butt: document.getElementById('butt'),
     fName: document.getElementById('f-name'),
     fWB: document.getElementById('e-weightbalance').closest('.field'),
-    fTarget: document.getElementById('f-target'),
     gridTarget: document.getElementById('grid-target'),
     clubCount: document.getElementById('club-count')
   };
+
+  (function populateClubTypeOptions(){
+    var groups = [
+      { label:'Woods', items:['D','3W','5W','7W','9W'] },
+      { label:'Hybrids', items:['2H','3H','4H','5H','6H'] },
+      { label:'Irons', items:['2I','3I','4I','5I','6I','7I','8I','9I'] },
+      { label:'Wedges', items:['P','S','50','52','54','56','58','60'] }
+    ];
+    var html = '<option value="">Choose a club&hellip;</option>';
+    groups.forEach(function(group){
+      html += '<optgroup label="'+group.label+'">';
+      group.items.forEach(function(item){
+        html += '<option value="'+item+'">'+item+'</option>';
+      });
+      html += '</optgroup>';
+    });
+    els.clubType.innerHTML = html;
+  })();
+
+  (function populateTargetOptions(){
+    var html = '<option value="">No target</option>';
+    var letters = ['A','B','C','D','E','F','G'];
+    letters.forEach(function(letter){
+      html += '<optgroup label="'+letter+'">';
+      for(var n=0; n<=9; n++){
+        var grade = letter+n;
+        var selected = (grade === 'D2') ? ' selected' : '';
+        html += '<option value="'+grade+'"'+selected+'>'+grade+'</option>';
+      }
+      html += '</optgroup>';
+    });
+    els.target.innerHTML = html;
+  })();
 
   var editingId = null;
 
@@ -385,7 +421,7 @@
       var raw = window.localStorage.getItem(STORE_KEY);
       if(!raw) return [];
       var parsed = JSON.parse(raw);
-      return Array.isArray(parsed) ? parsed : [];
+      return Array.isArray(parsed) ? parsed.map(normalizeClub) : [];
     }catch(e){
       console.error('Swingweight Bench: could not read saved clubs', e);
       return [];
@@ -407,6 +443,20 @@
     });
   }
 
+  function normalizeClub(c){
+    // Backfills any fields missing from older data (e.g. a clubs.json saved
+    // before a new field existed) without touching fields it doesn't recognize.
+    var defaults = { clubType:'', name:null, target:null, length:null, butt:null };
+    var merged = Object.assign({}, defaults, c || {});
+    merged.id = merged.id || (Date.now().toString(36) + Math.random().toString(36).slice(2,7));
+    merged.weight = (typeof merged.weight === 'number' && !isNaN(merged.weight)) ? merged.weight : (parseFloat(merged.weight) || 0);
+    merged.balance = (typeof merged.balance === 'number' && !isNaN(merged.balance)) ? merged.balance : (parseFloat(merged.balance) || 0);
+    if(merged.length !== null && merged.length !== ''){ merged.length = parseFloat(merged.length); if(isNaN(merged.length)) merged.length = null; }
+    if(merged.butt !== null && merged.butt !== ''){ merged.butt = parseFloat(merged.butt); if(isNaN(merged.butt)) merged.butt = null; }
+    if(!merged.clubType) merged.clubType = '';
+    return merged;
+  }
+
   var dataSourceNote = document.createElement('div');
   dataSourceNote.className = 'hint';
   dataSourceNote.style.cssText = 'padding:0 20px 14px; margin-top:-6px;';
@@ -422,7 +472,7 @@
       .then(function(r){ if(!r.ok) throw new Error('clubs.json not found ('+r.status+')'); return r.json(); })
       .then(function(data){
         if(Array.isArray(data) && data.length){
-          clubs = data.map(ensureId);
+          clubs = data.map(normalizeClub);
           saveClubs(clubs);
           render();
           showNote('Loaded '+clubs.length+' club'+(clubs.length===1?'':'s')+' from clubs.json.');
@@ -557,11 +607,12 @@
       var roundedPts = Math.round(raw);
       var isGood = targetPts !== null && roundedPts === targetPts;
       var suggestion = computeSuggestion(club, raw, roundedPts, targetPts);
+      var typeLabel = club.clubType ? escapeHtml(club.clubType) : '<span style="color:var(--warn);">Set club type</span>';
 
       html += '<div class="panel card" data-id="'+club.id+'">'+
         '<div class="gauge-wrap" style="color:var(--ink-dim);">'+buildGauge(raw, targetPts)+'</div>'+
         '<div class="info">'+
-          '<div class="head"><span class="name">'+escapeHtml(club.name)+'</span>'+
+          '<div class="head"><span class="name">'+typeLabel+(club.name ? ' &mdash; '+escapeHtml(club.name) : '')+'</span>'+
           '<span class="grade-badge '+(isGood?'good':'warn')+'">'+g.label+'</span></div>'+
           '<div class="meta">'+club.weight+'g &middot; '+club.balance+'&Prime; balance</div>'+
         '</div>'+
@@ -620,7 +671,8 @@
     els.formTitle.textContent = 'Edit club';
     els.submitBtn.textContent = 'Save changes';
     els.cancelBtn.style.display = 'block';
-    els.name.value = club.name;
+    els.clubType.value = club.clubType || '';
+    els.name.value = club.name || '';
     els.weight.value = club.weight;
     els.balance.value = club.balance;
     els.target.value = club.target;
@@ -639,7 +691,7 @@
   }
 
   function clearErrors(){
-    [els.fName, els.fWB, els.fTarget].forEach(function(f){ f.classList.remove('has-error'); });
+    [els.fName, els.fWB].forEach(function(f){ f.classList.remove('has-error'); });
   }
 
   els.cancelBtn.addEventListener('click', resetForm);
@@ -648,22 +700,23 @@
     ev.preventDefault();
     clearErrors();
 
+    var clubType = els.clubType.value;
     var name = els.name.value.trim();
     var weight = parseFloat(els.weight.value);
     var balance = parseFloat(els.balance.value);
-    var target = els.target.value.trim().toUpperCase();
+    var target = els.target.value;
     var length = els.length.value !== '' ? parseFloat(els.length.value) : null;
     var butt = els.butt.value !== '' ? parseFloat(els.butt.value) : null;
 
     var ok = true;
-    if(!name){ els.fName.classList.add('has-error'); ok = false; }
+    if(!clubType){ els.fName.classList.add('has-error'); ok = false; }
     if(!(weight > 0) || !(balance > FULCRUM)){ els.fWB.classList.add('has-error'); ok = false; }
-    if(target && gradeToPoints(target) === null){ els.fTarget.classList.add('has-error'); ok = false; }
     if(!ok) return;
 
     var club = {
       id: editingId || (Date.now().toString(36) + Math.random().toString(36).slice(2,7)),
-      name: name,
+      clubType: clubType,
+      name: name || null,
       weight: weight,
       balance: balance,
       target: target || null,
@@ -713,10 +766,8 @@
         if(!Array.isArray(data)) throw new Error('not an array');
         var merged = clubs.slice();
         data.forEach(function(incoming){
-          if(!incoming || typeof incoming.name !== 'string') return;
-          var withId = Object.assign({}, incoming, {
-            id: incoming.id || (Date.now().toString(36) + Math.random().toString(36).slice(2,7))
-          });
+          if(!incoming || typeof incoming !== 'object') return;
+          var withId = normalizeClub(incoming);
           var existingIdx = merged.findIndex(function(c){ return c.id === withId.id; });
           if(existingIdx !== -1){ merged[existingIdx] = withId; } else { merged.push(withId); }
         });
