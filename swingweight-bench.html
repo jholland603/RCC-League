@@ -174,47 +174,60 @@
   }
   .empty strong{display:block; color:var(--ink); font-size:16px; margin-bottom:6px; font-weight:600;}
 
-  .cards{display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:16px;}
+  .cards{display:grid; grid-template-columns:1fr; gap:12px;}
 
   .card{
-    padding:18px; position:relative; display:flex; flex-direction:column; gap:12px;
+    padding:14px 18px; position:relative; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
   }
-  .card .head{display:flex; align-items:flex-start; justify-content:space-between; gap:8px;}
-  .card .name{font-weight:600; font-size:15.5px;}
-  .card .meta{font-family:var(--mono); font-size:11.5px; color:var(--ink-dim); margin-top:2px;}
+  .card .gauge-wrap{flex:0 0 84px; width:84px;}
+  .card .gauge-wrap svg{max-width:84px;}
+  .card .info{flex:1 1 170px; min-width:150px;}
+  .card .head{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .card .name{font-weight:600; font-size:15px;}
+  .card .meta{font-family:var(--mono); font-size:11.5px; color:var(--ink-dim); margin-top:3px;}
   .grade-badge{
-    font-family:var(--mono); font-weight:600; font-size:15px;
-    padding:4px 10px; border-radius:7px; white-space:nowrap;
+    font-family:var(--mono); font-weight:600; font-size:13.5px;
+    padding:3px 9px; border-radius:7px; white-space:nowrap;
   }
   .grade-badge.good{background:var(--good-soft); color:var(--good);}
   .grade-badge.warn{background:var(--warn-soft); color:var(--warn);}
 
   .gauge-wrap{display:flex; justify-content:center;}
-  .gauge-wrap svg{width:100%; max-width:220px; height:auto;}
   .needle{transition:transform 0.5s cubic-bezier(.22,1,.36,1);}
 
   .readout{
-    display:grid; grid-template-columns:1fr 1fr; gap:8px 14px;
-    font-family:var(--mono); font-size:12px; padding-top:2px; border-top:1px solid var(--rule);
+    display:flex; gap:18px; flex:0 0 auto;
+    font-family:var(--mono); font-size:12px;
+    border-left:1px solid var(--rule); padding-left:16px;
   }
   .readout div span{display:block;}
   .readout .k{color:var(--ink-dim); font-size:10.5px; text-transform:uppercase; letter-spacing:.03em;}
-  .readout .v{font-size:13px; margin-top:1px;}
+  .readout .v{font-size:13px; margin-top:1px; white-space:nowrap;}
 
   .status-line{
-    font-size:13px; padding:9px 11px; border-radius:8px; display:flex; align-items:center; gap:8px;
+    font-size:12.5px; padding:8px 11px; border-radius:8px; display:flex; align-items:center; gap:8px;
+    flex:1 1 200px; min-width:160px;
   }
   .status-line.good{background:var(--good-soft); color:var(--good);}
   .status-line.warn{background:var(--warn-soft); color:var(--warn);}
   .status-line.na{background:var(--panel-2); color:var(--ink-dim);}
 
-  .card-actions{display:flex; gap:8px; margin-top:auto; padding-top:4px;}
+  .card-actions{display:flex; gap:8px; flex:0 0 auto;}
   .icon-btn{
-    flex:1; padding:7px 8px; border-radius:7px; border:1px solid var(--rule);
-    background:transparent; color:var(--ink-dim); font-size:12px; cursor:pointer;
+    padding:7px 12px; border-radius:7px; border:1px solid var(--rule);
+    background:transparent; color:var(--ink-dim); font-size:12px; cursor:pointer; white-space:nowrap;
   }
   .icon-btn:hover{background:var(--panel-2); color:var(--ink);}
   .icon-btn.danger.confirming{background:var(--warn-soft); color:var(--warn); border-color:transparent;}
+
+  @media (max-width: 700px){
+    .card{flex-direction:column; align-items:stretch; gap:12px;}
+    .card .gauge-wrap{width:100%; flex:none;}
+    .card .gauge-wrap svg{max-width:180px; margin:0 auto; display:block;}
+    .readout{border-left:none; border-top:1px solid var(--rule); padding-left:0; padding-top:10px;}
+    .card-actions{width:100%;}
+    .card-actions .icon-btn{flex:1;}
+  }
 
   footer.notes{
     margin-top:34px; border-top:1px solid var(--rule); padding-top:20px;
@@ -546,12 +559,12 @@
       var suggestion = computeSuggestion(club, raw, roundedPts, targetPts);
 
       html += '<div class="panel card" data-id="'+club.id+'">'+
-        '<div class="head">'+
-          '<div><div class="name">'+escapeHtml(club.name)+'</div>'+
-          '<div class="meta">'+club.weight+'g &middot; '+club.balance+'&Prime; balance</div></div>'+
-          '<div class="grade-badge '+(isGood?'good':'warn')+'">'+g.label+'</div>'+
-        '</div>'+
         '<div class="gauge-wrap" style="color:var(--ink-dim);">'+buildGauge(raw, targetPts)+'</div>'+
+        '<div class="info">'+
+          '<div class="head"><span class="name">'+escapeHtml(club.name)+'</span>'+
+          '<span class="grade-badge '+(isGood?'good':'warn')+'">'+g.label+'</span></div>'+
+          '<div class="meta">'+club.weight+'g &middot; '+club.balance+'&Prime; balance</div>'+
+        '</div>'+
         '<div class="readout">'+
           '<div><span class="k">Raw points</span><span class="v">'+raw.toFixed(2)+'</span></div>'+
           '<div><span class="k">Target</span><span class="v">'+(club.target ? club.target.toUpperCase() : '&mdash;')+'</span></div>'+
