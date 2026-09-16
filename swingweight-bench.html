@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swingweight Bench</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3EFE6;
+    --panel:#FFFFFF;
+    --panel-2:#F8F4EA;
+    --ink:#211E1A;
+    --ink-dim:#726A5C;
+    --brass:#9C7A34;
+    --brass-ink:#FFFFFF;
+    --brass-soft:#EADFC3;
+    --good:#4C7A43;
+    --good-soft:#E1EBDA;
+    --warn:#AD5A29;
+    --warn-soft:#F3E0CF;
+    --rule:#E2D9C6;
+    --grid-line: rgba(33,30,26,0.045);
+    --shadow: 0 1px 2px rgba(33,30,26,0.06), 0 8px 24px rgba(33,30,26,0.06);
+    --radius: 14px;
+    --sans: 'Space Grotesk', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1A1917;
+      --panel:#242220;
+      --panel-2:#2B2926;
+      --ink:#ECE6D9;
+      --ink-dim:#A79C89;
+      --brass:#CBA35D;
+      --brass-ink:#211E1A;
+      --brass-soft:#3A3324;
+      --good:#8FB27E;
+      --good-soft:#293323;
+      --warn:#DE9760;
+      --warn-soft:#3A2A1E;
+      --rule:#3B372F;
+      --grid-line: rgba(236,230,217,0.05);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1A1917;
+    --panel:#242220;
+    --panel-2:#2B2926;
+    --ink:#ECE6D9;
+    --ink-dim:#A79C89;
+    --brass:#CBA35D;
+    --brass-ink:#211E1A;
+    --brass-soft:#3A3324;
+    --good:#8FB27E;
+    --good-soft:#293323;
+    --warn:#DE9760;
+    --warn-soft:#3A2A1E;
+    --rule:#3B372F;
+    --grid-line: rgba(236,230,217,0.05);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background-color:var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 28px);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.45;
+    min-height:100vh;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  a{color:inherit;}
+  button{font-family:inherit;}
+  :focus-visible{outline:2px solid var(--brass); outline-offset:2px; border-radius:4px;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:28px 20px 64px;}
+
+  header.top{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:20px;
+    padding-bottom:22px; margin-bottom:26px; border-bottom:1px solid var(--rule);
+    flex-wrap:wrap;
+  }
+  header.top .mark{
+    display:flex; align-items:baseline; gap:12px;
+  }
+  header.top h1{
+    font-size:28px; font-weight:700; margin:0; letter-spacing:-0.01em;
+  }
+  header.top .tagline{
+    color:var(--ink-dim); font-size:14px; max-width:420px; margin-top:4px;
+  }
+  header.top .unit-badge{
+    font-family:var(--mono); font-size:12px; color:var(--ink-dim);
+    border:1px solid var(--rule); border-radius:999px; padding:5px 12px;
+    white-space:nowrap;
+  }
+
+  .layout{
+    display:grid; grid-template-columns: 340px 1fr; gap:26px; align-items:start;
+  }
+  @media (max-width: 860px){
+    .layout{grid-template-columns: 1fr;}
+  }
+
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  /* ---- Form ---- */
+  form#club-form{padding:20px;}
+  form#club-form h2{
+    font-size:15px; margin:0 0 4px; font-weight:600;
+  }
+  form#club-form .sub{
+    color:var(--ink-dim); font-size:12.5px; margin:0 0 18px;
+  }
+  .field{margin-bottom:14px;}
+  .field label{
+    display:block; font-size:12px; color:var(--ink-dim); margin-bottom:5px;
+  }
+  .field .row2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  input[type="text"], input[type="number"]{
+    width:100%; padding:9px 10px; border-radius:8px; border:1px solid var(--rule);
+    background:var(--panel-2); color:var(--ink); font-family:var(--mono); font-size:14px;
+  }
+  input::placeholder{color:var(--ink-dim); opacity:0.7;}
+  .field .hint{font-size:11px; color:var(--ink-dim); margin-top:4px;}
+  .field .error{font-size:11.5px; color:var(--warn); margin-top:4px; display:none;}
+  .field.has-error input{border-color:var(--warn);}
+  .field.has-error .error{display:block;}
+
+  details.adv{margin:6px 0 16px; border-top:1px dashed var(--rule); padding-top:12px;}
+  details.adv summary{
+    cursor:pointer; font-size:12px; color:var(--ink-dim); list-style:none;
+    display:flex; align-items:center; gap:6px; user-select:none;
+  }
+  details.adv summary::-webkit-details-marker{display:none;}
+  details.adv summary:before{content:"▸"; font-size:10px; color:var(--brass);}
+  details.adv[open] summary:before{content:"▾";}
+  details.adv .field{margin-top:12px;}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    padding:10px 16px; border-radius:8px; border:1px solid transparent;
+    font-family:var(--sans); font-weight:600; font-size:13.5px; cursor:pointer;
+  }
+  .btn-primary{background:var(--brass); color:var(--brass-ink); width:100%;}
+  .btn-primary:hover{filter:brightness(1.06);}
+  .btn-ghost{background:transparent; border-color:var(--rule); color:var(--ink); width:100%; margin-top:8px;}
+  .btn-ghost:hover{background:var(--panel-2);}
+
+  /* ---- Club grid ---- */
+  .grid-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  .grid-head h2{font-size:15px; margin:0; font-weight:600;}
+  .grid-head .count{font-family:var(--mono); font-size:12px; color:var(--ink-dim);}
+
+  .empty{
+    padding:48px 24px; text-align:center; color:var(--ink-dim); font-size:14px;
+  }
+  .empty strong{display:block; color:var(--ink); font-size:16px; margin-bottom:6px; font-weight:600;}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:16px;}
+
+  .card{
+    padding:18px; position:relative; display:flex; flex-direction:column; gap:12px;
+  }
+  .card .head{display:flex; align-items:flex-start; justify-content:space-between; gap:8px;}
+  .card .name{font-weight:600; font-size:15.5px;}
+  .card .meta{font-family:var(--mono); font-size:11.5px; color:var(--ink-dim); margin-top:2px;}
+  .grade-badge{
+    font-family:var(--mono); font-weight:600; font-size:15px;
+    padding:4px 10px; border-radius:7px; white-space:nowrap;
+  }
+  .grade-badge.good{background:var(--good-soft); color:var(--good);}
+  .grade-badge.warn{background:var(--warn-soft); color:var(--warn);}
+
+  .gauge-wrap{display:flex; justify-content:center;}
+  .gauge-wrap svg{width:100%; max-width:220px; height:auto;}
+  .needle{transition:transform 0.5s cubic-bezier(.22,1,.36,1);}
+
+  .readout{
+    display:grid; grid-template-columns:1fr 1fr; gap:8px 14px;
+    font-family:var(--mono); font-size:12px; padding-top:2px; border-top:1px solid var(--rule);
+  }
+  .readout div span{display:block;}
+  .readout .k{color:var(--ink-dim); font-size:10.5px; text-transform:uppercase; letter-spacing:.03em;}
+  .readout .v{font-size:13px; margin-top:1px;}
+
+  .status-line{
+    font-size:13px; padding:9px 11px; border-radius:8px; display:flex; align-items:center; gap:8px;
+  }
+  .status-line.good{background:var(--good-soft); color:var(--good);}
+  .status-line.warn{background:var(--warn-soft); color:var(--warn);}
+  .status-line.na{background:var(--panel-2); color:var(--ink-dim);}
+
+  .card-actions{display:flex; gap:8px; margin-top:auto; padding-top:4px;}
+  .icon-btn{
+    flex:1; padding:7px 8px; border-radius:7px; border:1px solid var(--rule);
+    background:transparent; color:var(--ink-dim); font-size:12px; cursor:pointer;
+  }
+  .icon-btn:hover{background:var(--panel-2); color:var(--ink);}
+  .icon-btn.danger.confirming{background:var(--warn-soft); color:var(--warn); border-color:transparent;}
+
+  footer.notes{
+    margin-top:34px; border-top:1px solid var(--rule); padding-top:20px;
+    font-size:12.5px; color:var(--ink-dim);
+  }
+  footer.notes summary{cursor:pointer; color:var(--ink); font-weight:600; font-size:13px; margin-bottom:8px;}
+  footer.notes .grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:12px;
+  }
+  footer.notes .grid div{background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:12px 14px;}
+  footer.notes code{font-family:var(--mono); background:var(--panel-2); padding:1px 5px; border-radius:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="mark">
+      <div>
+        <h1>Swingweight Bench</h1>
+        <div class="tagline">Track static weight and balance point across your clubs, and get physics-based weight suggestions instead of rule-of-thumb guesses.</div>
+      </div>
+    </div>
+    <div class="unit-badge">grams · inches · 14&Prime; fulcrum</div>
+  </header>
+
+  <div class="layout">
+
+    <div class="panel">
+      <form id="club-form">
+        <h2 id="form-title">Add a club</h2>
+        <p class="sub">Enter the static weight and balance point. That's all that's required for the swingweight number itself.</p>
+
+        <div class="field" id="f-name">
+          <label for="name">Club name</label>
+          <input type="text" id="name" placeholder="e.g. Qi35 Driver" autocomplete="off">
+          <div class="error">Give the club a name.</div>
+        </div>
+
+        <div class="field">
+          <div class="row2">
+            <div>
+              <label for="weight">Static weight (g)</label>
+              <input type="number" id="weight" inputmode="decimal" step="0.1" placeholder="311">
+            </div>
+            <div>
+              <label for="balance">Balance pt (in from butt)</label>
+              <input type="number" id="balance" inputmode="decimal" step="0.01" placeholder="33.625">
+            </div>
+          </div>
+          <div class="error" id="e-weightbalance">Enter a weight and a balance point greater than 14&Prime;.</div>
+        </div>
+
+        <div class="field" id="f-target">
+          <label for="target">Target swingweight</label>
+          <input type="text" id="target" placeholder="D2" style="max-width:120px;">
+          <div class="hint">A letter A&ndash;G plus a number 0&ndash;9, like D2.</div>
+          <div class="error">Use a letter A&ndash;G plus a number 0&ndash;9, like D2.</div>
+        </div>
+
+        <details class="adv">
+          <summary>Advanced &mdash; weight placement for suggestions</summary>
+          <div class="field">
+            <label for="length">Club length (in from butt to tip)</label>
+            <input type="number" id="length" inputmode="decimal" step="0.1" placeholder="e.g. 45.5">
+            <div class="hint">Used to estimate the head's lever arm. Leave blank and head suggestions won't show.</div>
+          </div>
+          <div class="field">
+            <label for="butt">Grip/butt weight location (in from butt)</label>
+            <input type="number" id="butt" inputmode="decimal" step="0.1" placeholder="2">
+            <div class="hint">Default 2&Prime; &mdash; typical spot for tape under the grip.</div>
+          </div>
+        </details>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn">Add club</button>
+        <button type="button" class="btn btn-ghost" id="cancel-edit" style="display:none;">Cancel edit</button>
+      </form>
+      <div style="padding:0 20px 20px; display:flex; gap:8px;">
+        <button type="button" class="btn btn-ghost" id="export-btn" style="margin-top:0;">Download clubs.json</button>
+        <button type="button" class="btn btn-ghost" id="import-btn" style="margin-top:0;">Import backup</button>
+        <input type="file" id="import-file" accept="application/json" style="display:none;">
+      </div>
+    </div>
+
+    <div>
+      <div class="grid-head">
+        <h2>Your clubs</h2>
+        <span class="count" id="club-count"></span>
+      </div>
+      <div id="grid-target"></div>
+    </div>
+
+  </div>
+
+  <footer class="notes">
+    <details>
+      <summary>How this is calculated</summary>
+      <p>Swingweight here is computed the classic way club builders do it by hand: it's a moment (torque) about a fixed <strong>14-inch fulcrum</strong> from the butt end.</p>
+      <div class="grid">
+        <div>
+          <strong style="color:var(--ink); display:block; margin-bottom:4px;">Raw points</strong>
+          <code>(weight × (balance − 14) − 6045.5) ÷ 49.61</code>
+          <p style="margin:8px 0 0;">Result is in points relative to D0. Rounding to the nearest whole point and mapping it onto the letter scale (…C9, D0, D1…) gives the grade.</p>
+        </div>
+        <div>
+          <strong style="color:var(--ink); display:block; margin-bottom:4px;">Head suggestion</strong>
+          <p style="margin:0;">Assumes added mass sits at the club length you enter. A shorter lever arm than the true head CG will slightly understate the grams needed &mdash; treat it as a strong starting point, not a guarantee.</p>
+        </div>
+        <div>
+          <strong style="color:var(--ink); display:block; margin-bottom:4px;">Butt suggestion</strong>
+          <p style="margin:0;">Assumes added mass sits 2&Prime; from the butt (typical for tape under a grip), or your custom location if set.</p>
+        </div>
+        <div>
+          <strong style="color:var(--ink); display:block; margin-bottom:4px;">What this doesn't capture</strong>
+          <p style="margin:0;">Swingweight is one number describing balance &mdash; it doesn't capture total moment of inertia or shaft loading. Two clubs can match on swingweight and still feel different if mass is distributed differently.</p>
+        </div>
+      </div>
+    </details>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var FULCRUM = 14;
+  var OFFSET = 6045.54;
+  var DIVISOR = 49.6117;
+  var STORE_KEY = "swingweightBench.clubs.v1";
+
+  var els = {
+    form: document.getElementById('club-form'),
+    formTitle: document.getElementById('form-title'),
+    submitBtn: document.getElementById('submit-btn'),
+    cancelBtn: document.getElementById('cancel-edit'),
+    name: document.getElementById('name'),
+    weight: document.getElementById('weight'),
+    balance: document.getElementById('balance'),
+    target: document.getElementById('target'),
+    length: document.getElementById('length'),
+    butt: document.getElementById('butt'),
+    fName: document.getElementById('f-name'),
+    fWB: document.getElementById('e-weightbalance').closest('.field'),
+    fTarget: document.getElementById('f-target'),
+    gridTarget: document.getElementById('grid-target'),
+    clubCount: document.getElementById('club-count')
+  };
+
+  var editingId = null;
+
+  // ---------- storage ----------
+  function loadClubs(){
+    try{
+      var raw = window.localStorage.getItem(STORE_KEY);
+      if(!raw) return [];
+      var parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    }catch(e){
+      console.error('Swingweight Bench: could not read saved clubs', e);
+      return [];
+    }
+  }
+  function saveClubs(clubs){
+    try{
+      window.localStorage.setItem(STORE_KEY, JSON.stringify(clubs));
+    }catch(e){
+      console.error('Swingweight Bench: could not save clubs', e);
+    }
+  }
+
+  var clubs = loadClubs();
+
+  function ensureId(c){
+    return Object.assign({}, c, {
+      id: c.id || (Date.now().toString(36) + Math.random().toString(36).slice(2,7))
+    });
+  }
+
+  var dataSourceNote = document.createElement('div');
+  dataSourceNote.className = 'hint';
+  dataSourceNote.style.cssText = 'padding:0 20px 14px; margin-top:-6px;';
+
+  function showNote(msg){
+    dataSourceNote.textContent = msg;
+    var formPanel = els.form.closest('.panel');
+    formPanel.insertBefore(dataSourceNote, formPanel.querySelector('div[style*="display:flex; gap:8px"]'));
+  }
+
+  if(clubs.length === 0){
+    fetch('./clubs.json', {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('clubs.json not found ('+r.status+')'); return r.json(); })
+      .then(function(data){
+        if(Array.isArray(data) && data.length){
+          clubs = data.map(ensureId);
+          saveClubs(clubs);
+          render();
+          showNote('Loaded '+clubs.length+' club'+(clubs.length===1?'':'s')+' from clubs.json.');
+        }
+      })
+      .catch(function(e){
+        console.warn('Swingweight Bench: could not load clubs.json', e.message);
+        showNote('Starting empty \u2014 clubs.json wasn\u2019t reachable. This is expected if you opened this file directly; it works once hosted (e.g. GitHub Pages).');
+      });
+  }
+
+  // ---------- math ----------
+  function rawPoints(weightG, balanceIn){
+    return (weightG * (balanceIn - FULCRUM) - OFFSET) / DIVISOR;
+  }
+
+  function pointsToGrade(points){
+    var totalIndex = Math.round(points) + 30; // D0 sits at index 30
+    var clampedLow = false, clampedHigh = false;
+    if(totalIndex < 0){ totalIndex = 0; clampedLow = true; }
+    if(totalIndex > 69){ totalIndex = 69; clampedHigh = true; }
+    var letterIndex = Math.floor(totalIndex/10);
+    var num = totalIndex - letterIndex*10;
+    var letter = String.fromCharCode(65+letterIndex);
+    return { letter: letter, num: num, label: letter+num, clampedLow: clampedLow, clampedHigh: clampedHigh };
+  }
+
+  function gradeToPoints(str){
+    if(!str) return null;
+    var m = /^\s*([A-Ga-g])\s*-?\s*([0-9])\s*$/.exec(str);
+    if(!m) return null;
+    var letterIndex = m[1].toUpperCase().charCodeAt(0) - 65;
+    var num = parseInt(m[2],10);
+    var totalIndex = letterIndex*10 + num;
+    return totalIndex - 30;
+  }
+
+  // ---------- gauge ----------
+  function valueToAngle(v, min, max){
+    var clamped = Math.max(min, Math.min(max, v));
+    return -90 + (clamped-min)/(max-min) * 180;
+  }
+  function polar(cx, cy, r, angleDeg){
+    var a = (angleDeg-90) * Math.PI/180;
+    return { x: cx + r*Math.cos(a), y: cy + r*Math.sin(a) };
+  }
+
+  function buildGauge(current, target){
+    var min=-20, max=20, cx=110, cy=112, r=88;
+    var p1 = polar(cx,cy,r,-90), p2 = polar(cx,cy,r,90);
+    var arcPath = 'M '+p1.x.toFixed(1)+' '+p1.y.toFixed(1)+' A '+r+' '+r+' 0 0 1 '+p2.x.toFixed(1)+' '+p2.y.toFixed(1);
+
+    var ticks='';
+    var letterPts=[-20,-10,0,10,20];
+    var letterNames=['B','C','D','E','F'];
+    for(var i=-20;i<=20;i+=5){
+      var major = letterPts.indexOf(i) !== -1;
+      var rOuter = r, rInner = major ? r-10 : r-6;
+      var a = valueToAngle(i,min,max);
+      var o = polar(cx,cy,rOuter,a), inn = polar(cx,cy,rInner,a);
+      ticks += '<line x1="'+o.x.toFixed(1)+'" y1="'+o.y.toFixed(1)+'" x2="'+inn.x.toFixed(1)+'" y2="'+inn.y.toFixed(1)+'" stroke="currentColor" stroke-width="'+(major?2:1)+'" opacity="'+(major?0.55:0.28)+'"/>';
+      if(major){
+        var lp = polar(cx,cy,r-22,a);
+        ticks += '<text x="'+lp.x.toFixed(1)+'" y="'+(lp.y+4).toFixed(1)+'" text-anchor="middle" font-size="11" font-family="IBM Plex Mono, monospace" fill="currentColor" opacity="0.6">'+letterNames[letterPts.indexOf(i)]+'</text>';
+      }
+    }
+
+    var targetMark='';
+    if(target !== null){
+      var ta = valueToAngle(target,min,max);
+      var to = polar(cx,cy,r+2,ta), ti = polar(cx,cy,r-16,ta);
+      targetMark = '<line x1="'+to.x.toFixed(1)+'" y1="'+to.y.toFixed(1)+'" x2="'+ti.x.toFixed(1)+'" y2="'+ti.y.toFixed(1)+'" stroke="var(--warn)" stroke-width="3" stroke-linecap="round"/>';
+    }
+
+    var needleAngle = valueToAngle(current,min,max);
+
+    var svg = ''+
+      '<svg viewBox="0 0 220 132" role="img" aria-label="Swingweight gauge">'+
+        '<path d="'+arcPath+'" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>'+
+        ticks+
+        targetMark+
+        '<g class="needle" style="transform-origin:'+cx+'px '+cy+'px; transform:rotate('+needleAngle.toFixed(1)+'deg);">'+
+          '<line x1="'+cx+'" y1="'+cy+'" x2="'+cx+'" y2="'+(cy-r+14)+'" stroke="var(--brass)" stroke-width="3" stroke-linecap="round"/>'+
+          '<circle cx="'+cx+'" cy="'+cy+'" r="5" fill="var(--brass)"/>'+
+        '</g>'+
+      '</svg>';
+    return svg;
+  }
+
+  // ---------- render ----------
+  function computeSuggestion(club, raw, roundedPts, targetPts){
+    if(targetPts === null){
+      return { kind:'na', text:'No valid target set.' };
+    }
+    if(roundedPts === targetPts){
+      return { kind:'good', text:'\uD83C\uDFAF Target reached' };
+    }
+    var needed = targetPts - raw; // positive: need to raise swingweight
+    if(needed > 0){
+      if(!club.length){
+        return { kind:'warn', text:'Needs about '+ (needed*DIVISOR/31).toFixed(1) +'g+ at the head \u2014 add club length for an exact number.' , approx:true};
+      }
+      var headLoc = club.length;
+      if(headLoc <= FULCRUM){
+        return { kind:'na', text:'Club length must be greater than 14\u2033 to estimate head placement.' };
+      }
+      var grams = needed * DIVISOR / (headLoc - FULCRUM);
+      return { kind:'warn', text:'Add '+grams.toFixed(1)+'g to the head' };
+    } else {
+      var buttLoc = (club.butt !== null && club.butt !== undefined && club.butt !== '') ? club.butt : 2;
+      if(buttLoc >= FULCRUM){
+        return { kind:'na', text:'Butt location must be less than 14\u2033.' };
+      }
+      var gramsB = (-needed) * DIVISOR / (FULCRUM - buttLoc);
+      return { kind:'warn', text:'Add '+gramsB.toFixed(1)+'g under the grip ('+buttLoc+'\u2033 from butt)' };
+    }
+  }
+
+  function render(){
+    els.clubCount.textContent = clubs.length ? (clubs.length + (clubs.length===1 ? ' club' : ' clubs')) : '';
+
+    if(clubs.length === 0){
+      els.gridTarget.innerHTML = '<div class="panel empty"><strong>No clubs yet</strong>Add your first club on the left \u2014 name, static weight, and balance point are all you need to start.</div>';
+      return;
+    }
+
+    var html = '<div class="cards">';
+    clubs.forEach(function(club){
+      var raw = rawPoints(club.weight, club.balance);
+      var g = pointsToGrade(raw);
+      var targetPts = gradeToPoints(club.target);
+      var roundedPts = Math.round(raw);
+      var isGood = targetPts !== null && roundedPts === targetPts;
+      var suggestion = computeSuggestion(club, raw, roundedPts, targetPts);
+
+      html += '<div class="panel card" data-id="'+club.id+'">'+
+        '<div class="head">'+
+          '<div><div class="name">'+escapeHtml(club.name)+'</div>'+
+          '<div class="meta">'+club.weight+'g &middot; '+club.balance+'&Prime; balance</div></div>'+
+          '<div class="grade-badge '+(isGood?'good':'warn')+'">'+g.label+'</div>'+
+        '</div>'+
+        '<div class="gauge-wrap" style="color:var(--ink-dim);">'+buildGauge(raw, targetPts)+'</div>'+
+        '<div class="readout">'+
+          '<div><span class="k">Raw points</span><span class="v">'+raw.toFixed(2)+'</span></div>'+
+          '<div><span class="k">Target</span><span class="v">'+(club.target ? club.target.toUpperCase() : '&mdash;')+'</span></div>'+
+        '</div>'+
+        '<div class="status-line '+suggestion.kind+'">'+suggestion.text+'</div>'+
+        '<div class="card-actions">'+
+          '<button class="icon-btn edit-btn" type="button">Edit</button>'+
+          '<button class="icon-btn danger delete-btn" type="button">Delete</button>'+
+        '</div>'+
+      '</div>';
+    });
+    html += '</div>';
+    els.gridTarget.innerHTML = html;
+
+    els.gridTarget.querySelectorAll('.edit-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.closest('.card').dataset.id;
+        startEdit(id);
+      });
+    });
+    els.gridTarget.querySelectorAll('.delete-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(!btn.classList.contains('confirming')){
+          btn.classList.add('confirming');
+          btn.textContent = 'Sure?';
+          btn._t = setTimeout(function(){
+            btn.classList.remove('confirming');
+            btn.textContent = 'Delete';
+          }, 2800);
+          return;
+        }
+        clearTimeout(btn._t);
+        var id = btn.closest('.card').dataset.id;
+        clubs = clubs.filter(function(c){ return c.id !== id; });
+        saveClubs(clubs);
+        if(editingId === id) resetForm();
+        render();
+      });
+    });
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  // ---------- form ----------
+  function startEdit(id){
+    var club = clubs.find(function(c){ return c.id === id; });
+    if(!club) return;
+    editingId = id;
+    els.formTitle.textContent = 'Edit club';
+    els.submitBtn.textContent = 'Save changes';
+    els.cancelBtn.style.display = 'block';
+    els.name.value = club.name;
+    els.weight.value = club.weight;
+    els.balance.value = club.balance;
+    els.target.value = club.target;
+    els.length.value = club.length || '';
+    els.butt.value = (club.butt!==null && club.butt!==undefined) ? club.butt : '';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function resetForm(){
+    editingId = null;
+    els.form.reset();
+    els.formTitle.textContent = 'Add a club';
+    els.submitBtn.textContent = 'Add club';
+    els.cancelBtn.style.display = 'none';
+    clearErrors();
+  }
+
+  function clearErrors(){
+    [els.fName, els.fWB, els.fTarget].forEach(function(f){ f.classList.remove('has-error'); });
+  }
+
+  els.cancelBtn.addEventListener('click', resetForm);
+
+  els.form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    clearErrors();
+
+    var name = els.name.value.trim();
+    var weight = parseFloat(els.weight.value);
+    var balance = parseFloat(els.balance.value);
+    var target = els.target.value.trim().toUpperCase();
+    var length = els.length.value !== '' ? parseFloat(els.length.value) : null;
+    var butt = els.butt.value !== '' ? parseFloat(els.butt.value) : null;
+
+    var ok = true;
+    if(!name){ els.fName.classList.add('has-error'); ok = false; }
+    if(!(weight > 0) || !(balance > FULCRUM)){ els.fWB.classList.add('has-error'); ok = false; }
+    if(target && gradeToPoints(target) === null){ els.fTarget.classList.add('has-error'); ok = false; }
+    if(!ok) return;
+
+    var club = {
+      id: editingId || (Date.now().toString(36) + Math.random().toString(36).slice(2,7)),
+      name: name,
+      weight: weight,
+      balance: balance,
+      target: target || null,
+      length: (length && length > 0) ? length : null,
+      butt: (butt !== null && !isNaN(butt)) ? butt : null
+    };
+
+    if(editingId){
+      clubs = clubs.map(function(c){ return c.id === editingId ? club : c; });
+    } else {
+      clubs.push(club);
+    }
+    saveClubs(clubs);
+    resetForm();
+    render();
+  });
+
+  // ---------- export / import ----------
+  document.getElementById('export-btn').addEventListener('click', function(){
+    try{
+      var blob = new Blob([JSON.stringify(clubs, null, 2)], {type:'application/json'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'clubs.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }catch(e){
+      console.error('Swingweight Bench: export failed', e);
+      alert('Export failed. Your browser may be blocking downloads from this page.');
+    }
+  });
+
+  var importFileInput = document.getElementById('import-file');
+  document.getElementById('import-btn').addEventListener('click', function(){
+    importFileInput.click();
+  });
+  importFileInput.addEventListener('change', function(ev){
+    var file = ev.target.files[0];
+    if(!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e){
+      try{
+        var data = JSON.parse(e.target.result);
+        if(!Array.isArray(data)) throw new Error('not an array');
+        var merged = clubs.slice();
+        data.forEach(function(incoming){
+          if(!incoming || typeof incoming.name !== 'string') return;
+          var withId = Object.assign({}, incoming, {
+            id: incoming.id || (Date.now().toString(36) + Math.random().toString(36).slice(2,7))
+          });
+          var existingIdx = merged.findIndex(function(c){ return c.id === withId.id; });
+          if(existingIdx !== -1){ merged[existingIdx] = withId; } else { merged.push(withId); }
+        });
+        clubs = merged;
+        saveClubs(clubs);
+        render();
+      }catch(err){
+        console.error('Swingweight Bench: import failed', err);
+        alert('That file could not be read as a Swingweight Bench backup.');
+      }
+      importFileInput.value = '';
+    };
+    reader.readAsText(file);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+[
+  { "id": "qi35-driver", "name": "Qi35 Driver", "weight": 311, "balance": 33.625, "target": "D2", "length": null, "butt": null },
+  { "id": "takomo-3wood", "name": "Takomo 3-Wood", "weight": 336, "balance": 32.375, "target": "D2", "length": null, "butt": null },
+  { "id": "takomo-5wood", "name": "Takomo 5-Wood", "weight": 340, "balance": 32.25, "target": "D3", "length": null, "butt": null },
+  { "id": "srixon-4hybrid", "name": "Srixon 4-Hybrid", "weight": 357, "balance": 31.125, "target": "D2", "length": null, "butt": null },
+  { "id": "sim-driver-old", "name": "SiM Driver (Old)", "weight": 313, "balance": 33.625, "target": "D2", "length": null, "butt": null }
+]
